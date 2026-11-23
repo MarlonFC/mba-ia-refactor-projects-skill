@@ -74,7 +74,7 @@ diff .refactor-arch/baseline.txt .refactor-arch/after.txt && echo "STATUS MATCH"
 ## 5. Re-auditoria
 
 Re-aplique os sinais do catálogo sobre os arquivos novos:
-- **CRITICAL/HIGH**: devem ser zero. Se sobrar algum, corrija antes de concluir.
+- **CRITICAL/HIGH**: devem ser zero. Se sobrar algum, corrija antes de concluir. Única exceção: findings cuja correção exige mudança de contrato **não** permitida em `mvc-guidelines.md` §5 (ex.: criar autenticação para rotas comuns) — marque como `deferred (requer mudança de contrato: <qual>)` e liste-os na linha de validação.
 - **MEDIUM/LOW** remanescentes: liste em "Findings Resolution" como `partially resolved`/`not resolved` com o motivo.
 - Rode verificação de deprecações quando possível (`python -W error::DeprecationWarning -c "import app"` após preparar o banco; `node --throw-deprecation` no boot).
 

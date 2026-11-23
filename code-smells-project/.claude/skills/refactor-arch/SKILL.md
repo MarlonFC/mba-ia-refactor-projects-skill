@@ -104,7 +104,7 @@ Aplique na ordem do `mvc-guidelines.md` § "Ordem de refatoração": config → 
 Siga `validation-guide.md` §4–§6:
 1. Restaure o mesmo estado de dados do baseline, suba a aplicação **refatorada** com o **mesmo comando de start**, rode o smoke → `.refactor-arch/after.txt`, pare a aplicação.
 2. Compare `baseline.txt` × `after.txt`. Toda diferença precisa estar em "Mudanças de contrato permitidas"; caso contrário, corrija e repita (até 3 ciclos). Se persistir, reporte como falha.
-3. Re-audite o código novo contra o catálogo: zero CRITICAL/HIGH remanescentes; liste honestamente o que sobrar de MEDIUM/LOW.
+3. Re-audite o código novo contra o catálogo: zero CRITICAL/HIGH remanescentes, exceto os `deferred` (correção exige mudança de contrato não permitida — ver `validation-guide.md` §5); liste honestamente o que sobrar de MEDIUM/LOW.
 4. Restaure os backups de banco (regra de não perder dados).
 
 ### 3.5 Resumo final
@@ -118,7 +118,7 @@ PHASE 3: REFACTORING COMPLETE
 <árvore de diretórios do código-fonte, sem dependências/artefatos>
 
 ## Findings Resolution
-<ID do finding> [SEV] <título> → <PB-xx> — resolved | partially resolved (<motivo>) | not resolved (<motivo>)
+<ID do finding> [SEV] <título> → <PB-xx> — resolved | partially resolved (<motivo>) | deferred (<mudança de contrato necessária>) | not resolved (<motivo>)
 
 ## Intentional Contract Changes
 <lista "METHOD PATH: antes → depois (motivo)" ou "None">
@@ -126,7 +126,7 @@ PHASE 3: REFACTORING COMPLETE
 ## Validation
   ✓|✗ Application boots without errors (<comando>)
   ✓|✗ All endpoints respond correctly (<N>/<N> requests match baseline)
-  ✓|✗ Zero CRITICAL/HIGH anti-patterns remaining
+  ✓|✗ Zero CRITICAL/HIGH anti-patterns remaining (deferred: <F-xx, ... | none>)
   Artifacts: .refactor-arch/{audit-report.md, requests.txt, baseline.txt, after.txt}
 ================================
 ```
