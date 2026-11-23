@@ -1,0 +1,58 @@
+### GET /api/admin/financial-report 
+-> 200
+[{"course":"Docker","revenue":0,"students":[]},{"course":"Clean Architecture","revenue":997,"students":[{"student":"Leonan","paid":997}]}]
+
+### POST /api/checkout {}
+-> 400
+Bad Request
+
+### POST /api/checkout {"usr":"Ana","eml":"ana@teste.com","pwd":"x","c_id":999,"card":"4111222233334444"}
+-> 404
+Curso não encontrado
+
+### POST /api/checkout {"usr":"Ana","eml":"ana@teste.com"
+-> 400
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>SyntaxError: Expected &#39;,&#39; or &#39;}&#39; after property value in JSON at position 34 (line 1 column 35)<br> &nbsp; &nbsp;at JSON.parse (&lt;anonymous&gt;)<br> &nbsp; &nbsp;at parse (<repo>/ecommerce-api-legacy/node_modules/body-parser/lib/types/json.js:92:19)<br> &nbsp; &nbsp;at <repo>/ecommerce-api-legacy/node_modules/body-parser/lib/read.js:128:18<br> &nbsp; &nbsp;at AsyncResource.runInAsyncScope (node:async_hooks:214:14)<br> &nbsp; &nbsp;at invokeCallback (<repo>/ecommerce-api-legacy/node_modules/raw-body/index.js:238:16)<br> &nbsp; &nbsp;at done (<repo>/ecommerce-api-legacy/node_modules/raw-body/index.js:227:7)<br> &nbsp; &nbsp;at IncomingMessage.onEnd (<repo>/ecommerce-api-legacy/node_modules/raw-body/index.js:287:7)<br> &nbsp; &nbsp;at IncomingMessage.emit (node:events:519:28)<br> &nbsp; &nbsp;at endReadableNT (node:internal/streams/readable:1698:12)<br> &nbsp; &nbsp;at process.processTicksAndRejections (node:internal/process/task_queues:89:21)</pre>
+</body>
+</html>
+
+
+### POST /api/checkout {"usr":"Guilherme","eml":"gui@fullcycle.com.br","pwd":"senhaforte","c_id":2,"card":"4111222233334444"}
+-> 200
+{"msg":"Sucesso","enrollment_id":2}
+
+### POST /api/checkout {"usr":"João","eml":"joao@teste.com","pwd":"123","c_id":1,"card":"5111222233334444"}
+-> 400
+Pagamento recusado
+
+### POST /api/checkout {"usr":"Leonan","eml":"leonan@fullcycle.com.br","c_id":2,"card":"4000000000000002"}
+-> 200
+{"msg":"Sucesso","enrollment_id":3}
+
+### POST /api/checkout {"usr":"Maria","eml":"maria@teste.com","c_id":1,"card":"4999888877776666"}
+-> 200
+{"msg":"Sucesso","enrollment_id":4}
+
+### GET /api/admin/financial-report 
+-> 200
+[{"course":"Clean Architecture","revenue":1994,"students":[{"student":"Leonan","paid":997},{"student":"Maria","paid":997}]},{"course":"Docker","revenue":994,"students":[{"student":"Guilherme","paid":497},{"student":"Leonan","paid":497}]}]
+
+### DELETE /api/users/2 
+-> 200
+Usuário deletado, mas as matrículas e pagamentos ficaram sujos no banco.
+
+### DELETE /api/users/999 
+-> 200
+Usuário deletado, mas as matrículas e pagamentos ficaram sujos no banco.
+
+### DELETE /api/users/1 
+-> 200
+Usuário deletado, mas as matrículas e pagamentos ficaram sujos no banco.
+
