@@ -780,7 +780,7 @@
 <div class="traceback">
   <h3></h3>
   <ul><li><div class="frame" id="frame-124826513250144">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1478</em>,
       in <code class="function">__call__</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">    </span>def __call__(self, environ: dict, start_response: t.Callable) -&gt; t.Any:</pre>
@@ -793,7 +793,7 @@
 </div>
 
 <li><div class="frame" id="frame-124826513247104">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1458</em>,
       in <code class="function">wsgi_app</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">            </span>try:</pre>
@@ -811,7 +811,7 @@
 </div>
 
 <li><div class="frame" id="frame-124826513250784">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
       line <em class="line">176</em>,
       in <code class="function">wrapped_function</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
@@ -829,7 +829,7 @@
 </div>
 
 <li><div class="frame" id="frame-124826513246624">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1455</em>,
       in <code class="function">wsgi_app</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
@@ -847,7 +847,7 @@
 </div>
 
 <li><div class="frame" id="frame-124826513250944">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">869</em>,
       in <code class="function">full_dispatch_request</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
@@ -865,7 +865,7 @@
 </div>
 
 <li><div class="frame" id="frame-124826513250624">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
       line <em class="line">176</em>,
       in <code class="function">wrapped_function</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
@@ -883,7 +883,7 @@
 </div>
 
 <li><div class="frame" id="frame-124826513251104">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">867</em>,
       in <code class="function">full_dispatch_request</code></h4>
   <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
@@ -901,7 +901,7 @@
 </div>
 
 <li><div class="frame" id="frame-124826513251264">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">852</em>,
       in <code class="function">dispatch_request</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
@@ -919,7 +919,7 @@
 </div>
 
 <li><div class="frame" id="frame-124826513251424">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/routes/task_routes.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/routes/task_routes.py"</cite>,
       line <em class="line">113</em>,
       in <code class="function">create_task</code></h4>
   <div class="source "><pre class="line before"><span class="ws">    </span>tags = data.get(&#39;tags&#39;)</pre>
@@ -945,27 +945,27 @@
       This is the Copy/Paste friendly version of the traceback.
     </p>
     <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1478, in __call__
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1478, in __call__
     return self.wsgi_app(environ, start_response)
            ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1458, in wsgi_app
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1458, in wsgi_app
     response = self.handle_exception(e)
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1455, in wsgi_app
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1455, in wsgi_app
     response = self.full_dispatch_request()
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 869, in full_dispatch_request
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 869, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 867, in full_dispatch_request
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 867, in full_dispatch_request
     rv = self.dispatch_request()
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 852, in dispatch_request
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/routes/task_routes.py&#34;, line 113, in create_task
+  File &#34;<repo>/task-manager-api/routes/task_routes.py&#34;, line 113, in create_task
     if priority &lt; 1 or priority &gt; 5:
        ^^^^^^^^^^^^
 TypeError: &#39;&lt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
@@ -1004,27 +1004,27 @@ TypeError: &#39;&lt;&#39; not supported between instances of &#39;str&#39; and &
 <!--
 
 Traceback (most recent call last):
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1478, in __call__
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1478, in __call__
     return self.wsgi_app(environ, start_response)
            ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1458, in wsgi_app
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1458, in wsgi_app
     response = self.handle_exception(e)
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1455, in wsgi_app
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 869, in full_dispatch_request
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 869, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 867, in full_dispatch_request
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 867, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 852, in dispatch_request
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/routes/task_routes.py", line 113, in create_task
+  File "<repo>/task-manager-api/routes/task_routes.py", line 113, in create_task
     if priority < 1 or priority > 5:
        ^^^^^^^^^^^^
 TypeError: '<' not supported between instances of 'str' and 'int'
@@ -1172,7 +1172,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 <div class="traceback">
   <h3></h3>
   <ul><li><div class="frame" id="frame-124826513562240">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1478</em>,
       in <code class="function">__call__</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">    </span>def __call__(self, environ: dict, start_response: t.Callable) -&gt; t.Any:</pre>
@@ -1185,7 +1185,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826513564000">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1458</em>,
       in <code class="function">wsgi_app</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">            </span>try:</pre>
@@ -1203,7 +1203,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826513562560">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
       line <em class="line">176</em>,
       in <code class="function">wrapped_function</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
@@ -1221,7 +1221,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826513563680">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1455</em>,
       in <code class="function">wsgi_app</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
@@ -1239,7 +1239,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826513564160">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">869</em>,
       in <code class="function">full_dispatch_request</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
@@ -1257,7 +1257,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826513564480">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
       line <em class="line">176</em>,
       in <code class="function">wrapped_function</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
@@ -1275,7 +1275,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826513561440">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">867</em>,
       in <code class="function">full_dispatch_request</code></h4>
   <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
@@ -1293,7 +1293,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826513561920">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">852</em>,
       in <code class="function">dispatch_request</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
@@ -1311,7 +1311,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826513564640">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/routes/task_routes.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/routes/task_routes.py"</cite>,
       line <em class="line">182</em>,
       in <code class="function">update_task</code></h4>
   <div class="source "><pre class="line before"><span class="ws">        </span>if data[&#39;status&#39;] not in [&#39;pending&#39;, &#39;in_progress&#39;, &#39;done&#39;, &#39;cancelled&#39;]:</pre>
@@ -1337,27 +1337,27 @@ TypeError: '<' not supported between instances of 'str' and 'int'
       This is the Copy/Paste friendly version of the traceback.
     </p>
     <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1478, in __call__
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1478, in __call__
     return self.wsgi_app(environ, start_response)
            ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1458, in wsgi_app
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1458, in wsgi_app
     response = self.handle_exception(e)
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1455, in wsgi_app
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1455, in wsgi_app
     response = self.full_dispatch_request()
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 869, in full_dispatch_request
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 869, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 867, in full_dispatch_request
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 867, in full_dispatch_request
     rv = self.dispatch_request()
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 852, in dispatch_request
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/routes/task_routes.py&#34;, line 182, in update_task
+  File &#34;<repo>/task-manager-api/routes/task_routes.py&#34;, line 182, in update_task
     if data[&#39;priority&#39;] &lt; 1 or data[&#39;priority&#39;] &gt; 5:
        ^^^^^^^^^^^^^^^^^^^^
 TypeError: &#39;&lt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
@@ -1396,27 +1396,27 @@ TypeError: &#39;&lt;&#39; not supported between instances of &#39;str&#39; and &
 <!--
 
 Traceback (most recent call last):
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1478, in __call__
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1478, in __call__
     return self.wsgi_app(environ, start_response)
            ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1458, in wsgi_app
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1458, in wsgi_app
     response = self.handle_exception(e)
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1455, in wsgi_app
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 869, in full_dispatch_request
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 869, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 867, in full_dispatch_request
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 867, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 852, in dispatch_request
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/routes/task_routes.py", line 182, in update_task
+  File "<repo>/task-manager-api/routes/task_routes.py", line 182, in update_task
     if data['priority'] < 1 or data['priority'] > 5:
        ^^^^^^^^^^^^^^^^^^^^
 TypeError: '<' not supported between instances of 'str' and 'int'
@@ -1533,7 +1533,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 <div class="traceback">
   <h3></h3>
   <ul><li><div class="frame" id="frame-124826513129856">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1478</em>,
       in <code class="function">__call__</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">    </span>def __call__(self, environ: dict, start_response: t.Callable) -&gt; t.Any:</pre>
@@ -1546,7 +1546,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826513130336">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1458</em>,
       in <code class="function">wsgi_app</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">            </span>try:</pre>
@@ -1564,7 +1564,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826512711072">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
       line <em class="line">176</em>,
       in <code class="function">wrapped_function</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
@@ -1582,7 +1582,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826512710912">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1455</em>,
       in <code class="function">wsgi_app</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
@@ -1600,7 +1600,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826512711552">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">869</em>,
       in <code class="function">full_dispatch_request</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
@@ -1618,7 +1618,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826512712032">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
       line <em class="line">176</em>,
       in <code class="function">wrapped_function</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
@@ -1636,7 +1636,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826512711712">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">867</em>,
       in <code class="function">full_dispatch_request</code></h4>
   <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
@@ -1654,7 +1654,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826512708992">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">852</em>,
       in <code class="function">dispatch_request</code></h4>
   <div class="source library"><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
@@ -1672,7 +1672,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 </div>
 
 <li><div class="frame" id="frame-124826512712352">
-  <h4>File <cite class="filename">"/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/routes/task_routes.py"</cite>,
+  <h4>File <cite class="filename">"<repo>/task-manager-api/routes/task_routes.py"</cite>,
       line <em class="line">261</em>,
       in <code class="function">search_tasks</code></h4>
   <div class="source "><pre class="line before"><span class="ws"></span> </pre>
@@ -1698,27 +1698,27 @@ TypeError: '<' not supported between instances of 'str' and 'int'
       This is the Copy/Paste friendly version of the traceback.
     </p>
     <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1478, in __call__
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1478, in __call__
     return self.wsgi_app(environ, start_response)
            ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1458, in wsgi_app
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1458, in wsgi_app
     response = self.handle_exception(e)
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1455, in wsgi_app
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1455, in wsgi_app
     response = self.full_dispatch_request()
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 869, in full_dispatch_request
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 869, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 867, in full_dispatch_request
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 867, in full_dispatch_request
     rv = self.dispatch_request()
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 852, in dispatch_request
+  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File &#34;/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/routes/task_routes.py&#34;, line 261, in search_tasks
+  File &#34;<repo>/task-manager-api/routes/task_routes.py&#34;, line 261, in search_tasks
     tasks = tasks.filter(Task.priority == int(priority))
                                           ~~~^^^^^^^^^^
 ValueError: invalid literal for int() with base 10: &#39;abc&#39;
@@ -1757,27 +1757,27 @@ ValueError: invalid literal for int() with base 10: &#39;abc&#39;
 <!--
 
 Traceback (most recent call last):
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1478, in __call__
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1478, in __call__
     return self.wsgi_app(environ, start_response)
            ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1458, in wsgi_app
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1458, in wsgi_app
     response = self.handle_exception(e)
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1455, in wsgi_app
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 869, in full_dispatch_request
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 869, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ~^^^^^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 867, in full_dispatch_request
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 867, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 852, in dispatch_request
+  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/task-manager-api/routes/task_routes.py", line 261, in search_tasks
+  File "<repo>/task-manager-api/routes/task_routes.py", line 261, in search_tasks
     tasks = tasks.filter(Task.priority == int(priority))
                                           ~~~^^^^^^^^^^
 ValueError: invalid literal for int() with base 10: 'abc'
