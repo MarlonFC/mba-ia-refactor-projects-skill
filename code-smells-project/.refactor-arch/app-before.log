@@ -1,0 +1,88 @@
+==================================================
+SERVIDOR INICIADO
+Rodando em http://localhost:5000
+==================================================
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.232.196:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 523-275-458
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /produtos HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /produtos/1 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[33mGET /produtos/999 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /produtos/busca?q=Mouse HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /produtos/busca?categoria=informatica&preco_min=100&preco_max=500 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[35m[1mGET /produtos/busca?q=27' HTTP/1.1[0m" 500 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /usuarios HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /usuarios/1 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[33mGET /usuarios/999 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /pedidos HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /pedidos/usuario/2 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /relatorios/vendas HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[35m[1mPOST /produtos HTTP/1.1[0m" 201 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPOST /produtos HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPOST /produtos HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPOST /produtos HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[35m[1mPOST /usuarios HTTP/1.1[0m" 201 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPOST /usuarios HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "POST /login HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "POST /login HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "POST /login HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[35m[1mPOST /pedidos HTTP/1.1[0m" 201 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[35m[1mPOST /pedidos HTTP/1.1[0m" 201 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPOST /pedidos HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPOST /pedidos HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPOST /pedidos HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPOST /pedidos HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /pedidos HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /pedidos/usuario/2 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /relatorios/vendas HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "PUT /produtos/1 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[33mPUT /produtos/999 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPUT /produtos/1 HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "PUT /pedidos/1/status HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "PUT /pedidos/2/status HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[31m[1mPUT /pedidos/1/status HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /produtos/1 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /relatorios/vendas HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "DELETE /produtos/11 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "[33mDELETE /produtos/999 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [23/Nov/2026 11:22:08] "GET /produtos HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:09] "POST /admin/query HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:09] "[31m[1mPOST /admin/query HTTP/1.1[0m" 400 -
+127.0.0.1 - - [23/Nov/2026 11:22:09] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:09] "POST /admin/reset-db HTTP/1.1" 200 -
+127.0.0.1 - - [23/Nov/2026 11:22:09] "GET /health HTTP/1.1" 200 -
+==================================================
+SERVIDOR INICIADO
+Rodando em http://localhost:5000
+==================================================
+Listando 10 produtos
+Produto criado com ID: 11
+Usuário criado: carlos@email.com
+Login bem-sucedido: admin@loja.com
+Login bem-sucedido: carlos@email.com
+Login falhou: admin@loja.com
+Login bem-sucedido: admin@loja.com' --
+ENVIANDO EMAIL: Pedido 1 criado para usuario 2
+ENVIANDO SMS: Seu pedido foi recebido!
+ENVIANDO PUSH: Novo pedido recebido pelo sistema
+ENVIANDO EMAIL: Pedido 2 criado para usuario 3
+ENVIANDO SMS: Seu pedido foi recebido!
+ENVIANDO PUSH: Novo pedido recebido pelo sistema
+NOTIFICAÇÃO: Pedido 1 foi aprovado! Preparar envio.
+NOTIFICAÇÃO: Pedido 2 cancelado. Devolver estoque.
+Produto 11 deletado
+Listando 10 produtos
+!!! BANCO DE DADOS RESETADO !!!
