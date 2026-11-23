@@ -1,0 +1,80 @@
+# METHOD PATH [JSON]  — estado inicial: banco recriado + python seed.py
+# (users 1-3, categories 1-4, tasks 1-10)
+
+# ---------- leituras ----------
+GET /
+GET /health
+GET /tasks
+GET /tasks/1
+GET /tasks/999
+GET /tasks/search?q=API
+GET /tasks/search?status=pending&priority=1
+GET /tasks/search?user_id=1
+GET /tasks/stats
+GET /users
+GET /users/1
+GET /users/999
+GET /users/1/tasks
+GET /users/999/tasks
+GET /reports/summary
+GET /reports/user/1
+GET /reports/user/999
+GET /categories
+POST /login {"email":"joao@email.com","password":"1234"}
+POST /login {"email":"joao@email.com","password":"errada"}
+POST /login {"email":"joao@email.com"}
+
+# ---------- criações ----------
+POST /tasks {"title":"Nova task smoke","description":"d","priority":2,"user_id":1,"category_id":1,"due_date":"2030-01-15","tags":["a","b"]}
+POST /tasks {"title":"ab"}
+POST /tasks {"description":"sem titulo"}
+POST /tasks {"title":"Task status ruim","status":"xyz"}
+POST /tasks {"title":"Task prioridade ruim","priority":9}
+POST /tasks {"title":"Task user ruim","user_id":999}
+POST /tasks {"title":"Task categoria ruim","category_id":999}
+POST /tasks {"title":"Task data ruim","due_date":"15/01/2030"}
+POST /tasks {"title":"Task prioridade string","priority":"5"}
+POST /users {"name":"Smoke User","email":"smoke@email.com","password":"secret1","role":"user"}
+POST /users {"name":"Dup","email":"joao@email.com","password":"1234"}
+POST /users {"name":"Bad","email":"bad-email","password":"1234"}
+POST /users {"name":"Bad role","email":"r@email.com","password":"1234","role":"root"}
+POST /users {"email":"x@email.com","password":"1234"}
+POST /login {"email":"smoke@email.com","password":"secret1"}
+POST /categories {"name":"Smoke Cat","color":"#123456"}
+POST /categories {"description":"sem nome"}
+
+# ---------- atualizações ----------
+PUT /tasks/11 {"status":"in_progress","priority":4,"tags":"x,y","due_date":null}
+PUT /tasks/11 {"status":"bogus"}
+PUT /tasks/11 {"title":"ab"}
+PUT /tasks/11 {"priority":"3"}
+PUT /tasks/999 {"title":"Qualquer"}
+PUT /users/4 {"name":"Smoke User 2","active":true}
+PUT /users/4 {"email":"maria@email.com"}
+PUT /users/4 {"role":"root"}
+PUT /users/999 {"name":"x"}
+PUT /users/2 {"active":false}
+POST /login {"email":"maria@email.com","password":"abcd"}
+PUT /categories/5 {"name":"Smoke Cat 2"}
+PUT /categories/999 {"name":"x"}
+GET /tasks/search?priority=abc
+
+# ---------- deleções ----------
+DELETE /tasks/11
+DELETE /tasks/999
+DELETE /categories/5
+DELETE /categories/4
+DELETE /categories/999
+DELETE /users/4
+DELETE /users/3
+DELETE /users/999
+
+# ---------- leituras agregadas após deleções ----------
+GET /tasks
+GET /tasks/4
+GET /tasks/stats
+GET /users
+GET /users/1
+GET /reports/summary
+GET /reports/user/1
+GET /categories

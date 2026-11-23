@@ -1,34 +1,38 @@
+import logging
+
 from flask import Flask
 from flask_cors import CORS
+
+import models  # noqa: F401 — registra as tabelas antes do create_all
+from config.settings import Settings
 from database import db
+from middlewares.error_handler import register_error_handlers
+from routes.category_routes import category_bp
+from routes.report_routes import report_bp
+from routes.system_routes import system_bp
 from routes.task_routes import task_bp
 from routes.user_routes import user_bp
-from routes.report_routes import report_bp
-import os, sys, json, datetime
 
-app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'super-secret-key-123'
+def create_app(settings=Settings):
+    logging.basicConfig(level=settings.LOG_LEVEL,
+                        format='%(asctime)s %(levelname)s %(name)s: %(message)s')
 
-CORS(app)
-db.init_app(app)
+    app = Flask(__name__)
+    app.config.from_object(settings)
+    CORS(app, origins=settings.CORS_ORIGINS)
+    db.init_app(app)
+    register_error_handlers(app)
 
-app.register_blueprint(task_bp)
-app.register_blueprint(user_bp)
-app.register_blueprint(report_bp)
+    for blueprint in (system_bp, task_bp, user_bp, category_bp, report_bp):
+        app.register_blueprint(blueprint)
 
-@app.route('/health')
-def health():
-    return {'status': 'ok', 'timestamp': str(datetime.datetime.now())}
+    with app.app_context():
+        db.create_all()
+    return app
 
-@app.route('/')
-def index():
-    return {'message': 'Task Manager API', 'version': '1.0'}
 
-with app.app_context():
-    db.create_all()
+app = create_app()
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(host=Settings.HOST, port=Settings.PORT, debug=Settings.DEBUG)
