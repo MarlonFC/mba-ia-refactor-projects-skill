@@ -1,0 +1,18 @@
+# METHOD PATH [JSON]
+# Leituras
+GET /api/admin/financial-report
+# Checkout: erros de validação / não encontrado / JSON malformado
+POST /api/checkout {}
+POST /api/checkout {"usr":"Ana","eml":"ana@teste.com","pwd":"x","c_id":999,"card":"4111222233334444"}
+POST /api/checkout {"usr":"Ana","eml":"ana@teste.com"
+# Checkout: exemplos de api.http
+POST /api/checkout {"usr":"Guilherme","eml":"gui@fullcycle.com.br","pwd":"senhaforte","c_id":2,"card":"4111222233334444"}
+POST /api/checkout {"usr":"João","eml":"joao@teste.com","pwd":"123","c_id":1,"card":"5111222233334444"}
+# Checkout: usuário já existente (seed) e sem senha
+POST /api/checkout {"usr":"Leonan","eml":"leonan@fullcycle.com.br","c_id":2,"card":"4000000000000002"}
+POST /api/checkout {"usr":"Maria","eml":"maria@teste.com","c_id":1,"card":"4999888877776666"}
+GET /api/admin/financial-report
+# Deleções (usuário criado na lista, id inexistente, exemplo de api.http)
+DELETE /api/users/2
+DELETE /api/users/999
+DELETE /api/users/1

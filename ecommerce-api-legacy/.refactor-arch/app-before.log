@@ -1,0 +1,52 @@
+
+> desafio-arquitetura-ia-boilerplate@1.0.0 start
+> node src/app.js
+
+Frankenstein LMS rodando na porta 3000...
+SyntaxError: Expected ',' or '}' after property value in JSON at position 34 (line 1 column 35)
+    at JSON.parse (<anonymous>)
+    at parse (/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/node_modules/body-parser/lib/types/json.js:92:19)
+    at /home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at invokeCallback (/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/node_modules/raw-body/index.js:238:16)
+    at done (/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:519:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+Processando cartão 4111222233334444 na chave pk_live_1234567890abcdef
+[LOG] Salvando no cache: last_checkout_2
+Processando cartão 5111222233334444 na chave pk_live_1234567890abcdef
+Processando cartão 4000000000000002 na chave pk_live_1234567890abcdef
+[LOG] Salvando no cache: last_checkout_1
+Processando cartão 4999888877776666 na chave pk_live_1234567890abcdef
+[LOG] Salvando no cache: last_checkout_4
+SyntaxError: Expected ',' or '}' after property value in JSON at position 34 (line 1 column 35)
+    at JSON.parse (<anonymous>)
+    at parse (/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/node_modules/body-parser/lib/types/json.js:92:19)
+    at /home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at invokeCallback (/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/node_modules/raw-body/index.js:238:16)
+    at done (/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:519:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+Processando cartão 4111222233334444 na chave pk_live_1234567890abcdef
+[LOG] Salvando no cache: last_checkout_5
+Processando cartão 5111222233334444 na chave pk_live_1234567890abcdef
+Processando cartão 4000000000000002 na chave pk_live_1234567890abcdef
+[LOG] Salvando no cache: last_checkout_6
+Processando cartão 4999888877776666 na chave pk_live_1234567890abcdef
+[LOG] Salvando no cache: last_checkout_4
+Processando cartão 4111222233334444 na chave pk_live_1234567890abcdef
+/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/src/AppManager.js:46
+                        let status = cc.startsWith("4") ? "PAID" : "DENIED";
+                                        ^
+
+TypeError: cc.startsWith is not a function
+    at processPaymentAndEnroll (/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/src/AppManager.js:46:41)
+    at Statement.<anonymous> (/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/src/AppManager.js:71:29)
+    at Statement.replacement (/home/mfcloud/fullcycle/mba-ia-my-refactor-projects-skill/mba-ia-refactor-projects-skill/ecommerce-api-legacy/node_modules/sqlite3/lib/trace.js:25:27)
+
+Node.js v22.23.5
