@@ -634,17 +634,17 @@ Também: `isinstance(x, list)` em vez de `type(x) == list`; `const` em vez de `l
 ```js
 db.run("DELETE FROM users WHERE id = ?", [id], (err) => res.send("Usuário deletado, mas as matrículas e pagamentos ficaram sujos no banco."));
 ```
-**Depois**
+**Depois** (filhos que só existem por causa do pai, ex.: itens de carrinho, tokens de sessão)
 ```js
 async deleteUser(id) {
   return withTransaction(db, async () => {
-    await db.run('DELETE FROM payments WHERE enrollment_id IN (SELECT id FROM enrollments WHERE user_id = ?)', [id]);
-    await db.run('DELETE FROM enrollments WHERE user_id = ?', [id]);
+    await db.run('DELETE FROM sessions WHERE user_id = ?', [id]);
     const { changes } = await db.run('DELETE FROM users WHERE id = ?', [id]);
     return changes > 0;
   });
 }
 ```
+**Registros financeiros, de auditoria ou histórico (pagamentos, pedidos, matrículas pagas, logs) NUNCA são apagados em cascata** — isso altera relatórios e destrói dados que podem ter obrigação legal de retenção. Para eles: manter o registro e desvincular/anonimizar (FK = NULL ou usuário exibido como "Unknown"), ou soft delete do pai. Leituras posteriores (relatórios) devem continuar devolvendo os mesmos valores do original.
 ```python
 # SQLAlchemy: cascade declarado no relacionamento, ou desvincular filhos
 category = db.session.get(Category, cat_id)
@@ -652,5 +652,5 @@ Task.query.filter_by(category_id=cat_id).update({"category_id": None})
 db.session.delete(category)
 db.session.commit()
 ```
-Escolha por domínio: filhos que só existem por causa do pai → apagar em cascata na mesma transação; filhos independentes → desvincular (FK = NULL). Mantenha o status/mensagem de sucesso original; registre a decisão no resumo.
-**Verificar:** após o delete não há linhas com FK apontando para o registro removido.
+Escolha por domínio: filhos que só existem por causa do pai → apagar em cascata na mesma transação; filhos independentes → desvincular (FK = NULL); histórico financeiro/auditoria → preservar (ver acima). Mantenha o status/mensagem de sucesso original; registre a decisão no resumo.
+**Verificar:** relatórios/listagens consultados **depois** do delete devolvem o mesmo conteúdo do baseline; não há FK inválida em tabelas não-históricas.

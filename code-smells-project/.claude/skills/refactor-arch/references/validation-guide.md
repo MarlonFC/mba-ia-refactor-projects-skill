@@ -35,21 +35,29 @@ PUT /pedidos/1/status {"status":"aprovado"}
 Regras para montar a lista (a partir do inventário de rotas da Fase 1):
 1. **Toda rota** aparece ao menos uma vez com um caso de sucesso, usando IDs que existem após o seed.
 2. Rotas com validação ou busca por ID ganham **um caso de erro** (ID inexistente, campo obrigatório ausente).
-3. Ordem: leituras → criações → atualizações → deleções → rotas destrutivas globais (reset) **por último**. Delete preferencialmente de um registro criado na própria lista.
+3. Ordem: leituras → criações → atualizações → deleções → **repetir as leituras agregadas (relatórios, listagens, detalhes) depois das deleções** → rotas destrutivas globais (reset) **por último**. Delete preferencialmente de um registro criado na própria lista, mas inclua também o delete de um registro do seed que tenha dependentes (ex.: usuário com pedidos/pagamentos) — é aí que mudanças de integridade aparecem.
 4. Valores coerentes com o seed (leia o seed/código; não invente campos).
 5. Inclua os exemplos de `.http`/README do projeto, se existirem.
 
-Execução:
+Execução — **um único comando Bash** do início ao fim (start, smoke e stop), para o PID não se perder entre chamadas:
 ```bash
-# terminal da validação (exemplo Python; adapte comando/porta do perfil de execução)
+# exemplo; adapte comando/porta do perfil de execução
 export ADMIN_TOKEN=refactor-arch-validation        # inofensivo para o código original
-<comando de start> > .refactor-arch/app-before.log 2>&1 &
+PORT_NUM=<porta>
+# 1) a porta PRECISA estar livre — senão o smoke mede outro processo
+if curl -s -o /dev/null "http://localhost:$PORT_NUM/"; then echo "PORT $PORT_NUM BUSY - abortando"; exit 1; fi
+# 2) iniciar em novo grupo de processos (npm/flask podem criar processos filhos)
+setsid <comando de start> > .refactor-arch/app-before.log 2>&1 &
 APP_PID=$!
-for i in $(seq 1 60); do curl -s -o /dev/null http://localhost:<porta>/ && break; sleep 0.5; done
-bash "$SKILL_DIR/scripts/smoke.sh" http://localhost:<porta> .refactor-arch/requests.txt .refactor-arch/baseline.txt \
+for i in $(seq 1 60); do curl -s -o /dev/null "http://localhost:$PORT_NUM/" && break; sleep 0.5; done
+bash "$SKILL_DIR/scripts/smoke.sh" "http://localhost:$PORT_NUM" .refactor-arch/requests.txt .refactor-arch/baseline.txt \
      "X-Admin-Token: $ADMIN_TOKEN"
-kill $APP_PID; wait $APP_PID 2>/dev/null
+# 3) encerrar o GRUPO inteiro e confirmar que a porta foi liberada
+kill -- -"$APP_PID" 2>/dev/null; wait "$APP_PID" 2>/dev/null
+for i in $(seq 1 20); do curl -s -o /dev/null "http://localhost:$PORT_NUM/" || break; sleep 0.25; done
+curl -s -o /dev/null "http://localhost:$PORT_NUM/" && echo "WARNING: porta ainda ocupada"
 ```
+Nunca use `pkill -f <padrão>` dentro do mesmo comando que contém o padrão (mata o próprio shell).
 - Para apps sem rota `/`, faça o *wait* em uma rota GET do inventário (qualquer resposta HTTP serve; `000` = ainda não subiu).
 - Se a porta estiver ocupada, pare o processo que você mesmo iniciou ou use `PORT` alternativa nas duas execuções.
 - O header admin é enviado em todas as requisições; o código original o ignora, o refatorado o exige nas rotas admin → status iguais.
