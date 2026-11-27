@@ -1,0 +1,34 @@
+from flask import Blueprint, jsonify, request
+
+from controllers import pedido_controller
+from middlewares.auth import require_admin
+
+pedido_bp = Blueprint("pedidos", __name__)
+
+
+@pedido_bp.post("/pedidos")
+def criar_pedido():
+    resultado = pedido_controller.criar(request.get_json(silent=True))
+    return jsonify({"dados": resultado, "sucesso": True, "mensagem": "Pedido criado com sucesso"}), 201
+
+
+@pedido_bp.get("/pedidos")
+def listar_todos_pedidos():
+    return jsonify({"dados": pedido_controller.listar_todos(), "sucesso": True}), 200
+
+
+@pedido_bp.get("/pedidos/usuario/<int:usuario_id>")
+def listar_pedidos_usuario(usuario_id):
+    return jsonify({"dados": pedido_controller.listar_do_usuario(usuario_id), "sucesso": True}), 200
+
+
+@pedido_bp.put("/pedidos/<int:pedido_id>/status")
+@require_admin
+def atualizar_status_pedido(pedido_id):
+    pedido_controller.atualizar_status(pedido_id, request.get_json(silent=True))
+    return jsonify({"sucesso": True, "mensagem": "Status atualizado"}), 200
+
+
+@pedido_bp.get("/relatorios/vendas")
+def relatorio_vendas():
+    return jsonify({"dados": pedido_controller.relatorio_vendas(), "sucesso": True}), 200

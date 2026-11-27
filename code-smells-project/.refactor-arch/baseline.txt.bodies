@@ -1,0 +1,781 @@
+### GET / 
+-> 200
+{
+  "endpoints": {
+    "health": "/health",
+    "login": "/login",
+    "pedidos": "/pedidos",
+    "produtos": "/produtos",
+    "relatorios": "/relatorios/vendas",
+    "usuarios": "/usuarios"
+  },
+  "mensagem": "Bem-vindo \u00e0 API da Loja",
+  "versao": "1.0.0"
+}
+
+
+### GET /health 
+-> 200
+{
+  "ambiente": "producao",
+  "counts": {
+    "pedidos": 0,
+    "produtos": 10,
+    "usuarios": 3
+  },
+  "database": "connected",
+  "db_path": "loja.db",
+  "debug": true,
+  "secret_key": "minha-chave-super-secreta-123",
+  "status": "ok",
+  "versao": "1.0.0"
+}
+
+
+### GET /produtos 
+-> 200
+{
+  "dados": [
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Notebook potente para jogos",
+      "estoque": 10,
+      "id": 1,
+      "nome": "Notebook Gamer",
+      "preco": 5999.99
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Mouse sem fio ergon\u00f4mico",
+      "estoque": 50,
+      "id": 2,
+      "nome": "Mouse Wireless",
+      "preco": 89.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Teclado mec\u00e2nico RGB",
+      "estoque": 30,
+      "id": 3,
+      "nome": "Teclado Mec\u00e2nico",
+      "preco": 299.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Monitor 27 polegadas 144hz",
+      "estoque": 15,
+      "id": 4,
+      "nome": "Monitor 27''",
+      "preco": 1899.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Headset com microfone",
+      "estoque": 25,
+      "id": 5,
+      "nome": "Headset Gamer",
+      "preco": 199.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "moveis",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Cadeira ergon\u00f4mica",
+      "estoque": 8,
+      "id": 6,
+      "nome": "Cadeira Gamer",
+      "preco": 1299.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Webcam 1080p",
+      "estoque": 20,
+      "id": 7,
+      "nome": "Webcam HD",
+      "preco": 249.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Hub USB 3.0 7 portas",
+      "estoque": 40,
+      "id": 8,
+      "nome": "Hub USB",
+      "preco": 79.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "SSD NVMe 1TB",
+      "estoque": 35,
+      "id": 9,
+      "nome": "SSD 1TB",
+      "preco": 449.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "vestuario",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Camiseta estampa c\u00f3digo",
+      "estoque": 100,
+      "id": 10,
+      "nome": "Camiseta Dev",
+      "preco": 59.9
+    }
+  ],
+  "sucesso": true
+}
+
+
+### GET /produtos/1 
+-> 200
+{
+  "dados": {
+    "ativo": 1,
+    "categoria": "informatica",
+    "criado_em": "2026-11-27 20:12:58",
+    "descricao": "Notebook potente para jogos",
+    "estoque": 10,
+    "id": 1,
+    "nome": "Notebook Gamer",
+    "preco": 5999.99
+  },
+  "sucesso": true
+}
+
+
+### GET /produtos/999 
+-> 404
+{
+  "erro": "Produto n\u00e3o encontrado",
+  "sucesso": false
+}
+
+
+### GET /produtos/busca?q=Mouse 
+-> 200
+{
+  "dados": [
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Mouse sem fio ergon\u00f4mico",
+      "estoque": 50,
+      "id": 2,
+      "nome": "Mouse Wireless",
+      "preco": 89.9
+    }
+  ],
+  "sucesso": true,
+  "total": 1
+}
+
+
+### GET /produtos/busca?categoria=informatica&preco_min=100&preco_max=500 
+-> 200
+{
+  "dados": [
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Teclado mec\u00e2nico RGB",
+      "estoque": 30,
+      "id": 3,
+      "nome": "Teclado Mec\u00e2nico",
+      "preco": 299.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Headset com microfone",
+      "estoque": 25,
+      "id": 5,
+      "nome": "Headset Gamer",
+      "preco": 199.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Webcam 1080p",
+      "estoque": 20,
+      "id": 7,
+      "nome": "Webcam HD",
+      "preco": 249.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "SSD NVMe 1TB",
+      "estoque": 35,
+      "id": 9,
+      "nome": "SSD 1TB",
+      "preco": 449.9
+    }
+  ],
+  "sucesso": true,
+  "total": 4
+}
+
+
+### GET /usuarios 
+-> 200
+{
+  "dados": [
+    {
+      "criado_em": "2026-11-27 20:12:58",
+      "email": "admin@loja.com",
+      "id": 1,
+      "nome": "Admin",
+      "senha": "admin123",
+      "tipo": "admin"
+    },
+    {
+      "criado_em": "2026-11-27 20:12:58",
+      "email": "joao@email.com",
+      "id": 2,
+      "nome": "Jo\u00e3o Silva",
+      "senha": "123456",
+      "tipo": "cliente"
+    },
+    {
+      "criado_em": "2026-11-27 20:12:58",
+      "email": "maria@email.com",
+      "id": 3,
+      "nome": "Maria Santos",
+      "senha": "senha123",
+      "tipo": "cliente"
+    }
+  ],
+  "sucesso": true
+}
+
+
+### GET /usuarios/1 
+-> 200
+{
+  "dados": {
+    "criado_em": "2026-11-27 20:12:58",
+    "email": "admin@loja.com",
+    "id": 1,
+    "nome": "Admin",
+    "senha": "admin123",
+    "tipo": "admin"
+  },
+  "sucesso": true
+}
+
+
+### GET /usuarios/999 
+-> 404
+{
+  "erro": "Usu\u00e1rio n\u00e3o encontrado"
+}
+
+
+### GET /pedidos 
+-> 200
+{
+  "dados": [],
+  "sucesso": true
+}
+
+
+### GET /pedidos/usuario/2 
+-> 200
+{
+  "dados": [],
+  "sucesso": true
+}
+
+
+### GET /relatorios/vendas 
+-> 200
+{
+  "dados": {
+    "desconto_aplicavel": 0,
+    "faturamento_bruto": 0,
+    "faturamento_liquido": 0,
+    "pedidos_aprovados": 0,
+    "pedidos_cancelados": 0,
+    "pedidos_pendentes": 0,
+    "ticket_medio": 0,
+    "total_pedidos": 0
+  },
+  "sucesso": true
+}
+
+
+### POST /produtos {"nome":"Livro Python","descricao":"Livro de Python","preco":89.9,"estoque":5,"categoria":"livros"}
+-> 201
+{
+  "dados": {
+    "id": 11
+  },
+  "mensagem": "Produto criado",
+  "sucesso": true
+}
+
+
+### POST /produtos {"preco":10}
+-> 400
+{
+  "erro": "Nome \u00e9 obrigat\u00f3rio"
+}
+
+
+### POST /produtos {"nome":"Produto X","preco":10,"estoque":1,"categoria":"invalida"}
+-> 400
+{
+  "erro": "Categoria inv\u00e1lida. V\u00e1lidas: ['informatica', 'moveis', 'vestuario', 'geral', 'eletronicos', 'livros']"
+}
+
+
+### POST /usuarios {"nome":"Carlos","email":"carlos@email.com","senha":"abc123"}
+-> 201
+{
+  "dados": {
+    "id": 4
+  },
+  "sucesso": true
+}
+
+
+### POST /usuarios {"nome":"Sem Email"}
+-> 400
+{
+  "erro": "Nome, email e senha s\u00e3o obrigat\u00f3rios"
+}
+
+
+### POST /login {"email":"joao@email.com","senha":"123456"}
+-> 200
+{
+  "dados": {
+    "email": "joao@email.com",
+    "id": 2,
+    "nome": "Jo\u00e3o Silva",
+    "tipo": "cliente"
+  },
+  "mensagem": "Login OK",
+  "sucesso": true
+}
+
+
+### POST /login {"email":"joao@email.com","senha":"errada"}
+-> 401
+{
+  "erro": "Email ou senha inv\u00e1lidos",
+  "sucesso": false
+}
+
+
+### POST /login {"email":"carlos@email.com","senha":"abc123"}
+-> 200
+{
+  "dados": {
+    "email": "carlos@email.com",
+    "id": 4,
+    "nome": "Carlos",
+    "tipo": "cliente"
+  },
+  "mensagem": "Login OK",
+  "sucesso": true
+}
+
+
+### POST /login {"email":"admin@loja.com' --","senha":"x"}
+-> 200
+{
+  "dados": {
+    "email": "admin@loja.com",
+    "id": 1,
+    "nome": "Admin",
+    "tipo": "admin"
+  },
+  "mensagem": "Login OK",
+  "sucesso": true
+}
+
+
+### POST /pedidos {"usuario_id":2,"itens":[{"produto_id":1,"quantidade":1},{"produto_id":2,"quantidade":2}]}
+-> 201
+{
+  "dados": {
+    "pedido_id": 1,
+    "total": 6179.79
+  },
+  "mensagem": "Pedido criado com sucesso",
+  "sucesso": true
+}
+
+
+### POST /pedidos {"usuario_id":3,"itens":[{"produto_id":6,"quantidade":2}]}
+-> 201
+{
+  "dados": {
+    "pedido_id": 2,
+    "total": 2599.8
+  },
+  "mensagem": "Pedido criado com sucesso",
+  "sucesso": true
+}
+
+
+### POST /pedidos {"usuario_id":2,"itens":[{"produto_id":6,"quantidade":100}]}
+-> 400
+{
+  "erro": "Estoque insuficiente para Cadeira Gamer",
+  "sucesso": false
+}
+
+
+### POST /pedidos {"usuario_id":2,"itens":[{"produto_id":999,"quantidade":1}]}
+-> 400
+{
+  "erro": "Produto 999 n\u00e3o encontrado",
+  "sucesso": false
+}
+
+
+### POST /pedidos {"usuario_id":2,"itens":[]}
+-> 400
+{
+  "erro": "Pedido deve ter pelo menos 1 item"
+}
+
+
+### POST /admin/query {"sql":"SELECT COUNT(*) AS n FROM produtos"}
+-> 200
+{
+  "dados": [
+    {
+      "n": 11
+    }
+  ],
+  "sucesso": true
+}
+
+
+### PUT /produtos/11 {"nome":"Livro Python 2a ed","descricao":"Revisado","preco":99.9,"estoque":4,"categoria":"livros"}
+-> 200
+{
+  "mensagem": "Produto atualizado",
+  "sucesso": true
+}
+
+
+### PUT /produtos/999 {"nome":"Nada","preco":1,"estoque":1}
+-> 404
+{
+  "erro": "Produto n\u00e3o encontrado"
+}
+
+
+### PUT /pedidos/1/status {"status":"aprovado"}
+-> 200
+{
+  "mensagem": "Status atualizado",
+  "sucesso": true
+}
+
+
+### PUT /pedidos/2/status {"status":"cancelado"}
+-> 200
+{
+  "mensagem": "Status atualizado",
+  "sucesso": true
+}
+
+
+### PUT /pedidos/1/status {"status":"xyz"}
+-> 400
+{
+  "erro": "Status inv\u00e1lido"
+}
+
+
+### DELETE /produtos/11 
+-> 200
+{
+  "mensagem": "Produto deletado",
+  "sucesso": true
+}
+
+
+### DELETE /produtos/999 
+-> 404
+{
+  "erro": "Produto n\u00e3o encontrado"
+}
+
+
+### DELETE /produtos/2 
+-> 200
+{
+  "mensagem": "Produto deletado",
+  "sucesso": true
+}
+
+
+### GET /produtos/11 
+-> 404
+{
+  "erro": "Produto n\u00e3o encontrado",
+  "sucesso": false
+}
+
+
+### GET /produtos 
+-> 200
+{
+  "dados": [
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Notebook potente para jogos",
+      "estoque": 9,
+      "id": 1,
+      "nome": "Notebook Gamer",
+      "preco": 5999.99
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Teclado mec\u00e2nico RGB",
+      "estoque": 30,
+      "id": 3,
+      "nome": "Teclado Mec\u00e2nico",
+      "preco": 299.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Monitor 27 polegadas 144hz",
+      "estoque": 15,
+      "id": 4,
+      "nome": "Monitor 27''",
+      "preco": 1899.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Headset com microfone",
+      "estoque": 25,
+      "id": 5,
+      "nome": "Headset Gamer",
+      "preco": 199.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "moveis",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Cadeira ergon\u00f4mica",
+      "estoque": 6,
+      "id": 6,
+      "nome": "Cadeira Gamer",
+      "preco": 1299.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Webcam 1080p",
+      "estoque": 20,
+      "id": 7,
+      "nome": "Webcam HD",
+      "preco": 249.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Hub USB 3.0 7 portas",
+      "estoque": 40,
+      "id": 8,
+      "nome": "Hub USB",
+      "preco": 79.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "informatica",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "SSD NVMe 1TB",
+      "estoque": 35,
+      "id": 9,
+      "nome": "SSD 1TB",
+      "preco": 449.9
+    },
+    {
+      "ativo": 1,
+      "categoria": "vestuario",
+      "criado_em": "2026-11-27 20:12:58",
+      "descricao": "Camiseta estampa c\u00f3digo",
+      "estoque": 100,
+      "id": 10,
+      "nome": "Camiseta Dev",
+      "preco": 59.9
+    }
+  ],
+  "sucesso": true
+}
+
+
+### GET /pedidos 
+-> 200
+{
+  "dados": [
+    {
+      "criado_em": "2026-11-27 20:12:59",
+      "id": 1,
+      "itens": [
+        {
+          "preco_unitario": 5999.99,
+          "produto_id": 1,
+          "produto_nome": "Notebook Gamer",
+          "quantidade": 1
+        },
+        {
+          "preco_unitario": 89.9,
+          "produto_id": 2,
+          "produto_nome": "Desconhecido",
+          "quantidade": 2
+        }
+      ],
+      "status": "aprovado",
+      "total": 6179.79,
+      "usuario_id": 2
+    },
+    {
+      "criado_em": "2026-11-27 20:12:59",
+      "id": 2,
+      "itens": [
+        {
+          "preco_unitario": 1299.9,
+          "produto_id": 6,
+          "produto_nome": "Cadeira Gamer",
+          "quantidade": 2
+        }
+      ],
+      "status": "cancelado",
+      "total": 2599.8,
+      "usuario_id": 3
+    }
+  ],
+  "sucesso": true
+}
+
+
+### GET /pedidos/usuario/2 
+-> 200
+{
+  "dados": [
+    {
+      "criado_em": "2026-11-27 20:12:59",
+      "id": 1,
+      "itens": [
+        {
+          "preco_unitario": 5999.99,
+          "produto_id": 1,
+          "produto_nome": "Notebook Gamer",
+          "quantidade": 1
+        },
+        {
+          "preco_unitario": 89.9,
+          "produto_id": 2,
+          "produto_nome": "Desconhecido",
+          "quantidade": 2
+        }
+      ],
+      "status": "aprovado",
+      "total": 6179.79,
+      "usuario_id": 2
+    }
+  ],
+  "sucesso": true
+}
+
+
+### GET /relatorios/vendas 
+-> 200
+{
+  "dados": {
+    "desconto_aplicavel": 438.98,
+    "faturamento_bruto": 8779.59,
+    "faturamento_liquido": 8340.61,
+    "pedidos_aprovados": 1,
+    "pedidos_cancelados": 1,
+    "pedidos_pendentes": 0,
+    "ticket_medio": 4389.8,
+    "total_pedidos": 2
+  },
+  "sucesso": true
+}
+
+
+### GET /health 
+-> 200
+{
+  "ambiente": "producao",
+  "counts": {
+    "pedidos": 2,
+    "produtos": 9,
+    "usuarios": 4
+  },
+  "database": "connected",
+  "db_path": "loja.db",
+  "debug": true,
+  "secret_key": "minha-chave-super-secreta-123",
+  "status": "ok",
+  "versao": "1.0.0"
+}
+
+
+### POST /admin/reset-db 
+-> 200
+{
+  "mensagem": "Banco de dados resetado",
+  "sucesso": true
+}
+
+
+### GET /health 
+-> 200
+{
+  "ambiente": "producao",
+  "counts": {
+    "pedidos": 0,
+    "produtos": 0,
+    "usuarios": 0
+  },
+  "database": "connected",
+  "db_path": "loja.db",
+  "debug": true,
+  "secret_key": "minha-chave-super-secreta-123",
+  "status": "ok",
+  "versao": "1.0.0"
+}
+
+

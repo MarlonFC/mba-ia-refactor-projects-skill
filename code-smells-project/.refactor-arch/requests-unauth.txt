@@ -1,0 +1,6 @@
+# Rotas protegidas pela Fase 3 — sem X-Admin-Token devem responder 401
+POST /produtos {"nome":"Livro Sem Token","preco":10,"estoque":1,"categoria":"livros"}
+PUT /produtos/1 {"nome":"Hack","preco":0,"estoque":0}
+DELETE /produtos/1
+PUT /pedidos/1/status {"status":"cancelado"}
+POST /admin/reset-db
