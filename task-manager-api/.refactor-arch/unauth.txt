@@ -1,0 +1,6 @@
+401 DELETE /tasks/1
+401 DELETE /users/1
+401 DELETE /categories/1
+403 POST /users
+403 PUT /users/2
+403 PUT /users/2

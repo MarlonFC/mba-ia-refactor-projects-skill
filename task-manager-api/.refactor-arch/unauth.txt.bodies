@@ -1,0 +1,30 @@
+### DELETE /tasks/1 
+-> 401
+{"error":"N\u00e3o autorizado"}
+
+
+### DELETE /users/1 
+-> 401
+{"error":"N\u00e3o autorizado"}
+
+
+### DELETE /categories/1 
+-> 401
+{"error":"N\u00e3o autorizado"}
+
+
+### POST /users {"name":"Hacker","email":"hacker@email.com","password":"1234","role":"admin"}
+-> 403
+{"error":"Somente administradores podem definir role"}
+
+
+### PUT /users/2 {"role":"admin"}
+-> 403
+{"error":"Somente administradores podem alterar role ou active"}
+
+
+### PUT /users/2 {"active":false}
+-> 403
+{"error":"Somente administradores podem alterar role ou active"}
+
+

@@ -1,0 +1,67 @@
+# METHOD PATH [JSON] — estado inicial: banco recriado + python seed.py
+# --- leituras
+GET /
+GET /health
+GET /tasks
+GET /tasks/1
+GET /tasks/999
+GET /tasks/search?q=API
+GET /tasks/search?status=pending&priority=1
+GET /tasks/search?user_id=1
+GET /tasks/stats
+GET /users
+GET /users/1
+GET /users/999
+GET /users/2/tasks
+GET /users/999/tasks
+GET /reports/summary
+GET /reports/user/1
+GET /reports/user/999
+GET /categories
+POST /login {"email":"joao@email.com","password":"1234"}
+POST /login {"email":"joao@email.com","password":"errada"}
+POST /login {"email":"joao@email.com"}
+# --- criações
+POST /tasks {"title":"Nova task smoke","description":"criada no smoke","priority":2,"user_id":2,"category_id":1,"due_date":"2030-01-15","tags":["smoke","test"]}
+POST /tasks {"title":"ab"}
+POST /tasks {"title":"Task com user inexistente","user_id":999}
+POST /tasks {"title":"Task com categoria inexistente","category_id":999}
+POST /tasks {"title":"Data errada","due_date":"15-01-2030"}
+POST /tasks {"title":"Prioridade texto","priority":"alta"}
+POST /users {"name":"Ana Costa","email":"ana@email.com","password":"senha1"}
+POST /users {"name":"Ana Dup","email":"ana@email.com","password":"senha1"}
+POST /users {"name":"Sem email","password":"1234"}
+POST /users {"name":"Email ruim","email":"invalido","password":"1234"}
+POST /users {"name":"Admin Novo","email":"adm@email.com","password":"1234","role":"admin"}
+POST /categories {"name":"Smoke","description":"cat smoke","color":"#123456"}
+POST /categories {"description":"sem nome"}
+# --- atualizações
+PUT /tasks/11 {"status":"in_progress","priority":4,"tags":"a,b","due_date":"2031-02-01"}
+PUT /tasks/11 {"status":"invalido"}
+PUT /tasks/11 {"priority":9}
+PUT /tasks/999 {"title":"xyz abc"}
+PUT /users/4 {"name":"Ana Costa Silva","role":"manager"}
+PUT /users/4 {"email":"invalido"}
+PUT /users/4 {"email":"joao@email.com"}
+PUT /users/999 {"name":"x"}
+PUT /categories/5 {"name":"Smoke 2","color":"#654321"}
+PUT /categories/999 {"name":"x"}
+POST /login {"email":"ana@email.com","password":"senha1"}
+# --- deleções
+DELETE /tasks/11
+DELETE /tasks/11
+DELETE /categories/5
+DELETE /categories/4
+DELETE /categories/999
+DELETE /users/3
+DELETE /users/999
+# --- leituras agregadas após deleções
+GET /tasks
+GET /tasks/4
+GET /tasks/stats
+GET /users
+GET /users/3
+GET /categories
+GET /reports/summary
+GET /reports/user/2
+GET /tasks/search?q=Configurar
