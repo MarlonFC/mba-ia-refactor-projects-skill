@@ -1,25 +1,41 @@
-"""Validações de entrada reutilizadas pelos controllers."""
 from middlewares.error_handler import ValidationError
 
 
-def exigir_objeto(payload, *, aceita_vazio: bool = False) -> dict:
-    if not isinstance(payload, dict) or (not payload and not aceita_vazio):
+def require_json(payload) -> dict:
+    if not isinstance(payload, dict) or not payload:
         raise ValidationError("Dados inválidos")
     return payload
 
 
-def eh_numero(valor) -> bool:
-    return isinstance(valor, (int, float)) and not isinstance(valor, bool)
+def require_number(value, message: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValidationError(message)
+    return value
 
 
-def como_inteiro(valor) -> int | None:
-    """Aceita int ou string de dígitos (o contrato original aceitava ambos); senão None."""
-    if isinstance(valor, int) and not isinstance(valor, bool):
-        return valor
-    if isinstance(valor, str) and valor.isdigit():
-        return int(valor)
-    return None
+def require_int(value, message: str) -> int:
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise ValidationError(message)
+    return value
 
 
-def textos_preenchidos(*valores) -> bool:
-    return all(isinstance(valor, str) and valor for valor in valores)
+def require_id(value, message: str) -> int:
+    """IDs aceitam inteiro ou string numérica (o contrato original aceitava ambos)."""
+    if isinstance(value, str) and value.isdigit():
+        return int(value)
+    return require_int(value, message)
+
+
+def require_str(value, message: str) -> str:
+    if not isinstance(value, str):
+        raise ValidationError(message)
+    return value
+
+
+def optional_float(raw: str | None, field: str) -> float | None:
+    if not raw:
+        return None
+    try:
+        return float(raw)
+    except ValueError:
+        raise ValidationError(f"{field} inválido") from None

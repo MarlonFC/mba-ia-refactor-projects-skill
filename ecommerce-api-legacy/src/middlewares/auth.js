@@ -1,13 +1,13 @@
 const crypto = require('crypto');
-const config = require('../config');
 
-// Exige o header X-Admin-Token igual a ADMIN_TOKEN. Sem ADMIN_TOKEN configurado, nega sempre.
-module.exports = function requireAdmin(req, res, next) {
+// Exige X-Admin-Token igual ao token configurado; sem token configurado, tudo é negado.
+const createRequireAdmin = (adminToken) => (req, res, next) => {
+  const expected = Buffer.from(adminToken);
   const provided = Buffer.from(req.get('X-Admin-Token') || '');
-  const expected = Buffer.from(config.adminToken);
-  const authorized = expected.length > 0
-    && provided.length === expected.length
-    && crypto.timingSafeEqual(provided, expected);
-  if (!authorized) return res.status(401).send('Não autorizado');
+  if (!expected.length || provided.length !== expected.length || !crypto.timingSafeEqual(provided, expected)) {
+    return res.status(401).send('Não autorizado');
+  }
   return next();
 };
+
+module.exports = { createRequireAdmin };

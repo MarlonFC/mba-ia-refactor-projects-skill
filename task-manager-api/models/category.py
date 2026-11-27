@@ -2,7 +2,6 @@ from sqlalchemy import func
 
 from config.settings import DEFAULT_CATEGORY_COLOR
 from database import db
-from models.task import Task
 from utils.time import utc_now
 
 
@@ -24,29 +23,23 @@ class Category(db.Model):
             'created_at': str(self.created_at),
         }
 
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def delete_unlinking_tasks(self):
-        """Tasks são independentes da categoria: desvincula (category_id = NULL) e remove, na mesma transação."""
-        Task.query.filter_by(category_id=self.id).update({'category_id': None})
-        db.session.delete(self)
-        db.session.commit()
-
+    # --- consultas ---
     @classmethod
     def find(cls, category_id):
         return db.session.get(cls, category_id)
 
     @classmethod
-    def list_all(cls):
+    def all_ordered(cls):
         return cls.query.order_by(cls.id).all()
 
     @classmethod
-    def count(cls):
+    def count_all(cls):
         return cls.query.count()
 
     @staticmethod
     def task_counts():
-        """{category_id: quantidade de tasks} em uma única query."""
-        return dict(db.session.query(Task.category_id, func.count(Task.id)).group_by(Task.category_id).all())
+        """{category_id: nº de tasks} em uma única query agregada."""
+        from models.task import Task
+
+        rows = db.session.query(Task.category_id, func.count(Task.id)).group_by(Task.category_id).all()
+        return dict(rows)

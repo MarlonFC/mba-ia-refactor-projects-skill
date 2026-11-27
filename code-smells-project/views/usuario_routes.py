@@ -12,7 +12,7 @@ def listar_usuarios():
 
 @usuario_bp.get("/usuarios/<int:usuario_id>")
 def buscar_usuario(usuario_id):
-    return jsonify({"dados": usuario_controller.obter(usuario_id), "sucesso": True}), 200
+    return jsonify({"dados": usuario_controller.buscar(usuario_id), "sucesso": True}), 200
 
 
 @usuario_bp.post("/usuarios")

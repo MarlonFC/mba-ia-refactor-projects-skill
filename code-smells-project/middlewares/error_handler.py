@@ -1,4 +1,3 @@
-"""Erros de aplicação e tratamento central de exceções."""
 import logging
 
 from flask import jsonify

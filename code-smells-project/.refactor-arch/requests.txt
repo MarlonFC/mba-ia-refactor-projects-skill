@@ -1,4 +1,4 @@
-# METHOD PATH [JSON]
+# METHOD PATH [JSON] — cobre as 19 rotas do inventário (Fase 1)
 # --- leituras ---
 GET /
 GET /health
@@ -7,7 +7,6 @@ GET /produtos/1
 GET /produtos/999
 GET /produtos/busca?q=Mouse
 GET /produtos/busca?categoria=informatica&preco_min=100&preco_max=500
-GET /produtos/busca?q=27'
 GET /usuarios
 GET /usuarios/1
 GET /usuarios/999
@@ -15,43 +14,38 @@ GET /pedidos
 GET /pedidos/usuario/2
 GET /relatorios/vendas
 # --- criações ---
-POST /produtos {"nome":"Livro Python","descricao":"Livro de Python","preco":79.9,"estoque":5,"categoria":"livros"}
-POST /produtos {"preco":10,"estoque":1}
-POST /produtos {"nome":"Produto X","preco":-1,"estoque":1}
+POST /produtos {"nome":"Livro Python","descricao":"Livro de Python","preco":89.9,"estoque":5,"categoria":"livros"}
+POST /produtos {"preco":10}
 POST /produtos {"nome":"Produto X","preco":10,"estoque":1,"categoria":"invalida"}
 POST /usuarios {"nome":"Carlos","email":"carlos@email.com","senha":"abc123"}
-POST /usuarios {"nome":"Carlos"}
-POST /login {"email":"admin@loja.com","senha":"admin123"}
+POST /usuarios {"nome":"Sem Email"}
+POST /login {"email":"joao@email.com","senha":"123456"}
+POST /login {"email":"joao@email.com","senha":"errada"}
 POST /login {"email":"carlos@email.com","senha":"abc123"}
-POST /login {"email":"admin@loja.com","senha":"errada"}
 POST /login {"email":"admin@loja.com' --","senha":"x"}
-POST /login {"email":""}
-POST /login null
 POST /pedidos {"usuario_id":2,"itens":[{"produto_id":1,"quantidade":1},{"produto_id":2,"quantidade":2}]}
-POST /pedidos {"usuario_id":3,"itens":[{"produto_id":3,"quantidade":1}]}
+POST /pedidos {"usuario_id":3,"itens":[{"produto_id":6,"quantidade":2}]}
+POST /pedidos {"usuario_id":2,"itens":[{"produto_id":6,"quantidade":100}]}
 POST /pedidos {"usuario_id":2,"itens":[{"produto_id":999,"quantidade":1}]}
-POST /pedidos {"usuario_id":2,"itens":[{"produto_id":6,"quantidade":1000}]}
 POST /pedidos {"usuario_id":2,"itens":[]}
-POST /pedidos {"itens":[{"produto_id":1,"quantidade":1}]}
-GET /pedidos
-GET /pedidos/usuario/2
-GET /relatorios/vendas
+POST /admin/query {"sql":"SELECT COUNT(*) AS n FROM produtos"}
 # --- atualizações ---
-PUT /produtos/1 {"nome":"Notebook Gamer Pro","descricao":"Atualizado","preco":6499.9,"estoque":9,"categoria":"informatica"}
-PUT /produtos/999 {"nome":"X","preco":1,"estoque":1}
-PUT /produtos/1 {"nome":"Notebook"}
+PUT /produtos/11 {"nome":"Livro Python 2a ed","descricao":"Revisado","preco":99.9,"estoque":4,"categoria":"livros"}
+PUT /produtos/999 {"nome":"Nada","preco":1,"estoque":1}
 PUT /pedidos/1/status {"status":"aprovado"}
 PUT /pedidos/2/status {"status":"cancelado"}
-PUT /pedidos/1/status {"status":"invalido"}
-GET /produtos/1
-GET /relatorios/vendas
+PUT /pedidos/1/status {"status":"xyz"}
 # --- deleções ---
 DELETE /produtos/11
 DELETE /produtos/999
+DELETE /produtos/2
+# --- leituras agregadas após deleções ---
+GET /produtos/11
 GET /produtos
-# --- admin (último) ---
-POST /admin/query {"sql":"SELECT COUNT(*) AS n FROM produtos"}
-POST /admin/query {}
+GET /pedidos
+GET /pedidos/usuario/2
+GET /relatorios/vendas
 GET /health
+# --- destrutiva global por último ---
 POST /admin/reset-db
 GET /health

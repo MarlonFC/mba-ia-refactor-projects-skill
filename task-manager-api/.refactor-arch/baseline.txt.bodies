@@ -10,7 +10,7 @@
 -> 200
 {
   "status": "ok",
-  "timestamp": "2026-11-23 14:14:34.484103"
+  "timestamp": "2026-11-27 17:19:18.152935"
 }
 
 
@@ -20,39 +20,39 @@
   {
     "category_id": 1,
     "category_name": "Backend",
-    "created_at": "2026-11-23 17:14:33.631317",
+    "created_at": "2026-11-27 20:19:17.345480",
     "description": "Adicionar autentica\u00e7\u00e3o real com JWT",
-    "due_date": "2026-11-20 17:14:33.628500",
+    "due_date": "2026-11-24 20:19:17.343407",
     "id": 1,
     "overdue": true,
     "priority": 1,
     "status": "pending",
     "tags": [],
     "title": "Implementar autentica\u00e7\u00e3o JWT",
-    "updated_at": "2026-11-23 17:14:33.631320",
+    "updated_at": "2026-11-27 20:19:17.345482",
     "user_id": 1,
     "user_name": "Jo\u00e3o Silva"
   },
   {
     "category_id": 2,
     "category_name": "Frontend",
-    "created_at": "2026-11-23 17:14:33.631321",
+    "created_at": "2026-11-27 20:19:17.345483",
     "description": "Tela de login responsiva",
-    "due_date": "2026-11-28 17:14:33.629186",
+    "due_date": "2026-12-02 20:19:17.343873",
     "id": 2,
     "overdue": false,
     "priority": 2,
     "status": "in_progress",
     "tags": [],
     "title": "Criar tela de login",
-    "updated_at": "2026-11-23 17:14:33.631322",
+    "updated_at": "2026-11-27 20:19:17.345483",
     "user_id": 2,
     "user_name": "Maria Santos"
   },
   {
     "category_id": 3,
     "category_name": "DevOps",
-    "created_at": "2026-11-23 17:14:33.631323",
+    "created_at": "2026-11-27 20:19:17.345484",
     "description": "Pipeline com GitHub Actions",
     "due_date": null,
     "id": 3,
@@ -65,46 +65,46 @@
       "github"
     ],
     "title": "Configurar CI/CD",
-    "updated_at": "2026-11-23 17:14:33.631324",
+    "updated_at": "2026-11-27 20:19:17.345484",
     "user_id": 3,
     "user_name": "Pedro Oliveira"
   },
   {
     "category_id": 4,
     "category_name": "Bug",
-    "created_at": "2026-11-23 17:14:33.631324",
+    "created_at": "2026-11-27 20:19:17.345485",
     "description": "Filtro n\u00e3o funciona com caracteres especiais",
-    "due_date": "2026-11-22 17:14:33.629714",
+    "due_date": "2026-11-26 20:19:17.344441",
     "id": 4,
     "overdue": true,
     "priority": 1,
     "status": "pending",
     "tags": [],
     "title": "Corrigir bug no filtro de busca",
-    "updated_at": "2026-11-23 17:14:33.631325",
+    "updated_at": "2026-11-27 20:19:17.345486",
     "user_id": 1,
     "user_name": "Jo\u00e3o Silva"
   },
   {
     "category_id": 1,
     "category_name": "Backend",
-    "created_at": "2026-11-23 17:14:33.631326",
+    "created_at": "2026-11-27 20:19:17.345486",
     "description": "Endpoints retornam todos os registros",
-    "due_date": "2026-12-03 17:14:33.629725",
+    "due_date": "2026-12-07 20:19:17.344457",
     "id": 5,
     "overdue": false,
     "priority": 3,
     "status": "pending",
     "tags": [],
     "title": "Adicionar pagina\u00e7\u00e3o na API",
-    "updated_at": "2026-11-23 17:14:33.631327",
+    "updated_at": "2026-11-27 20:19:17.345487",
     "user_id": 1,
     "user_name": "Jo\u00e3o Silva"
   },
   {
     "category_id": 1,
     "category_name": "Backend",
-    "created_at": "2026-11-23 17:14:33.631327",
+    "created_at": "2026-11-27 20:19:17.345487",
     "description": "Cobertura m\u00ednima de 80%",
     "due_date": null,
     "id": 6,
@@ -113,14 +113,14 @@
     "status": "pending",
     "tags": [],
     "title": "Escrever testes unit\u00e1rios",
-    "updated_at": "2026-11-23 17:14:33.631328",
+    "updated_at": "2026-11-27 20:19:17.345488",
     "user_id": 2,
     "user_name": "Maria Santos"
   },
   {
     "category_id": 1,
     "category_name": "Backend",
-    "created_at": "2026-11-23 17:14:33.631329",
+    "created_at": "2026-11-27 20:19:17.345489",
     "description": "Gerar documenta\u00e7\u00e3o autom\u00e1tica",
     "due_date": null,
     "id": 7,
@@ -129,14 +129,14 @@
     "status": "cancelled",
     "tags": [],
     "title": "Documentar API com Swagger",
-    "updated_at": "2026-11-23 17:14:33.631329",
+    "updated_at": "2026-11-27 20:19:17.345489",
     "user_id": 3,
     "user_name": "Pedro Oliveira"
   },
   {
     "category_id": 1,
     "category_name": "Backend",
-    "created_at": "2026-11-23 17:14:33.631330",
+    "created_at": "2026-11-27 20:19:17.345490",
     "description": "Melhorar organiza\u00e7\u00e3o dos models",
     "due_date": null,
     "id": 8,
@@ -148,30 +148,30 @@
       "tech-debt"
     ],
     "title": "Refatorar models",
-    "updated_at": "2026-11-23 17:14:33.631331",
+    "updated_at": "2026-11-27 20:19:17.345490",
     "user_id": 2,
     "user_name": "Maria Santos"
   },
   {
     "category_id": 3,
     "category_name": "DevOps",
-    "created_at": "2026-11-23 17:14:33.631332",
+    "created_at": "2026-11-27 20:19:17.345491",
     "description": "Prometheus + Grafana",
-    "due_date": "2026-12-13 17:14:33.629735",
+    "due_date": "2026-12-17 20:19:17.344467",
     "id": 9,
     "overdue": false,
     "priority": 4,
     "status": "pending",
     "tags": [],
     "title": "Configurar monitoramento",
-    "updated_at": "2026-11-23 17:14:33.631332",
+    "updated_at": "2026-11-27 20:19:17.345491",
     "user_id": 3,
     "user_name": "Pedro Oliveira"
   },
   {
     "category_id": 1,
     "category_name": "Backend",
-    "created_at": "2026-11-23 17:14:33.631333",
+    "created_at": "2026-11-27 20:19:17.345492",
     "description": "Usar marshmallow ou pydantic",
     "due_date": null,
     "id": 10,
@@ -183,7 +183,7 @@
       "validation"
     ],
     "title": "Melhorar valida\u00e7\u00f5es de input",
-    "updated_at": "2026-11-23 17:14:33.631334",
+    "updated_at": "2026-11-27 20:19:17.345493",
     "user_id": 1,
     "user_name": "Jo\u00e3o Silva"
   }
@@ -194,16 +194,16 @@
 -> 200
 {
   "category_id": 1,
-  "created_at": "2026-11-23 17:14:33.631317",
+  "created_at": "2026-11-27 20:19:17.345480",
   "description": "Adicionar autentica\u00e7\u00e3o real com JWT",
-  "due_date": "2026-11-20 17:14:33.628500",
+  "due_date": "2026-11-24 20:19:17.343407",
   "id": 1,
   "overdue": true,
   "priority": 1,
   "status": "pending",
   "tags": [],
   "title": "Implementar autentica\u00e7\u00e3o JWT",
-  "updated_at": "2026-11-23 17:14:33.631320",
+  "updated_at": "2026-11-27 20:19:17.345482",
   "user_id": 1
 }
 
@@ -220,20 +220,20 @@
 [
   {
     "category_id": 1,
-    "created_at": "2026-11-23 17:14:33.631326",
+    "created_at": "2026-11-27 20:19:17.345486",
     "description": "Endpoints retornam todos os registros",
-    "due_date": "2026-12-03 17:14:33.629725",
+    "due_date": "2026-12-07 20:19:17.344457",
     "id": 5,
     "priority": 3,
     "status": "pending",
     "tags": [],
     "title": "Adicionar pagina\u00e7\u00e3o na API",
-    "updated_at": "2026-11-23 17:14:33.631327",
+    "updated_at": "2026-11-27 20:19:17.345487",
     "user_id": 1
   },
   {
     "category_id": 1,
-    "created_at": "2026-11-23 17:14:33.631329",
+    "created_at": "2026-11-27 20:19:17.345489",
     "description": "Gerar documenta\u00e7\u00e3o autom\u00e1tica",
     "due_date": null,
     "id": 7,
@@ -241,7 +241,7 @@
     "status": "cancelled",
     "tags": [],
     "title": "Documentar API com Swagger",
-    "updated_at": "2026-11-23 17:14:33.631329",
+    "updated_at": "2026-11-27 20:19:17.345489",
     "user_id": 3
   }
 ]
@@ -252,28 +252,28 @@
 [
   {
     "category_id": 1,
-    "created_at": "2026-11-23 17:14:33.631317",
+    "created_at": "2026-11-27 20:19:17.345480",
     "description": "Adicionar autentica\u00e7\u00e3o real com JWT",
-    "due_date": "2026-11-20 17:14:33.628500",
+    "due_date": "2026-11-24 20:19:17.343407",
     "id": 1,
     "priority": 1,
     "status": "pending",
     "tags": [],
     "title": "Implementar autentica\u00e7\u00e3o JWT",
-    "updated_at": "2026-11-23 17:14:33.631320",
+    "updated_at": "2026-11-27 20:19:17.345482",
     "user_id": 1
   },
   {
     "category_id": 4,
-    "created_at": "2026-11-23 17:14:33.631324",
+    "created_at": "2026-11-27 20:19:17.345485",
     "description": "Filtro n\u00e3o funciona com caracteres especiais",
-    "due_date": "2026-11-22 17:14:33.629714",
+    "due_date": "2026-11-26 20:19:17.344441",
     "id": 4,
     "priority": 1,
     "status": "pending",
     "tags": [],
     "title": "Corrigir bug no filtro de busca",
-    "updated_at": "2026-11-23 17:14:33.631325",
+    "updated_at": "2026-11-27 20:19:17.345486",
     "user_id": 1
   }
 ]
@@ -284,46 +284,46 @@
 [
   {
     "category_id": 1,
-    "created_at": "2026-11-23 17:14:33.631317",
+    "created_at": "2026-11-27 20:19:17.345480",
     "description": "Adicionar autentica\u00e7\u00e3o real com JWT",
-    "due_date": "2026-11-20 17:14:33.628500",
+    "due_date": "2026-11-24 20:19:17.343407",
     "id": 1,
     "priority": 1,
     "status": "pending",
     "tags": [],
     "title": "Implementar autentica\u00e7\u00e3o JWT",
-    "updated_at": "2026-11-23 17:14:33.631320",
+    "updated_at": "2026-11-27 20:19:17.345482",
     "user_id": 1
   },
   {
     "category_id": 4,
-    "created_at": "2026-11-23 17:14:33.631324",
+    "created_at": "2026-11-27 20:19:17.345485",
     "description": "Filtro n\u00e3o funciona com caracteres especiais",
-    "due_date": "2026-11-22 17:14:33.629714",
+    "due_date": "2026-11-26 20:19:17.344441",
     "id": 4,
     "priority": 1,
     "status": "pending",
     "tags": [],
     "title": "Corrigir bug no filtro de busca",
-    "updated_at": "2026-11-23 17:14:33.631325",
+    "updated_at": "2026-11-27 20:19:17.345486",
     "user_id": 1
   },
   {
     "category_id": 1,
-    "created_at": "2026-11-23 17:14:33.631326",
+    "created_at": "2026-11-27 20:19:17.345486",
     "description": "Endpoints retornam todos os registros",
-    "due_date": "2026-12-03 17:14:33.629725",
+    "due_date": "2026-12-07 20:19:17.344457",
     "id": 5,
     "priority": 3,
     "status": "pending",
     "tags": [],
     "title": "Adicionar pagina\u00e7\u00e3o na API",
-    "updated_at": "2026-11-23 17:14:33.631327",
+    "updated_at": "2026-11-27 20:19:17.345487",
     "user_id": 1
   },
   {
     "category_id": 1,
-    "created_at": "2026-11-23 17:14:33.631333",
+    "created_at": "2026-11-27 20:19:17.345492",
     "description": "Usar marshmallow ou pydantic",
     "due_date": null,
     "id": 10,
@@ -334,7 +334,7 @@
       "validation"
     ],
     "title": "Melhorar valida\u00e7\u00f5es de input",
-    "updated_at": "2026-11-23 17:14:33.631334",
+    "updated_at": "2026-11-27 20:19:17.345493",
     "user_id": 1
   }
 ]
@@ -358,7 +358,7 @@
 [
   {
     "active": true,
-    "created_at": "2026-11-23 17:14:33.598819",
+    "created_at": "2026-11-27 20:19:17.325229",
     "email": "joao@email.com",
     "id": 1,
     "name": "Jo\u00e3o Silva",
@@ -367,7 +367,7 @@
   },
   {
     "active": true,
-    "created_at": "2026-11-23 17:14:33.598825",
+    "created_at": "2026-11-27 20:19:17.325234",
     "email": "maria@email.com",
     "id": 2,
     "name": "Maria Santos",
@@ -376,7 +376,7 @@
   },
   {
     "active": true,
-    "created_at": "2026-11-23 17:14:33.598827",
+    "created_at": "2026-11-27 20:19:17.325236",
     "email": "pedro@email.com",
     "id": 3,
     "name": "Pedro Oliveira",
@@ -390,7 +390,7 @@
 -> 200
 {
   "active": true,
-  "created_at": "2026-11-23 17:14:33.598819",
+  "created_at": "2026-11-27 20:19:17.325229",
   "email": "joao@email.com",
   "id": 1,
   "name": "Jo\u00e3o Silva",
@@ -399,46 +399,46 @@
   "tasks": [
     {
       "category_id": 1,
-      "created_at": "2026-11-23 17:14:33.631317",
+      "created_at": "2026-11-27 20:19:17.345480",
       "description": "Adicionar autentica\u00e7\u00e3o real com JWT",
-      "due_date": "2026-11-20 17:14:33.628500",
+      "due_date": "2026-11-24 20:19:17.343407",
       "id": 1,
       "priority": 1,
       "status": "pending",
       "tags": [],
       "title": "Implementar autentica\u00e7\u00e3o JWT",
-      "updated_at": "2026-11-23 17:14:33.631320",
+      "updated_at": "2026-11-27 20:19:17.345482",
       "user_id": 1
     },
     {
       "category_id": 4,
-      "created_at": "2026-11-23 17:14:33.631324",
+      "created_at": "2026-11-27 20:19:17.345485",
       "description": "Filtro n\u00e3o funciona com caracteres especiais",
-      "due_date": "2026-11-22 17:14:33.629714",
+      "due_date": "2026-11-26 20:19:17.344441",
       "id": 4,
       "priority": 1,
       "status": "pending",
       "tags": [],
       "title": "Corrigir bug no filtro de busca",
-      "updated_at": "2026-11-23 17:14:33.631325",
+      "updated_at": "2026-11-27 20:19:17.345486",
       "user_id": 1
     },
     {
       "category_id": 1,
-      "created_at": "2026-11-23 17:14:33.631326",
+      "created_at": "2026-11-27 20:19:17.345486",
       "description": "Endpoints retornam todos os registros",
-      "due_date": "2026-12-03 17:14:33.629725",
+      "due_date": "2026-12-07 20:19:17.344457",
       "id": 5,
       "priority": 3,
       "status": "pending",
       "tags": [],
       "title": "Adicionar pagina\u00e7\u00e3o na API",
-      "updated_at": "2026-11-23 17:14:33.631327",
+      "updated_at": "2026-11-27 20:19:17.345487",
       "user_id": 1
     },
     {
       "category_id": 1,
-      "created_at": "2026-11-23 17:14:33.631333",
+      "created_at": "2026-11-27 20:19:17.345492",
       "description": "Usar marshmallow ou pydantic",
       "due_date": null,
       "id": 10,
@@ -449,7 +449,7 @@
         "validation"
       ],
       "title": "Melhorar valida\u00e7\u00f5es de input",
-      "updated_at": "2026-11-23 17:14:33.631334",
+      "updated_at": "2026-11-27 20:19:17.345493",
       "user_id": 1
     }
   ]
@@ -463,48 +463,38 @@
 }
 
 
-### GET /users/1/tasks 
+### GET /users/2/tasks 
 -> 200
 [
   {
-    "created_at": "2026-11-23 17:14:33.631317",
-    "description": "Adicionar autentica\u00e7\u00e3o real com JWT",
-    "due_date": "2026-11-20 17:14:33.628500",
-    "id": 1,
-    "overdue": true,
-    "priority": 1,
-    "status": "pending",
-    "title": "Implementar autentica\u00e7\u00e3o JWT"
-  },
-  {
-    "created_at": "2026-11-23 17:14:33.631324",
-    "description": "Filtro n\u00e3o funciona com caracteres especiais",
-    "due_date": "2026-11-22 17:14:33.629714",
-    "id": 4,
-    "overdue": true,
-    "priority": 1,
-    "status": "pending",
-    "title": "Corrigir bug no filtro de busca"
-  },
-  {
-    "created_at": "2026-11-23 17:14:33.631326",
-    "description": "Endpoints retornam todos os registros",
-    "due_date": "2026-12-03 17:14:33.629725",
-    "id": 5,
+    "created_at": "2026-11-27 20:19:17.345483",
+    "description": "Tela de login responsiva",
+    "due_date": "2026-12-02 20:19:17.343873",
+    "id": 2,
     "overdue": false,
-    "priority": 3,
-    "status": "pending",
-    "title": "Adicionar pagina\u00e7\u00e3o na API"
+    "priority": 2,
+    "status": "in_progress",
+    "title": "Criar tela de login"
   },
   {
-    "created_at": "2026-11-23 17:14:33.631333",
-    "description": "Usar marshmallow ou pydantic",
+    "created_at": "2026-11-27 20:19:17.345487",
+    "description": "Cobertura m\u00ednima de 80%",
     "due_date": null,
-    "id": 10,
+    "id": 6,
+    "overdue": false,
+    "priority": 2,
+    "status": "pending",
+    "title": "Escrever testes unit\u00e1rios"
+  },
+  {
+    "created_at": "2026-11-27 20:19:17.345490",
+    "description": "Melhorar organiza\u00e7\u00e3o dos models",
+    "due_date": null,
+    "id": 8,
     "overdue": false,
     "priority": 3,
-    "status": "pending",
-    "title": "Melhorar valida\u00e7\u00f5es de input"
+    "status": "in_progress",
+    "title": "Refatorar models"
   }
 ]
 
@@ -519,19 +509,19 @@
 ### GET /reports/summary 
 -> 200
 {
-  "generated_at": "2026-11-23 17:14:34.671734",
+  "generated_at": "2026-11-27 20:19:18.359534",
   "overdue": {
     "count": 2,
     "tasks": [
       {
         "days_overdue": 3,
-        "due_date": "2026-11-20 17:14:33.628500",
+        "due_date": "2026-11-24 20:19:17.343407",
         "id": 1,
         "title": "Implementar autentica\u00e7\u00e3o JWT"
       },
       {
         "days_overdue": 1,
-        "due_date": "2026-11-22 17:14:33.629714",
+        "due_date": "2026-11-26 20:19:17.344441",
         "id": 4,
         "title": "Corrigir bug no filtro de busca"
       }
@@ -618,7 +608,7 @@
 [
   {
     "color": "#3498db",
-    "created_at": "2026-11-23 17:14:33.610089",
+    "created_at": "2026-11-27 20:19:17.333494",
     "description": "Tarefas de backend",
     "id": 1,
     "name": "Backend",
@@ -626,7 +616,7 @@
   },
   {
     "color": "#2ecc71",
-    "created_at": "2026-11-23 17:14:33.610097",
+    "created_at": "2026-11-27 20:19:17.333498",
     "description": "Tarefas de frontend",
     "id": 2,
     "name": "Frontend",
@@ -634,7 +624,7 @@
   },
   {
     "color": "#e74c3c",
-    "created_at": "2026-11-23 17:14:33.610100",
+    "created_at": "2026-11-27 20:19:17.333498",
     "description": "Tarefas de infraestrutura",
     "id": 3,
     "name": "DevOps",
@@ -642,7 +632,7 @@
   },
   {
     "color": "#e67e22",
-    "created_at": "2026-11-23 17:14:33.610102",
+    "created_at": "2026-11-27 20:19:17.333499",
     "description": "Corre\u00e7\u00e3o de bugs",
     "id": 4,
     "name": "Bug",
@@ -658,7 +648,7 @@
   "token": "fake-jwt-token-1",
   "user": {
     "active": true,
-    "created_at": "2026-11-23 17:14:33.598819",
+    "created_at": "2026-11-27 20:19:17.325229",
     "email": "joao@email.com",
     "id": 1,
     "name": "Jo\u00e3o Silva",
@@ -682,23 +672,23 @@
 }
 
 
-### POST /tasks {"title":"Nova task smoke","description":"d","priority":2,"user_id":1,"category_id":1,"due_date":"2030-01-15","tags":["a","b"]}
+### POST /tasks {"title":"Nova task smoke","description":"criada no smoke","priority":2,"user_id":2,"category_id":1,"due_date":"2030-01-15","tags":["smoke","test"]}
 -> 201
 {
   "category_id": 1,
-  "created_at": "2026-11-23 17:14:34.762771",
-  "description": "d",
+  "created_at": "2026-11-27 20:19:18.471910",
+  "description": "criada no smoke",
   "due_date": "2030-01-15 00:00:00",
   "id": 11,
   "priority": 2,
   "status": "pending",
   "tags": [
-    "a",
-    "b"
+    "smoke",
+    "test"
   ],
   "title": "Nova task smoke",
-  "updated_at": "2026-11-23 17:14:34.762775",
-  "user_id": 1
+  "updated_at": "2026-11-27 20:19:18.471914",
+  "user_id": 2
 }
 
 
@@ -709,49 +699,28 @@
 }
 
 
-### POST /tasks {"description":"sem titulo"}
--> 400
-{
-  "error": "T\u00edtulo \u00e9 obrigat\u00f3rio"
-}
-
-
-### POST /tasks {"title":"Task status ruim","status":"xyz"}
--> 400
-{
-  "error": "Status inv\u00e1lido"
-}
-
-
-### POST /tasks {"title":"Task prioridade ruim","priority":9}
--> 400
-{
-  "error": "Prioridade deve ser entre 1 e 5"
-}
-
-
-### POST /tasks {"title":"Task user ruim","user_id":999}
+### POST /tasks {"title":"Task com user inexistente","user_id":999}
 -> 404
 {
   "error": "Usu\u00e1rio n\u00e3o encontrado"
 }
 
 
-### POST /tasks {"title":"Task categoria ruim","category_id":999}
+### POST /tasks {"title":"Task com categoria inexistente","category_id":999}
 -> 404
 {
   "error": "Categoria n\u00e3o encontrada"
 }
 
 
-### POST /tasks {"title":"Task data ruim","due_date":"15/01/2030"}
+### POST /tasks {"title":"Data errada","due_date":"15-01-2030"}
 -> 400
 {
   "error": "Formato de data inv\u00e1lido. Use YYYY-MM-DD"
 }
 
 
-### POST /tasks {"title":"Task prioridade string","priority":"5"}
+### POST /tasks {"title":"Prioridade texto","priority":"alta"}
 -> 500
 <!doctype html>
 <html lang=en>
@@ -766,7 +735,7 @@
       var CONSOLE_MODE = false,
           EVALEX = true,
           EVALEX_TRUSTED = false,
-          SECRET = "v4fM83KSPLHe1kuhsw0b";
+          SECRET = "zE54PF2Xh9mEC7QRvp3i";
     </script>
   </head>
   <body style="background-color: #fff">
@@ -779,7 +748,7 @@
 <h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
 <div class="traceback">
   <h3></h3>
-  <ul><li><div class="frame" id="frame-124826513250144">
+  <ul><li><div class="frame" id="frame-130701295209984">
   <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1478</em>,
       in <code class="function">__call__</code></h4>
@@ -792,7 +761,7 @@
 <span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre></div>
 </div>
 
-<li><div class="frame" id="frame-124826513247104">
+<li><div class="frame" id="frame-130701315204864">
   <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1458</em>,
       in <code class="function">wsgi_app</code></h4>
@@ -810,7 +779,7 @@
 <pre class="line after"><span class="ws">        </span>finally:</pre></div>
 </div>
 
-<li><div class="frame" id="frame-124826513250784">
+<li><div class="frame" id="frame-130701295208864">
   <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
       line <em class="line">176</em>,
       in <code class="function">wrapped_function</code></h4>
@@ -828,7 +797,7 @@
 <pre class="line after"><span class="ws">                    </span>app.handle_exception)</pre></div>
 </div>
 
-<li><div class="frame" id="frame-124826513246624">
+<li><div class="frame" id="frame-130701295209184">
   <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">1455</em>,
       in <code class="function">wsgi_app</code></h4>
@@ -846,7 +815,7 @@
 <pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
 </div>
 
-<li><div class="frame" id="frame-124826513250944">
+<li><div class="frame" id="frame-130701295209024">
   <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">869</em>,
       in <code class="function">full_dispatch_request</code></h4>
@@ -864,7 +833,7 @@
 <pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
 </div>
 
-<li><div class="frame" id="frame-124826513250624">
+<li><div class="frame" id="frame-130701295208704">
   <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
       line <em class="line">176</em>,
       in <code class="function">wrapped_function</code></h4>
@@ -882,7 +851,7 @@
 <pre class="line after"><span class="ws">                    </span>app.handle_exception)</pre></div>
 </div>
 
-<li><div class="frame" id="frame-124826513251104">
+<li><div class="frame" id="frame-130701295209344">
   <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">867</em>,
       in <code class="function">full_dispatch_request</code></h4>
@@ -900,7 +869,7 @@
 <pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
 </div>
 
-<li><div class="frame" id="frame-124826513251264">
+<li><div class="frame" id="frame-130701295209664">
   <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
       line <em class="line">852</em>,
       in <code class="function">dispatch_request</code></h4>
@@ -918,7 +887,7 @@
 <pre class="line after"><span class="ws">        </span>error handling.</pre></div>
 </div>
 
-<li><div class="frame" id="frame-124826513251424">
+<li><div class="frame" id="frame-130701295210624">
   <h4>File <cite class="filename">"<repo>/task-manager-api/routes/task_routes.py"</cite>,
       line <em class="line">113</em>,
       in <code class="function">create_task</code></h4>
@@ -1033,72 +1002,61 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 -->
 
 
-### POST /users {"name":"Smoke User","email":"smoke@email.com","password":"secret1","role":"user"}
+### POST /users {"name":"Ana Costa","email":"ana@email.com","password":"senha1"}
 -> 201
 {
   "active": true,
-  "created_at": "2026-11-23 17:14:34.869941",
-  "email": "smoke@email.com",
+  "created_at": "2026-11-27 20:19:18.574463",
+  "email": "ana@email.com",
   "id": 4,
-  "name": "Smoke User",
-  "password": "e52d98c459819a11775936d8dfbb7929",
+  "name": "Ana Costa",
+  "password": "92f20dafc5e5ac1c66820903c492cc04",
   "role": "user"
 }
 
 
-### POST /users {"name":"Dup","email":"joao@email.com","password":"1234"}
+### POST /users {"name":"Ana Dup","email":"ana@email.com","password":"senha1"}
 -> 409
 {
   "error": "Email j\u00e1 cadastrado"
 }
 
 
-### POST /users {"name":"Bad","email":"bad-email","password":"1234"}
+### POST /users {"name":"Sem email","password":"1234"}
+-> 400
+{
+  "error": "Email \u00e9 obrigat\u00f3rio"
+}
+
+
+### POST /users {"name":"Email ruim","email":"invalido","password":"1234"}
 -> 400
 {
   "error": "Email inv\u00e1lido"
 }
 
 
-### POST /users {"name":"Bad role","email":"r@email.com","password":"1234","role":"root"}
--> 400
+### POST /users {"name":"Admin Novo","email":"adm@email.com","password":"1234","role":"admin"}
+-> 201
 {
-  "error": "Role inv\u00e1lido"
+  "active": true,
+  "created_at": "2026-11-27 20:19:18.630830",
+  "email": "adm@email.com",
+  "id": 5,
+  "name": "Admin Novo",
+  "password": "81dc9bdb52d04dc20036dbd8313ed055",
+  "role": "admin"
 }
 
 
-### POST /users {"email":"x@email.com","password":"1234"}
--> 400
-{
-  "error": "Nome \u00e9 obrigat\u00f3rio"
-}
-
-
-### POST /login {"email":"smoke@email.com","password":"secret1"}
--> 200
-{
-  "message": "Login realizado com sucesso",
-  "token": "fake-jwt-token-4",
-  "user": {
-    "active": true,
-    "created_at": "2026-11-23 17:14:34.869941",
-    "email": "smoke@email.com",
-    "id": 4,
-    "name": "Smoke User",
-    "password": "e52d98c459819a11775936d8dfbb7929",
-    "role": "user"
-  }
-}
-
-
-### POST /categories {"name":"Smoke Cat","color":"#123456"}
+### POST /categories {"name":"Smoke","description":"cat smoke","color":"#123456"}
 -> 201
 {
   "color": "#123456",
-  "created_at": "2026-11-23 17:14:34.945485",
-  "description": "",
+  "created_at": "2026-11-27 20:19:18.653796",
+  "description": "cat smoke",
   "id": 5,
-  "name": "Smoke Cat"
+  "name": "Smoke"
 }
 
 
@@ -1109,353 +1067,71 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 }
 
 
-### PUT /tasks/11 {"status":"in_progress","priority":4,"tags":"x,y","due_date":null}
+### PUT /tasks/11 {"status":"in_progress","priority":4,"tags":"a,b","due_date":"2031-02-01"}
 -> 200
 {
   "category_id": 1,
-  "created_at": "2026-11-23 17:14:34.762771",
-  "description": "d",
-  "due_date": null,
+  "created_at": "2026-11-27 20:19:18.471910",
+  "description": "criada no smoke",
+  "due_date": "2031-02-01 00:00:00",
   "id": 11,
   "priority": 4,
   "status": "in_progress",
   "tags": [
-    "x",
-    "y"
+    "a",
+    "b"
   ],
   "title": "Nova task smoke",
-  "updated_at": "2026-11-23 17:14:34.976200",
-  "user_id": 1
+  "updated_at": "2026-11-27 20:19:18.689085",
+  "user_id": 2
 }
 
 
-### PUT /tasks/11 {"status":"bogus"}
+### PUT /tasks/11 {"status":"invalido"}
 -> 400
 {
   "error": "Status inv\u00e1lido"
 }
 
 
-### PUT /tasks/11 {"title":"ab"}
+### PUT /tasks/11 {"priority":9}
 -> 400
 {
-  "error": "T\u00edtulo muito curto"
+  "error": "Prioridade deve ser entre 1 e 5"
 }
 
 
-### PUT /tasks/11 {"priority":"3"}
--> 500
-<!doctype html>
-<html lang=en>
-  <head>
-    <title>TypeError: &#39;&lt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
- // Werkzeug Debugger</title>
-    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
-    <link rel="shortcut icon"
-        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
-    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
-    <script>
-      var CONSOLE_MODE = false,
-          EVALEX = true,
-          EVALEX_TRUSTED = false,
-          SECRET = "v4fM83KSPLHe1kuhsw0b";
-    </script>
-  </head>
-  <body style="background-color: #fff">
-    <div class="debugger">
-<h1>TypeError</h1>
-<div class="detail">
-  <p class="errormsg">TypeError: &#39;&lt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
-</p>
-</div>
-<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
-<div class="traceback">
-  <h3></h3>
-  <ul><li><div class="frame" id="frame-124826513562240">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">1478</em>,
-      in <code class="function">__call__</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">    </span>def __call__(self, environ: dict, start_response: t.Callable) -&gt; t.Any:</pre>
-<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
-<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
-<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
-<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
-<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)
-<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826513564000">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">1458</em>,
-      in <code class="function">wsgi_app</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">            </span>try:</pre>
-<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
-<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
-<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
-<pre class="line before"><span class="ws">                </span>error = e</pre>
-<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)
-<span class="ws">                </span>           ^^^^^^^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
-<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
-<pre class="line after"><span class="ws">                </span>raise</pre>
-<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
-<pre class="line after"><span class="ws">        </span>finally:</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826513562560">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
-      line <em class="line">176</em>,
-      in <code class="function">wrapped_function</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
-<pre class="line before"><span class="ws">        </span># These error handlers will still respect the behavior of the route</pre>
-<pre class="line before"><span class="ws">        </span>if options.get(&#39;intercept_exceptions&#39;, True):</pre>
-<pre class="line before"><span class="ws">            </span>def _after_request_decorator(f):</pre>
-<pre class="line before"><span class="ws">                </span>def wrapped_function(*args, **kwargs):</pre>
-<pre class="line current"><span class="ws">                    </span>return cors_after_request(app.make_response(f(*args, **kwargs)))
-<span class="ws">                    </span>                                            ^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">                </span>return wrapped_function</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">            </span>if hasattr(app, &#39;handle_exception&#39;):</pre>
-<pre class="line after"><span class="ws">                </span>app.handle_exception = _after_request_decorator(</pre>
-<pre class="line after"><span class="ws">                    </span>app.handle_exception)</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826513563680">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">1455</em>,
-      in <code class="function">wsgi_app</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
-<pre class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
-<pre class="line before"><span class="ws">        </span>try:</pre>
-<pre class="line before"><span class="ws">            </span>try:</pre>
-<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
-<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()
-<span class="ws">                </span>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
-<pre class="line after"><span class="ws">                </span>error = e</pre>
-<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
-<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
-<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826513564160">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">869</em>,
-      in <code class="function">full_dispatch_request</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
-<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
-<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
-<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
-<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
-<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)
-<span class="ws">            </span>     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
-<pre class="line after"><span class="ws">        </span>self,</pre>
-<pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826513564480">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
-      line <em class="line">176</em>,
-      in <code class="function">wrapped_function</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
-<pre class="line before"><span class="ws">        </span># These error handlers will still respect the behavior of the route</pre>
-<pre class="line before"><span class="ws">        </span>if options.get(&#39;intercept_exceptions&#39;, True):</pre>
-<pre class="line before"><span class="ws">            </span>def _after_request_decorator(f):</pre>
-<pre class="line before"><span class="ws">                </span>def wrapped_function(*args, **kwargs):</pre>
-<pre class="line current"><span class="ws">                    </span>return cors_after_request(app.make_response(f(*args, **kwargs)))
-<span class="ws">                    </span>                                            ^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">                </span>return wrapped_function</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">            </span>if hasattr(app, &#39;handle_exception&#39;):</pre>
-<pre class="line after"><span class="ws">                </span>app.handle_exception = _after_request_decorator(</pre>
-<pre class="line after"><span class="ws">                    </span>app.handle_exception)</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826513561440">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">867</em>,
-      in <code class="function">full_dispatch_request</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
-<pre class="line before"><span class="ws">        </span>try:</pre>
-<pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
-<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
-<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
-<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()
-<span class="ws">                </span>     ^^^^^^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
-<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
-<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826513561920">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">852</em>,
-      in <code class="function">dispatch_request</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
-<pre class="line before"><span class="ws">        </span>):</pre>
-<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
-<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
-<pre class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
-<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
-<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
-<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
-<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826513564640">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/routes/task_routes.py"</cite>,
-      line <em class="line">182</em>,
-      in <code class="function">update_task</code></h4>
-  <div class="source "><pre class="line before"><span class="ws">        </span>if data[&#39;status&#39;] not in [&#39;pending&#39;, &#39;in_progress&#39;, &#39;done&#39;, &#39;cancelled&#39;]:</pre>
-<pre class="line before"><span class="ws">            </span>return jsonify({&#39;error&#39;: &#39;Status inválido&#39;}), 400</pre>
-<pre class="line before"><span class="ws">        </span>task.status = data[&#39;status&#39;]</pre>
-<pre class="line before"><span class="ws"></span> </pre>
-<pre class="line before"><span class="ws">    </span>if &#39;priority&#39; in data:</pre>
-<pre class="line current"><span class="ws">        </span>if data[&#39;priority&#39;] &lt; 1 or data[&#39;priority&#39;] &gt; 5:
-<span class="ws">        </span>   ^^^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">            </span>return jsonify({&#39;error&#39;: &#39;Prioridade deve ser entre 1 e 5&#39;}), 400</pre>
-<pre class="line after"><span class="ws">        </span>task.priority = data[&#39;priority&#39;]</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">    </span>if &#39;user_id&#39; in data:</pre>
-<pre class="line after"><span class="ws">        </span>if data[&#39;user_id&#39;]:</pre></div>
-</div>
-</ul>
-  <blockquote>TypeError: &#39;&lt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
-</blockquote>
-</div>
-
-<div class="plain">
-    <p>
-      This is the Copy/Paste friendly version of the traceback.
-    </p>
-    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1478, in __call__
-    return self.wsgi_app(environ, start_response)
-           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1458, in wsgi_app
-    response = self.handle_exception(e)
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File &#34;<repo>/task-manager-api/routes/task_routes.py&#34;, line 182, in update_task
-    if data[&#39;priority&#39;] &lt; 1 or data[&#39;priority&#39;] &gt; 5:
-       ^^^^^^^^^^^^^^^^^^^^
-TypeError: &#39;&lt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
-</textarea>
-</div>
-<div class="explanation">
-  The debugger caught an exception in your WSGI application.  You can now
-  look at the traceback which led to the error.  <span class="nojavascript">
-  If you enable JavaScript you can also use additional features such as code
-  execution (if the evalex feature is enabled), automatic pasting of the
-  exceptions and much more.</span>
-</div>
-      <div class="footer">
-        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
-        friendly Werkzeug powered traceback interpreter.
-      </div>
-    </div>
-
-    <div class="pin-prompt">
-      <div class="inner">
-        <h3>Console Locked</h3>
-        <p>
-          The console is locked and needs to be unlocked by entering the PIN.
-          You can find the PIN printed out on the standard output of your
-          shell that runs the server.
-        <form>
-          <p>PIN:
-            <input type=text name=pin size=14>
-            <input type=submit name=btn value="Confirm Pin">
-        </form>
-      </div>
-    </div>
-  </body>
-</html>
-
-<!--
-
-Traceback (most recent call last):
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1478, in __call__
-    return self.wsgi_app(environ, start_response)
-           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1458, in wsgi_app
-    response = self.handle_exception(e)
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "<repo>/task-manager-api/routes/task_routes.py", line 182, in update_task
-    if data['priority'] < 1 or data['priority'] > 5:
-       ^^^^^^^^^^^^^^^^^^^^
-TypeError: '<' not supported between instances of 'str' and 'int'
-
-
--->
-
-
-### PUT /tasks/999 {"title":"Qualquer"}
+### PUT /tasks/999 {"title":"xyz abc"}
 -> 404
 {
   "error": "Task n\u00e3o encontrada"
 }
 
 
-### PUT /users/4 {"name":"Smoke User 2","active":true}
+### PUT /users/4 {"name":"Ana Costa Silva","role":"manager"}
 -> 200
 {
   "active": true,
-  "created_at": "2026-11-23 17:14:34.869941",
-  "email": "smoke@email.com",
+  "created_at": "2026-11-27 20:19:18.574463",
+  "email": "ana@email.com",
   "id": 4,
-  "name": "Smoke User 2",
-  "password": "e52d98c459819a11775936d8dfbb7929",
-  "role": "user"
+  "name": "Ana Costa Silva",
+  "password": "92f20dafc5e5ac1c66820903c492cc04",
+  "role": "manager"
 }
 
 
-### PUT /users/4 {"email":"maria@email.com"}
+### PUT /users/4 {"email":"invalido"}
+-> 400
+{
+  "error": "Email inv\u00e1lido"
+}
+
+
+### PUT /users/4 {"email":"joao@email.com"}
 -> 409
 {
   "error": "Email j\u00e1 cadastrado"
-}
-
-
-### PUT /users/4 {"role":"root"}
--> 400
-{
-  "error": "Role inv\u00e1lido"
 }
 
 
@@ -1466,34 +1142,14 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 }
 
 
-### PUT /users/2 {"active":false}
+### PUT /categories/5 {"name":"Smoke 2","color":"#654321"}
 -> 200
 {
-  "active": false,
-  "created_at": "2026-11-23 17:14:33.598825",
-  "email": "maria@email.com",
-  "id": 2,
-  "name": "Maria Santos",
-  "password": "e2fc714c4727ee9395f324cd2e7f331f",
-  "role": "user"
-}
-
-
-### POST /login {"email":"maria@email.com","password":"abcd"}
--> 403
-{
-  "error": "Usu\u00e1rio inativo"
-}
-
-
-### PUT /categories/5 {"name":"Smoke Cat 2"}
--> 200
-{
-  "color": "#123456",
-  "created_at": "2026-11-23 17:14:34.945485",
-  "description": "",
+  "color": "#654321",
+  "created_at": "2026-11-27 20:19:18.653796",
+  "description": "cat smoke",
   "id": 5,
-  "name": "Smoke Cat 2"
+  "name": "Smoke 2"
 }
 
 
@@ -1504,286 +1160,21 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 }
 
 
-### GET /tasks/search?priority=abc 
--> 500
-<!doctype html>
-<html lang=en>
-  <head>
-    <title>ValueError: invalid literal for int() with base 10: &#39;abc&#39;
- // Werkzeug Debugger</title>
-    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
-    <link rel="shortcut icon"
-        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
-    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
-    <script>
-      var CONSOLE_MODE = false,
-          EVALEX = true,
-          EVALEX_TRUSTED = false,
-          SECRET = "v4fM83KSPLHe1kuhsw0b";
-    </script>
-  </head>
-  <body style="background-color: #fff">
-    <div class="debugger">
-<h1>ValueError</h1>
-<div class="detail">
-  <p class="errormsg">ValueError: invalid literal for int() with base 10: &#39;abc&#39;
-</p>
-</div>
-<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
-<div class="traceback">
-  <h3></h3>
-  <ul><li><div class="frame" id="frame-124826513129856">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">1478</em>,
-      in <code class="function">__call__</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">    </span>def __call__(self, environ: dict, start_response: t.Callable) -&gt; t.Any:</pre>
-<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
-<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
-<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
-<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
-<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)
-<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826513130336">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">1458</em>,
-      in <code class="function">wsgi_app</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">            </span>try:</pre>
-<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
-<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
-<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
-<pre class="line before"><span class="ws">                </span>error = e</pre>
-<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)
-<span class="ws">                </span>           ^^^^^^^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
-<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
-<pre class="line after"><span class="ws">                </span>raise</pre>
-<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
-<pre class="line after"><span class="ws">        </span>finally:</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826512711072">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
-      line <em class="line">176</em>,
-      in <code class="function">wrapped_function</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
-<pre class="line before"><span class="ws">        </span># These error handlers will still respect the behavior of the route</pre>
-<pre class="line before"><span class="ws">        </span>if options.get(&#39;intercept_exceptions&#39;, True):</pre>
-<pre class="line before"><span class="ws">            </span>def _after_request_decorator(f):</pre>
-<pre class="line before"><span class="ws">                </span>def wrapped_function(*args, **kwargs):</pre>
-<pre class="line current"><span class="ws">                    </span>return cors_after_request(app.make_response(f(*args, **kwargs)))
-<span class="ws">                    </span>                                            ^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">                </span>return wrapped_function</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">            </span>if hasattr(app, &#39;handle_exception&#39;):</pre>
-<pre class="line after"><span class="ws">                </span>app.handle_exception = _after_request_decorator(</pre>
-<pre class="line after"><span class="ws">                    </span>app.handle_exception)</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826512710912">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">1455</em>,
-      in <code class="function">wsgi_app</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
-<pre class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
-<pre class="line before"><span class="ws">        </span>try:</pre>
-<pre class="line before"><span class="ws">            </span>try:</pre>
-<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
-<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()
-<span class="ws">                </span>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
-<pre class="line after"><span class="ws">                </span>error = e</pre>
-<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
-<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
-<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826512711552">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">869</em>,
-      in <code class="function">full_dispatch_request</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
-<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
-<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
-<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
-<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
-<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)
-<span class="ws">            </span>     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
-<pre class="line after"><span class="ws">        </span>self,</pre>
-<pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826512712032">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py"</cite>,
-      line <em class="line">176</em>,
-      in <code class="function">wrapped_function</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
-<pre class="line before"><span class="ws">        </span># These error handlers will still respect the behavior of the route</pre>
-<pre class="line before"><span class="ws">        </span>if options.get(&#39;intercept_exceptions&#39;, True):</pre>
-<pre class="line before"><span class="ws">            </span>def _after_request_decorator(f):</pre>
-<pre class="line before"><span class="ws">                </span>def wrapped_function(*args, **kwargs):</pre>
-<pre class="line current"><span class="ws">                    </span>return cors_after_request(app.make_response(f(*args, **kwargs)))
-<span class="ws">                    </span>                                            ^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">                </span>return wrapped_function</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">            </span>if hasattr(app, &#39;handle_exception&#39;):</pre>
-<pre class="line after"><span class="ws">                </span>app.handle_exception = _after_request_decorator(</pre>
-<pre class="line after"><span class="ws">                    </span>app.handle_exception)</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826512711712">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">867</em>,
-      in <code class="function">full_dispatch_request</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
-<pre class="line before"><span class="ws">        </span>try:</pre>
-<pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
-<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
-<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
-<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()
-<span class="ws">                </span>     ^^^^^^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
-<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
-<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826512708992">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py"</cite>,
-      line <em class="line">852</em>,
-      in <code class="function">dispatch_request</code></h4>
-  <div class="source library"><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
-<pre class="line before"><span class="ws">        </span>):</pre>
-<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
-<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
-<pre class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
-<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
-<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
-<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
-<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
-</div>
-
-<li><div class="frame" id="frame-124826512712352">
-  <h4>File <cite class="filename">"<repo>/task-manager-api/routes/task_routes.py"</cite>,
-      line <em class="line">261</em>,
-      in <code class="function">search_tasks</code></h4>
-  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
-<pre class="line before"><span class="ws">    </span>if status:</pre>
-<pre class="line before"><span class="ws">        </span>tasks = tasks.filter(Task.status == status)</pre>
-<pre class="line before"><span class="ws"></span> </pre>
-<pre class="line before"><span class="ws">    </span>if priority:</pre>
-<pre class="line current"><span class="ws">        </span>tasks = tasks.filter(Task.priority == int(priority))
-<span class="ws">        </span>                                      ^^^^^^^^^^^^^</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">    </span>if user_id:</pre>
-<pre class="line after"><span class="ws">        </span>tasks = tasks.filter(Task.user_id == int(user_id))</pre>
-<pre class="line after"><span class="ws"></span> </pre>
-<pre class="line after"><span class="ws">    </span>results = tasks.all()</pre></div>
-</div>
-</ul>
-  <blockquote>ValueError: invalid literal for int() with base 10: &#39;abc&#39;
-</blockquote>
-</div>
-
-<div class="plain">
-    <p>
-      This is the Copy/Paste friendly version of the traceback.
-    </p>
-    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1478, in __call__
-    return self.wsgi_app(environ, start_response)
-           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1458, in wsgi_app
-    response = self.handle_exception(e)
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py&#34;, line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File &#34;<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py&#34;, line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File &#34;<repo>/task-manager-api/routes/task_routes.py&#34;, line 261, in search_tasks
-    tasks = tasks.filter(Task.priority == int(priority))
-                                          ~~~^^^^^^^^^^
-ValueError: invalid literal for int() with base 10: &#39;abc&#39;
-</textarea>
-</div>
-<div class="explanation">
-  The debugger caught an exception in your WSGI application.  You can now
-  look at the traceback which led to the error.  <span class="nojavascript">
-  If you enable JavaScript you can also use additional features such as code
-  execution (if the evalex feature is enabled), automatic pasting of the
-  exceptions and much more.</span>
-</div>
-      <div class="footer">
-        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
-        friendly Werkzeug powered traceback interpreter.
-      </div>
-    </div>
-
-    <div class="pin-prompt">
-      <div class="inner">
-        <h3>Console Locked</h3>
-        <p>
-          The console is locked and needs to be unlocked by entering the PIN.
-          You can find the PIN printed out on the standard output of your
-          shell that runs the server.
-        <form>
-          <p>PIN:
-            <input type=text name=pin size=14>
-            <input type=submit name=btn value="Confirm Pin">
-        </form>
-      </div>
-    </div>
-  </body>
-</html>
-
-<!--
-
-Traceback (most recent call last):
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1478, in __call__
-    return self.wsgi_app(environ, start_response)
-           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1458, in wsgi_app
-    response = self.handle_exception(e)
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask_cors/extension.py", line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "<repo>/task-manager-api/.venv/lib/python3.13/site-packages/flask/app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "<repo>/task-manager-api/routes/task_routes.py", line 261, in search_tasks
-    tasks = tasks.filter(Task.priority == int(priority))
-                                          ~~~^^^^^^^^^^
-ValueError: invalid literal for int() with base 10: 'abc'
-
-
--->
+### POST /login {"email":"ana@email.com","password":"senha1"}
+-> 200
+{
+  "message": "Login realizado com sucesso",
+  "token": "fake-jwt-token-4",
+  "user": {
+    "active": true,
+    "created_at": "2026-11-27 20:19:18.574463",
+    "email": "ana@email.com",
+    "id": 4,
+    "name": "Ana Costa Silva",
+    "password": "92f20dafc5e5ac1c66820903c492cc04",
+    "role": "manager"
+  }
+}
 
 
 ### DELETE /tasks/11 
@@ -1793,7 +1184,7 @@ ValueError: invalid literal for int() with base 10: 'abc'
 }
 
 
-### DELETE /tasks/999 
+### DELETE /tasks/11 
 -> 404
 {
   "error": "Task n\u00e3o encontrada"
@@ -1821,13 +1212,6 @@ ValueError: invalid literal for int() with base 10: 'abc'
 }
 
 
-### DELETE /users/4 
--> 200
-{
-  "message": "Usu\u00e1rio deletado com sucesso"
-}
-
-
 ### DELETE /users/3 
 -> 200
 {
@@ -1848,71 +1232,71 @@ ValueError: invalid literal for int() with base 10: 'abc'
   {
     "category_id": 1,
     "category_name": "Backend",
-    "created_at": "2026-11-23 17:14:33.631317",
+    "created_at": "2026-11-27 20:19:17.345480",
     "description": "Adicionar autentica\u00e7\u00e3o real com JWT",
-    "due_date": "2026-11-20 17:14:33.628500",
+    "due_date": "2026-11-24 20:19:17.343407",
     "id": 1,
     "overdue": true,
     "priority": 1,
     "status": "pending",
     "tags": [],
     "title": "Implementar autentica\u00e7\u00e3o JWT",
-    "updated_at": "2026-11-23 17:14:33.631320",
+    "updated_at": "2026-11-27 20:19:17.345482",
     "user_id": 1,
     "user_name": "Jo\u00e3o Silva"
   },
   {
     "category_id": 2,
     "category_name": "Frontend",
-    "created_at": "2026-11-23 17:14:33.631321",
+    "created_at": "2026-11-27 20:19:17.345483",
     "description": "Tela de login responsiva",
-    "due_date": "2026-11-28 17:14:33.629186",
+    "due_date": "2026-12-02 20:19:17.343873",
     "id": 2,
     "overdue": false,
     "priority": 2,
     "status": "in_progress",
     "tags": [],
     "title": "Criar tela de login",
-    "updated_at": "2026-11-23 17:14:33.631322",
+    "updated_at": "2026-11-27 20:19:17.345483",
     "user_id": 2,
     "user_name": "Maria Santos"
   },
   {
     "category_id": null,
     "category_name": null,
-    "created_at": "2026-11-23 17:14:33.631324",
+    "created_at": "2026-11-27 20:19:17.345485",
     "description": "Filtro n\u00e3o funciona com caracteres especiais",
-    "due_date": "2026-11-22 17:14:33.629714",
+    "due_date": "2026-11-26 20:19:17.344441",
     "id": 4,
     "overdue": true,
     "priority": 1,
     "status": "pending",
     "tags": [],
     "title": "Corrigir bug no filtro de busca",
-    "updated_at": "2026-11-23 17:14:35.222155",
+    "updated_at": "2026-11-27 20:19:18.867969",
     "user_id": 1,
     "user_name": "Jo\u00e3o Silva"
   },
   {
     "category_id": 1,
     "category_name": "Backend",
-    "created_at": "2026-11-23 17:14:33.631326",
+    "created_at": "2026-11-27 20:19:17.345486",
     "description": "Endpoints retornam todos os registros",
-    "due_date": "2026-12-03 17:14:33.629725",
+    "due_date": "2026-12-07 20:19:17.344457",
     "id": 5,
     "overdue": false,
     "priority": 3,
     "status": "pending",
     "tags": [],
     "title": "Adicionar pagina\u00e7\u00e3o na API",
-    "updated_at": "2026-11-23 17:14:33.631327",
+    "updated_at": "2026-11-27 20:19:17.345487",
     "user_id": 1,
     "user_name": "Jo\u00e3o Silva"
   },
   {
     "category_id": 1,
     "category_name": "Backend",
-    "created_at": "2026-11-23 17:14:33.631327",
+    "created_at": "2026-11-27 20:19:17.345487",
     "description": "Cobertura m\u00ednima de 80%",
     "due_date": null,
     "id": 6,
@@ -1921,14 +1305,14 @@ ValueError: invalid literal for int() with base 10: 'abc'
     "status": "pending",
     "tags": [],
     "title": "Escrever testes unit\u00e1rios",
-    "updated_at": "2026-11-23 17:14:33.631328",
+    "updated_at": "2026-11-27 20:19:17.345488",
     "user_id": 2,
     "user_name": "Maria Santos"
   },
   {
     "category_id": 1,
     "category_name": "Backend",
-    "created_at": "2026-11-23 17:14:33.631330",
+    "created_at": "2026-11-27 20:19:17.345490",
     "description": "Melhorar organiza\u00e7\u00e3o dos models",
     "due_date": null,
     "id": 8,
@@ -1940,14 +1324,14 @@ ValueError: invalid literal for int() with base 10: 'abc'
       "tech-debt"
     ],
     "title": "Refatorar models",
-    "updated_at": "2026-11-23 17:14:33.631331",
+    "updated_at": "2026-11-27 20:19:17.345490",
     "user_id": 2,
     "user_name": "Maria Santos"
   },
   {
     "category_id": 1,
     "category_name": "Backend",
-    "created_at": "2026-11-23 17:14:33.631333",
+    "created_at": "2026-11-27 20:19:17.345492",
     "description": "Usar marshmallow ou pydantic",
     "due_date": null,
     "id": 10,
@@ -1959,7 +1343,7 @@ ValueError: invalid literal for int() with base 10: 'abc'
       "validation"
     ],
     "title": "Melhorar valida\u00e7\u00f5es de input",
-    "updated_at": "2026-11-23 17:14:33.631334",
+    "updated_at": "2026-11-27 20:19:17.345493",
     "user_id": 1,
     "user_name": "Jo\u00e3o Silva"
   }
@@ -1970,16 +1354,16 @@ ValueError: invalid literal for int() with base 10: 'abc'
 -> 200
 {
   "category_id": null,
-  "created_at": "2026-11-23 17:14:33.631324",
+  "created_at": "2026-11-27 20:19:17.345485",
   "description": "Filtro n\u00e3o funciona com caracteres especiais",
-  "due_date": "2026-11-22 17:14:33.629714",
+  "due_date": "2026-11-26 20:19:17.344441",
   "id": 4,
   "overdue": true,
   "priority": 1,
   "status": "pending",
   "tags": [],
   "title": "Corrigir bug no filtro de busca",
-  "updated_at": "2026-11-23 17:14:35.222155",
+  "updated_at": "2026-11-27 20:19:18.867969",
   "user_id": 1
 }
 
@@ -2002,7 +1386,7 @@ ValueError: invalid literal for int() with base 10: 'abc'
 [
   {
     "active": true,
-    "created_at": "2026-11-23 17:14:33.598819",
+    "created_at": "2026-11-27 20:19:17.325229",
     "email": "joao@email.com",
     "id": 1,
     "name": "Jo\u00e3o Silva",
@@ -2010,103 +1394,88 @@ ValueError: invalid literal for int() with base 10: 'abc'
     "task_count": 4
   },
   {
-    "active": false,
-    "created_at": "2026-11-23 17:14:33.598825",
+    "active": true,
+    "created_at": "2026-11-27 20:19:17.325234",
     "email": "maria@email.com",
     "id": 2,
     "name": "Maria Santos",
     "role": "user",
     "task_count": 3
+  },
+  {
+    "active": true,
+    "created_at": "2026-11-27 20:19:18.574463",
+    "email": "ana@email.com",
+    "id": 4,
+    "name": "Ana Costa Silva",
+    "role": "manager",
+    "task_count": 0
+  },
+  {
+    "active": true,
+    "created_at": "2026-11-27 20:19:18.630830",
+    "email": "adm@email.com",
+    "id": 5,
+    "name": "Admin Novo",
+    "role": "admin",
+    "task_count": 0
   }
 ]
 
 
-### GET /users/1 
--> 200
+### GET /users/3 
+-> 404
 {
-  "active": true,
-  "created_at": "2026-11-23 17:14:33.598819",
-  "email": "joao@email.com",
-  "id": 1,
-  "name": "Jo\u00e3o Silva",
-  "password": "81dc9bdb52d04dc20036dbd8313ed055",
-  "role": "admin",
-  "tasks": [
-    {
-      "category_id": 1,
-      "created_at": "2026-11-23 17:14:33.631317",
-      "description": "Adicionar autentica\u00e7\u00e3o real com JWT",
-      "due_date": "2026-11-20 17:14:33.628500",
-      "id": 1,
-      "priority": 1,
-      "status": "pending",
-      "tags": [],
-      "title": "Implementar autentica\u00e7\u00e3o JWT",
-      "updated_at": "2026-11-23 17:14:33.631320",
-      "user_id": 1
-    },
-    {
-      "category_id": null,
-      "created_at": "2026-11-23 17:14:33.631324",
-      "description": "Filtro n\u00e3o funciona com caracteres especiais",
-      "due_date": "2026-11-22 17:14:33.629714",
-      "id": 4,
-      "priority": 1,
-      "status": "pending",
-      "tags": [],
-      "title": "Corrigir bug no filtro de busca",
-      "updated_at": "2026-11-23 17:14:35.222155",
-      "user_id": 1
-    },
-    {
-      "category_id": 1,
-      "created_at": "2026-11-23 17:14:33.631326",
-      "description": "Endpoints retornam todos os registros",
-      "due_date": "2026-12-03 17:14:33.629725",
-      "id": 5,
-      "priority": 3,
-      "status": "pending",
-      "tags": [],
-      "title": "Adicionar pagina\u00e7\u00e3o na API",
-      "updated_at": "2026-11-23 17:14:33.631327",
-      "user_id": 1
-    },
-    {
-      "category_id": 1,
-      "created_at": "2026-11-23 17:14:33.631333",
-      "description": "Usar marshmallow ou pydantic",
-      "due_date": null,
-      "id": 10,
-      "priority": 3,
-      "status": "pending",
-      "tags": [
-        "improvement",
-        "validation"
-      ],
-      "title": "Melhorar valida\u00e7\u00f5es de input",
-      "updated_at": "2026-11-23 17:14:33.631334",
-      "user_id": 1
-    }
-  ]
+  "error": "Usu\u00e1rio n\u00e3o encontrado"
 }
+
+
+### GET /categories 
+-> 200
+[
+  {
+    "color": "#3498db",
+    "created_at": "2026-11-27 20:19:17.333494",
+    "description": "Tarefas de backend",
+    "id": 1,
+    "name": "Backend",
+    "task_count": 5
+  },
+  {
+    "color": "#2ecc71",
+    "created_at": "2026-11-27 20:19:17.333498",
+    "description": "Tarefas de frontend",
+    "id": 2,
+    "name": "Frontend",
+    "task_count": 1
+  },
+  {
+    "color": "#e74c3c",
+    "created_at": "2026-11-27 20:19:17.333498",
+    "description": "Tarefas de infraestrutura",
+    "id": 3,
+    "name": "DevOps",
+    "task_count": 0
+  }
+]
 
 
 ### GET /reports/summary 
 -> 200
 {
-  "generated_at": "2026-11-23 17:14:35.373096",
+  "generated_at": "2026-11-27 20:19:19.015769",
   "overdue": {
     "count": 2,
     "tasks": [
       {
         "days_overdue": 3,
-        "due_date": "2026-11-20 17:14:33.628500",
+        "due_date": "2026-11-24 20:19:17.343407",
         "id": 1,
         "title": "Implementar autentica\u00e7\u00e3o JWT"
       },
       {
         "days_overdue": 1,
-        "due_date": "2026-11-22 17:14:33.629714",
+        "due_date": "2026-11-26 20:19:17.344441",
         "id": 4,
         "title": "Corrigir bug no filtro de busca"
       }
@@ -2115,7 +1484,7 @@ ValueError: invalid literal for int() with base 10: 'abc'
   "overview": {
     "total_categories": 3,
     "total_tasks": 7,
-    "total_users": 2
+    "total_users": 4
   },
   "recent_activity": {
     "tasks_completed_last_7_days": 0,
@@ -2148,12 +1517,26 @@ ValueError: invalid literal for int() with base 10: 'abc'
       "total_tasks": 3,
       "user_id": 2,
       "user_name": "Maria Santos"
+    },
+    {
+      "completed_tasks": 0,
+      "completion_rate": 0,
+      "total_tasks": 0,
+      "user_id": 4,
+      "user_name": "Ana Costa Silva"
+    },
+    {
+      "completed_tasks": 0,
+      "completion_rate": 0,
+      "total_tasks": 0,
+      "user_id": 5,
+      "user_name": "Admin Novo"
     }
   ]
 }
 
 
-### GET /reports/user/1 
+### GET /reports/user/2 
 -> 200
 {
   "statistics": {
@@ -2161,46 +1544,21 @@ ValueError: invalid literal for int() with base 10: 'abc'
     "completion_rate": 0.0,
     "done": 0,
     "high_priority": 2,
-    "in_progress": 0,
-    "overdue": 2,
-    "pending": 4,
-    "total_tasks": 4
+    "in_progress": 2,
+    "overdue": 0,
+    "pending": 1,
+    "total_tasks": 3
   },
   "user": {
-    "email": "joao@email.com",
-    "id": 1,
-    "name": "Jo\u00e3o Silva"
+    "email": "maria@email.com",
+    "id": 2,
+    "name": "Maria Santos"
   }
 }
 
 
-### GET /categories 
+### GET /tasks/search?q=Configurar 
 -> 200
-[
-  {
-    "color": "#3498db",
-    "created_at": "2026-11-23 17:14:33.610089",
-    "description": "Tarefas de backend",
-    "id": 1,
-    "name": "Backend",
-    "task_count": 5
-  },
-  {
-    "color": "#2ecc71",
-    "created_at": "2026-11-23 17:14:33.610097",
-    "description": "Tarefas de frontend",
-    "id": 2,
-    "name": "Frontend",
-    "task_count": 1
-  },
-  {
-    "color": "#e74c3c",
-    "created_at": "2026-11-23 17:14:33.610100",
-    "description": "Tarefas de infraestrutura",
-    "id": 3,
-    "name": "DevOps",
-    "task_count": 0
-  }
-]
+[]
 
 

@@ -1,17 +1,17 @@
-"""Notificações de pedido. Hoje apenas registra em log (mesmo efeito observável do código original)."""
 import logging
-
-from config.settings import STATUS_APROVADO, STATUS_CANCELADO
 
 logger = logging.getLogger(__name__)
 
 
 def pedido_criado(pedido_id: int, usuario_id: int) -> None:
-    logger.info("Notificação (email/sms/push): pedido %s criado para usuário %s", pedido_id, usuario_id)
+    # Integrações reais (e-mail/SMS/push) entram aqui; hoje apenas registra o evento.
+    logger.info("ENVIANDO EMAIL: Pedido %s criado para usuario %s", pedido_id, usuario_id)
+    logger.info("ENVIANDO SMS: Seu pedido foi recebido!")
+    logger.info("ENVIANDO PUSH: Novo pedido recebido pelo sistema")
 
 
 def status_alterado(pedido_id: int, novo_status: str) -> None:
-    if novo_status == STATUS_APROVADO:
-        logger.info("Notificação: pedido %s aprovado, preparar envio", pedido_id)
-    elif novo_status == STATUS_CANCELADO:
-        logger.info("Notificação: pedido %s cancelado", pedido_id)
+    if novo_status == "aprovado":
+        logger.info("NOTIFICAÇÃO: Pedido %s foi aprovado! Preparar envio.", pedido_id)
+    elif novo_status == "cancelado":
+        logger.info("NOTIFICAÇÃO: Pedido %s cancelado. Devolver estoque.", pedido_id)

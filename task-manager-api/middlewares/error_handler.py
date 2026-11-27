@@ -6,7 +6,7 @@ from werkzeug.exceptions import HTTPException
 from database import db
 
 logger = logging.getLogger(__name__)
-ERROR_KEY = 'error'  # formato de erro original do projeto: {"error": "..."}
+ERROR_KEY = 'error'  # forma de erro original do projeto: {"error": "..."}
 
 
 class AppError(Exception):
@@ -21,30 +21,15 @@ class ValidationError(AppError):
         super().__init__(400, message)
 
 
-class UnauthorizedError(AppError):
-    def __init__(self, message):
-        super().__init__(401, message)
-
-
-class ForbiddenError(AppError):
-    def __init__(self, message):
-        super().__init__(403, message)
-
-
 class NotFoundError(AppError):
     def __init__(self, message):
         super().__init__(404, message)
 
 
-class ConflictError(AppError):
-    def __init__(self, message):
-        super().__init__(409, message)
-
-
 def register_error_handlers(app):
     @app.errorhandler(AppError)
     def handle_app_error(err):
-        db.session.rollback()  # descarta alterações parciais feitas antes da validação falhar
+        db.session.rollback()
         return jsonify({ERROR_KEY: err.message}), err.status
 
     @app.errorhandler(Exception)

@@ -98,8 +98,15 @@ route\(['"]/admin|['"]/api/admin|reset|drop|truncate|/query['"]
 \.delete\(['"]|methods=\[['"]DELETE
 execute\(\s*(query|sql|dados|data|req\.body)
 ```
+Também: campo de privilégio aceito do cliente (`role`, `is_admin`, `tipo`) em create/update de usuário; token de login previsível/não assinado (`'fake-jwt-token-' + id`).
 Confirme: ausência de decorator/middleware de auth na rota e no blueprint/router.
-**Escalonamento:** endpoint `DELETE` comum sem auth em API sem nenhum sistema de auth → **HIGH** (ver AP-06/AP-09 se aplicável); `/admin/*`, execução de SQL/código ou reset de banco → sempre **CRITICAL**.
+**Escalonamento:** endpoint `DELETE`/`PUT` comum sem auth em API sem nenhum sistema de auth → **HIGH**; `/admin/*`, execução de SQL/código, reset de banco ou dados financeiros/pessoais → sempre **CRITICAL**. A severidade muda só a ordem do relatório — **a correção é obrigatória nos dois casos**.
+
+**Recomendação padrão** (use-a no campo `Recommendation`, listando cada rota do `File:`) — PB-04:
+1. **Remover** endpoints que executam SQL/código arbitrário enviado pelo cliente (a rota deixa de existir → `404`). Não basta protegê-los.
+2. Exigir token admin (`X-Admin-Token` = `ADMIN_TOKEN` da config, comparação em tempo constante) em **todas** as rotas administrativas, destrutivas (`DELETE`, reset) e de mutação listadas no finding → `401` sem token.
+3. Campos de privilégio (`role`, `tipo`, `is_admin`) só são aceitos quando a requisição traz token admin válido; sem ele → `403`.
+4. Token de login previsível → token assinado com `SECRET_KEY` (stdlib/framework: `itsdangerous` no Flask, `crypto.createHmac` no Node), mantendo o campo `token` string na resposta.
 
 ## AP-05 — God Class / God Module · CRITICAL
 

@@ -91,13 +91,18 @@ O contrato (rotas, métodos, status de sucesso, campos de entrada, formato JSON)
 | Mudança | Condição |
 |---|---|
 | Remover campos sensíveis das respostas (`senha`, `password`, hash, `secret_key`, número de cartão) | Sempre. |
-| Rotas `/admin/*`, execução de SQL arbitrário, reset de banco e relatórios administrativos passam a exigir token admin (`X-Admin-Token` comparado a `ADMIN_TOKEN` da config) → `401` sem token | Sempre que AP-04 for CRITICAL. Validação usa o header. Se `ADMIN_TOKEN` não estiver configurado, a rota responde `401/403` (seguro por padrão). |
+| Rotas administrativas, destrutivas e de mutação citadas em finding AP-04 passam a exigir token admin (`X-Admin-Token` = `ADMIN_TOKEN`) → `401` sem token | Sempre que a `Recommendation` de um finding CRITICAL/HIGH exigir. Vale para **todas** as rotas do finding, não só `/admin/*`. Sem `ADMIN_TOKEN` configurado → `401` (seguro por padrão). A validação envia o header. |
+| Endpoint de execução arbitrária (SQL/código vindo do cliente) **removido** → `404` | Sempre que existir (AP-04/AP-02). |
+| Campo de privilégio (`role`, `tipo`, `is_admin`) enviado sem token admin → `403` | Quando AP-04 apontar escalonamento de privilégio. |
+| Token de login previsível → token assinado (mesmo campo `token`, valor diferente) | Quando AP-04 apontar token falso/previsível. |
 | Entrada inválida que antes gerava `500` passa a gerar `400`/`404` | Quando a correção de validação/erro (PB-11/PB-12) mudar o status de um caso de erro. |
 | Ataque deixa de funcionar (ex.: SQL Injection no login → `401`) | Sempre. |
 | Mensagem de erro interna (`str(e)`) substituída por mensagem genérica | Sempre; detalhe vai para o log. |
 | Timestamps continuam com o mesmo formato textual | Ao modernizar datetime, manter naive UTC (ver PB-13) para não mudar `str()` da resposta. |
 
-Toda mudança aplicada deve aparecer em "Intentional Contract Changes" no resumo da Fase 3. **Não** invente autenticação para rotas comuns (isso quebraria clientes): reporte o risco e recomende.
+**Regra geral:** a `Recommendation` de todo finding CRITICAL/HIGH é aplicada integralmente; qualquer mudança de contrato que ela exija é permitida, desde que seja a **menor** mudança que atende a recomendação (ex.: header de token em vez de um sistema de login novo). Mudanças exigidas apenas por findings MEDIUM/LOW continuam proibidas se alterarem respostas de sucesso.
+
+Toda mudança aplicada deve aparecer em "Intentional Contract Changes" no resumo da Fase 3, com o finding que a exigiu, e a documentação do projeto (README, `.http`) deve ser atualizada (ex.: header `X-Admin-Token` nos exemplos).
 
 ## 6. Convenções
 

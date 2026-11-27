@@ -1,4 +1,3 @@
-"""Composition root: cria a aplicação, registra camadas e inicia o servidor."""
 import logging
 
 from flask import Flask
@@ -15,14 +14,13 @@ from views.usuario_routes import usuario_bp
 logger = logging.getLogger(__name__)
 
 
-def create_app(settings: type = Settings) -> Flask:
+def create_app(settings=Settings) -> Flask:
     app = Flask(__name__)
     app.config.from_object(settings)
-    origens = [origem.strip() for origem in settings.CORS_ORIGINS.split(",")]
-    CORS(app, origins=origens[0] if origens == ["*"] else origens)
+    CORS(app, origins=app.config["CORS_ORIGINS"])
     init_db(app)
     register_error_handlers(app)
-    for blueprint in (sistema_bp, produto_bp, usuario_bp, pedido_bp):
+    for blueprint in (produto_bp, usuario_bp, pedido_bp, sistema_bp):
         app.register_blueprint(blueprint)
     return app
 

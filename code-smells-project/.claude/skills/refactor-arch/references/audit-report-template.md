@@ -12,6 +12,7 @@ Imprima o relatório **exatamente** nesta estrutura. Rótulos em inglês; textos
 6. **APIs deprecated** aparecem como findings normais (AP-15) com o equivalente moderno na recomendação. Se não houver nenhuma, escreva a linha `Deprecated APIs: none detected for <stack>` no bloco de resumo.
 7. O **Summary** deve bater com a contagem real; `Total` = soma.
 8. Nada de "..." ou "etc." — o relatório é completo.
+9. **`Recommendation` de CRITICAL/HIGH = escopo obrigatório da Fase 3.** Ações concretas cobrindo todas as localizações do `File:` (rota por rota, arquivo por arquivo). Sem "avaliar", "considerar", "se possível", "em tarefa própria". Se o catálogo tiver "Recomendação padrão" para o anti-pattern, use-a.
 
 ## Estrutura
 
@@ -52,7 +53,14 @@ Anti-pattern: AP-02
 File: models.py:28, 47-50, 109-111
 Description: Queries montadas por concatenação com valores do request (ex.: "SELECT * FROM usuarios WHERE email = '" + email + "'").
 Impact: Login sem senha com email "admin@loja.com' --"; leitura e alteração arbitrária do banco.
-Recommendation: Usar parâmetros do driver ("WHERE email = ?", (email,)) em todas as queries (PB-02).
+Recommendation: Usar parâmetros do driver ("WHERE email = ?", (email,)) em todas as queries listadas (PB-02).
+
+### F-02 [CRITICAL] Unprotected Dangerous Endpoint
+Anti-pattern: AP-04
+File: app.py:47-57, 59-78
+Description: POST /admin/reset-db apaga o banco e POST /admin/query executa o SQL do corpo, ambos sem autenticação.
+Impact: Qualquer cliente anônimo apaga ou lê o banco inteiro.
+Recommendation: (1) Remover POST /admin/query e o código que o atende; (2) exigir X-Admin-Token em POST /admin/reset-db (PB-04).
 
 ### F-07 [MEDIUM] Deprecated API: datetime.utcnow()
 Anti-pattern: AP-15

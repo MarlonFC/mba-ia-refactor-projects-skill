@@ -1,33 +1,29 @@
 const crypto = require('crypto');
-const { promisify } = require('util');
 
-const scrypt = promisify(crypto.scrypt);
 const SALT_BYTES = 16;
 const KEY_LENGTH = 64;
 
-async function hashPassword(plain) {
+// Hash com salt aleatório por usuário; formato armazenado: "salt:hash" (hex).
+function hashPassword(plain) {
   const salt = crypto.randomBytes(SALT_BYTES).toString('hex');
-  const hash = await scrypt(plain, salt, KEY_LENGTH);
-  return `scrypt$${salt}$${hash.toString('hex')}`;
+  const hash = crypto.scryptSync(plain, salt, KEY_LENGTH).toString('hex');
+  return `${salt}:${hash}`;
 }
 
-module.exports = (db) => ({
+const createUserModel = (db) => ({
   findByEmail: (email) => db.get('SELECT id FROM users WHERE email = ?', [email]),
 
-  // Sem senha informada não há credencial: grava NULL em vez de uma senha padrão.
+  // Sem senha informada, a conta fica sem senha utilizável (pass = NULL).
   async create({ name, email, password }) {
-    const passwordHash = password ? await hashPassword(password) : null;
-    const { lastID } = await db.run(
-      'INSERT INTO users (name, email, pass) VALUES (?, ?, ?)',
-      [name, email, passwordHash],
-    );
+    const pass = password ? hashPassword(password) : null;
+    const { lastID } = await db.run('INSERT INTO users (name, email, pass) VALUES (?, ?, ?)', [name, email, pass]);
     return lastID;
   },
 
-  // Remove apenas o usuário. Matrículas e pagamentos são histórico financeiro e
-  // permanecem (o relatório os exibe como aluno "Unknown").
-  async delete(userId) {
-    const { changes } = await db.run('DELETE FROM users WHERE id = ?', [userId]);
+  async deleteById(id) {
+    const { changes } = await db.run('DELETE FROM users WHERE id = ?', [id]);
     return changes > 0;
   },
 });
+
+module.exports = { createUserModel, hashPassword };

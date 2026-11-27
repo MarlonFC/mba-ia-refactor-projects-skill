@@ -1,0 +1,9 @@
+# Rotas protegidas na Fase 3 — enviadas SEM X-Admin-Token
+# esperado 401
+DELETE /tasks/1
+DELETE /users/1
+DELETE /categories/1
+# esperado 403 (campo de privilégio sem token admin)
+POST /users {"name":"Hacker","email":"hacker@email.com","password":"1234","role":"admin"}
+PUT /users/2 {"role":"admin"}
+PUT /users/2 {"active":false}

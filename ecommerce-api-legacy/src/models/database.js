@@ -1,4 +1,5 @@
 const sqlite3 = require('sqlite3');
+const { hashPassword } = require('./userModel');
 
 const SCHEMA = `
   CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT, email TEXT, pass TEXT);
@@ -8,9 +9,12 @@ const SCHEMA = `
   CREATE TABLE audit_logs (id INTEGER PRIMARY KEY, action TEXT, created_at DATETIME);
 `;
 
-// Conexão SQLite com API em Promises e transações serializadas.
+// Wrapper promisificado sobre uma conexão sqlite3.
 function openDatabase(filename) {
   const raw = new sqlite3.Database(filename);
+  // Uma única conexão: transações entram numa fila para que requisições
+  // concorrentes não intercalem comandos dentro do mesmo BEGIN.
+  let queue = Promise.resolve();
 
   const db = {
     run: (sql, params = []) => new Promise((resolve, reject) => {
@@ -28,33 +32,29 @@ function openDatabase(filename) {
     exec: (sql) => new Promise((resolve, reject) => {
       raw.exec(sql, (err) => (err ? reject(err) : resolve()));
     }),
+    transaction(work) {
+      const result = queue.then(async () => {
+        await db.run('BEGIN');
+        try {
+          const value = await work();
+          await db.run('COMMIT');
+          return value;
+        } catch (err) {
+          await db.run('ROLLBACK');
+          throw err;
+        }
+      });
+      queue = result.catch(() => {});
+      return result;
+    },
   };
-
-  // A conexão é única: transações entram em fila para que requisições
-  // concorrentes não intercalem comandos dentro do mesmo BEGIN.
-  let queue = Promise.resolve();
-  db.transaction = (work) => {
-    const result = queue.then(async () => {
-      await db.run('BEGIN');
-      try {
-        const value = await work();
-        await db.run('COMMIT');
-        return value;
-      } catch (err) {
-        await db.run('ROLLBACK');
-        throw err;
-      }
-    });
-    queue = result.catch(() => {});
-    return result;
-  };
-
   return db;
 }
 
-async function initDatabase(db, { userModel }) {
+async function initDatabase(db) {
   await db.exec(SCHEMA);
-  await userModel.create({ name: 'Leonan', email: 'leonan@fullcycle.com.br', password: '123' });
+  await db.run('INSERT INTO users (name, email, pass) VALUES (?, ?, ?)',
+    ['Leonan', 'leonan@fullcycle.com.br', hashPassword('123')]);
   await db.run("INSERT INTO courses (title, price, active) VALUES ('Clean Architecture', 997.00, 1), ('Docker', 497.00, 1)");
   await db.run('INSERT INTO enrollments (user_id, course_id) VALUES (1, 1)');
   await db.run("INSERT INTO payments (enrollment_id, amount, status) VALUES (1, 997.00, 'PAID')");

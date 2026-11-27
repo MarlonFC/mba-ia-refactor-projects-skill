@@ -1,20 +1,17 @@
 from config.settings import DEFAULT_CATEGORY_COLOR
-from controllers.validation import require_json, validate_name
-from middlewares.error_handler import NotFoundError, ValidationError
+from controllers.validation import require_found, require_json
+from database import db
+from middlewares.error_handler import ValidationError
 from models.category import Category
+from models.task import Task
 
-
-def _get_category_or_404(category_id):
-    category = Category.find(category_id)
-    if not category:
-        raise NotFoundError('Categoria não encontrada')
-    return category
+CATEGORY_NOT_FOUND = 'Categoria não encontrada'
 
 
 def list_categories():
     task_counts = Category.task_counts()
     result = []
-    for category in Category.list_all():
+    for category in Category.all_ordered():
         data = category.to_dict()
         data['task_count'] = task_counts.get(category.id, 0)
         result.append(data)
@@ -27,26 +24,27 @@ def create_category(payload):
     if not name:
         raise ValidationError('Nome é obrigatório')
     category = Category(
-        name=validate_name(name),
+        name=name,
         description=data.get('description', ''),
         color=data.get('color', DEFAULT_CATEGORY_COLOR),
     )
-    category.save()
+    db.session.add(category)
+    db.session.commit()
     return category.to_dict()
 
 
 def update_category(category_id, payload):
-    category = _get_category_or_404(category_id)
-    data = require_json(payload, allow_empty=True)
-    if 'name' in data:
-        category.name = validate_name(data['name'])
-    if 'description' in data:
-        category.description = data['description']
-    if 'color' in data:
-        category.color = data['color']
-    category.save()
+    category = require_found(Category.find(category_id), CATEGORY_NOT_FOUND)
+    data = require_json(payload)
+    for field in ('name', 'description', 'color'):
+        if field in data:
+            setattr(category, field, data[field])
+    db.session.commit()
     return category.to_dict()
 
 
 def delete_category(category_id):
-    _get_category_or_404(category_id).delete_unlinking_tasks()
+    category = require_found(Category.find(category_id), CATEGORY_NOT_FOUND)
+    Task.unlink_category(category_id)  # tasks continuam existindo, sem categoria órfã
+    db.session.delete(category)
+    db.session.commit()

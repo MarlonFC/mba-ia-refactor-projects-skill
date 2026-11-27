@@ -5,11 +5,11 @@ from flask import Blueprint
 system_bp = Blueprint('system', __name__)
 
 
-@system_bp.get('/health')
+@system_bp.route('/health')
 def health():
     return {'status': 'ok', 'timestamp': str(datetime.now())}
 
 
-@system_bp.get('/')
+@system_bp.route('/')
 def index():
     return {'message': 'Task Manager API', 'version': '1.0'}

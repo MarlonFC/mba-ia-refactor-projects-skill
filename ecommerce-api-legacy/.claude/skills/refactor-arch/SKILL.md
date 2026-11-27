@@ -63,8 +63,9 @@ Em seguida liste o inventário de rotas em tabela compacta (`METHOD PATH → han
 2. Inclua obrigatoriamente a verificação de **APIs deprecated/legacy** (seção própria do catálogo) para a stack detectada.
 3. Consolide: um finding por anti-pattern + causa; quando o mesmo problema ocorre em vários pontos, liste todas as localizações no campo `File:`.
 4. Classifique com a severidade do catálogo (ajuste só com a justificativa prevista nele), ordene CRITICAL → HIGH → MEDIUM → LOW e, dentro da mesma severidade, por arquivo:linha.
-5. Imprima o relatório **completo** seguindo o template à risca (sem "..." nem findings omitidos).
-6. **Ponto de parada obrigatório.** Termine a resposta exatamente com:
+5. **A `Recommendation` de cada finding CRITICAL/HIGH é o escopo obrigatório da Fase 3.** Escreva-a como lista de ações concretas e verificáveis que cubra **todas** as localizações do `File:` (ex.: "remover POST /admin/query; exigir X-Admin-Token em POST /admin/reset-db, DELETE /api/users/:id"), usando a "Recomendação padrão" do catálogo quando houver. Proibido em CRITICAL/HIGH: "avaliar", "considerar", "se possível", "em tarefa própria", "fora do escopo".
+6. Imprima o relatório **completo** seguindo o template à risca (sem "..." nem findings omitidos).
+7. **Ponto de parada obrigatório.** Termine a resposta exatamente com:
 
 ```
 Phase 2 complete. Proceed with refactoring (Phase 3)? [y/n]
@@ -72,7 +73,7 @@ Phase 2 complete. Proceed with refactoring (Phase 3)? [y/n]
 
    e **encerre o turno**. Não chame nenhuma ferramenta depois de imprimir a pergunta. Nenhum arquivo pode ter sido modificado até aqui.
 
-7. Quando o usuário responder:
+8. Quando o usuário responder:
    - `y`, `yes`, `s`, `sim` → execute a Fase 3.
    - qualquer outra resposta → responda `Refactoring cancelled. No files were modified.` e pare.
 
@@ -95,7 +96,8 @@ Se a aplicação original não subir, registre o erro, corrija apenas o mínimo 
 
 ### 3.2 Plano
 1. Escolha a estrutura-alvo conforme `mvc-guidelines.md` (§ Estrutura-alvo por stack) e a **estratégia de adaptação** (monolito × projeto parcialmente organizado).
-2. Mapeie cada finding → padrão do playbook (`PB-xx`). Imprima o plano como lista curta `finding → PB-xx → arquivo(s) destino` e siga em frente (a confirmação já foi dada).
+2. Mapeie cada finding → padrão do playbook (`PB-xx`). Para CRITICAL/HIGH, desdobre a `Recommendation` em **uma ação por localização** (`F-xx.1 POST /admin/query → remover`, `F-xx.2 DELETE /api/users/:id → require_admin`, …). Imprima o plano e siga em frente (a confirmação já foi dada).
+3. Aplique a `Recommendation` **inteira** de cada finding CRITICAL/HIGH — inclusive mudanças de contrato que ela exija (ver `mvc-guidelines.md` §5). Não troque a ação recomendada por uma mais fraca (ex.: "proteger com token" quando a recomendação é "remover").
 
 ### 3.3 Execução (incremental)
 Aplique na ordem do `mvc-guidelines.md` § "Ordem de refatoração": config → acesso a dados/models → controllers → views/rotas → middlewares/erros → composition root/entry point → limpeza. Após cada etapa, faça uma verificação rápida de compilação/import (ex.: `python -m py_compile`, `node --check`). Remova arquivos antigos que ficaram vazios e código morto; não deixe duas implementações do mesmo comportamento.
@@ -104,7 +106,7 @@ Aplique na ordem do `mvc-guidelines.md` § "Ordem de refatoração": config → 
 Siga `validation-guide.md` §4–§6:
 1. Restaure o mesmo estado de dados do baseline, suba a aplicação **refatorada** com o **mesmo comando de start**, rode o smoke → `.refactor-arch/after.txt`, pare a aplicação.
 2. Compare `baseline.txt` × `after.txt`. Toda diferença precisa estar em "Mudanças de contrato permitidas"; caso contrário, corrija e repita (até 3 ciclos). Se persistir, reporte como falha.
-3. Re-audite o código novo contra o catálogo: zero CRITICAL/HIGH remanescentes, exceto os `deferred` (correção exige mudança de contrato não permitida — ver `validation-guide.md` §5); liste honestamente o que sobrar de MEDIUM/LOW.
+3. Re-audite o código novo contra o catálogo e **confira cada ação do plano CRITICAL/HIGH no código** (arquivo:linha da implementação). Zero CRITICAL/HIGH remanescentes; nenhum CRITICAL/HIGH pode terminar `partially resolved`. Liste honestamente o que sobrar de MEDIUM/LOW.
 4. Restaure os backups de banco (regra de não perder dados).
 
 ### 3.5 Resumo final
@@ -118,7 +120,8 @@ PHASE 3: REFACTORING COMPLETE
 <árvore de diretórios do código-fonte, sem dependências/artefatos>
 
 ## Findings Resolution
-<ID do finding> [SEV] <título> → <PB-xx> — resolved | partially resolved (<motivo>) | deferred (<mudança de contrato necessária>) | not resolved (<motivo>)
+<ID do finding> [SEV] <título> → <PB-xx> — resolved | partially resolved (<motivo>, só MEDIUM/LOW) | not resolved (<motivo>)
+  (CRITICAL/HIGH: uma linha por ação do plano, ex. `F-02.1 remover POST /admin/query → views/x.py — done`)
 
 ## Intentional Contract Changes
 <lista "METHOD PATH: antes → depois (motivo)" ou "None">
@@ -126,7 +129,8 @@ PHASE 3: REFACTORING COMPLETE
 ## Validation
   ✓|✗ Application boots without errors (<comando>)
   ✓|✗ All endpoints respond correctly (<N>/<N> requests match baseline)
-  ✓|✗ Zero CRITICAL/HIGH anti-patterns remaining (deferred: <F-xx, ... | none>)
+  ✓|✗ Zero CRITICAL/HIGH anti-patterns remaining (<N>/<N> ações do plano CRITICAL/HIGH implementadas)
+  ✓|✗ Protected routes reject requests without token (<N>/<N> → 401)
   Artifacts: .refactor-arch/{audit-report.md, requests.txt, baseline.txt, after.txt}
 ================================
 ```

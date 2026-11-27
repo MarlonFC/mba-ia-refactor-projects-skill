@@ -73,6 +73,7 @@ diff .refactor-arch/baseline.txt .refactor-arch/after.txt && echo "STATUS MATCH"
 ```
    `smoke.sh` grava `STATUS METHOD PATH` por linha e os corpos em `<arquivo>.bodies`.
 5. Corpos: confira em `*.bodies` que as respostas de sucesso mantêm as mesmas chaves de topo e tipos. Diferenças aceitas só as de `mvc-guidelines.md` §5 (ex.: campo `senha` removido).
+6. **Teste negativo de autenticação:** gere `.refactor-arch/requests-unauth.txt` com **cada** rota protegida pela Fase 3 (uma linha por rota, com IDs válidos) e rode o smoke **sem** o header admin → `.refactor-arch/unauth.txt`. Todas devem responder `401` (ou `403` para campo de privilégio). Rode no mesmo comando Bash do passo 3, antes do `kill`.
 
 **Regras de aceite**
 - Status idênticos para todas as linhas, exceto mudanças permitidas e listadas em "Intentional Contract Changes".
@@ -82,7 +83,10 @@ diff .refactor-arch/baseline.txt .refactor-arch/after.txt && echo "STATUS MATCH"
 ## 5. Re-auditoria
 
 Re-aplique os sinais do catálogo sobre os arquivos novos:
-- **CRITICAL/HIGH**: devem ser zero. Se sobrar algum, corrija antes de concluir. Única exceção: findings cuja correção exige mudança de contrato **não** permitida em `mvc-guidelines.md` §5 (ex.: criar autenticação para rotas comuns) — marque como `deferred (requer mudança de contrato: <qual>)` e liste-os na linha de validação.
+- **CRITICAL/HIGH**: devem ser zero, sem exceção. Para cada ação do plano (§3.2 do SKILL.md), localize a implementação no código (arquivo:linha). Exemplos de checagem:
+  - endpoint de execução arbitrária: `grep` pelo path não encontra rota registrada e a requisição responde `404`;
+  - rota protegida: o decorator/middleware de auth está na rota **e** a requisição sem token responde `401` (§4.6).
+  Se alguma ação faltar, implemente e repita §4 antes de concluir.
 - **MEDIUM/LOW** remanescentes: liste em "Findings Resolution" como `partially resolved`/`not resolved` com o motivo.
 - Rode verificação de deprecações quando possível (`python -W error::DeprecationWarning -c "import app"` após preparar o banco; `node --throw-deprecation` no boot).
 
@@ -91,4 +95,4 @@ Re-aplique os sinais do catálogo sobre os arquivos novos:
 1. Garanta que nenhum processo iniciado pela skill continua rodando (`kill` dos PIDs).
 2. Restaure backups de banco de `.refactor-arch/db-backup/` para os caminhos originais.
 3. Remova arquivos gerados pela validação fora de `.refactor-arch/` (ex.: banco recriado que não existia antes).
-4. Mantenha `.refactor-arch/` com: `audit-report.md`, `requests.txt`, `baseline.txt(.bodies)`, `after.txt(.bodies)`, `app-before.log`, `app-after.log`.
+4. Mantenha `.refactor-arch/` com: `audit-report.md`, `requests.txt`, `requests-unauth.txt`, `baseline.txt(.bodies)`, `after.txt(.bodies)`, `unauth.txt`, `app-before.log`, `app-after.log`.

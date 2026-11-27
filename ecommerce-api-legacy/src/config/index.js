@@ -1,6 +1,7 @@
-// Configuração lida do ambiente. Nenhum segredo literal no código.
+// Configuração lida do ambiente; nenhum segredo literal no código.
 module.exports = Object.freeze({
   port: Number(process.env.PORT) || 3000,
-  // Sem valor padrão: rotas admin ficam fechadas (401) até ADMIN_TOKEN ser definido.
+  dbPath: process.env.DB_PATH || ':memory:',
+  paymentGatewayKey: process.env.PAYMENT_GATEWAY_KEY || '',
   adminToken: process.env.ADMIN_TOKEN || '',
 });

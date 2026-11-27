@@ -1,13 +1,14 @@
 import hashlib
 import hmac
 
-from sqlalchemy import func
+from sqlalchemy import case, func
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from config.settings import DEFAULT_ROLE
+from config.settings import ADMIN_ROLE, DEFAULT_ROLE, DONE_STATUS
 from database import db
-from models.task import Task
 from utils.time import utc_now
+
+MODERN_HASH_PREFIXES = ('scrypt:', 'pbkdf2:')
 
 
 class User(db.Model):
@@ -22,7 +23,6 @@ class User(db.Model):
     created_at = db.Column(db.DateTime, default=utc_now)
 
     def to_dict(self):
-        # A senha (hash) nunca é serializada.
         return {
             'id': self.id,
             'name': self.name,
@@ -32,38 +32,23 @@ class User(db.Model):
             'created_at': str(self.created_at),
         }
 
-    # ---- senha ----
-    def set_password(self, password):
-        self.password = generate_password_hash(password)
+    def set_password(self, raw_password):
+        self.password = generate_password_hash(raw_password)
 
-    def _has_legacy_hash(self):
-        # Hashes do Werkzeug têm formato "metodo$salt$hash"; o legado é MD5 hex puro.
-        return '$' not in (self.password or '')
-
-    def check_password(self, password):
-        if not self._has_legacy_hash():
-            return check_password_hash(self.password, password)
-        legacy = hashlib.md5(password.encode()).hexdigest()
-        if not hmac.compare_digest(self.password, legacy):
+    def check_password(self, raw_password):
+        """Verifica a senha; hashes MD5 legados são aceitos e regravados no formato novo."""
+        if self.password.startswith(MODERN_HASH_PREFIXES):
+            return check_password_hash(self.password, raw_password)
+        legacy_hash = hashlib.md5(raw_password.encode()).hexdigest()
+        if not hmac.compare_digest(self.password, legacy_hash):
             return False
-        # Migração transparente: regrava com o hash seguro.
-        self.set_password(password)
-        db.session.commit()
+        self.set_password(raw_password)
         return True
 
-    # ---- persistência ----
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
+    def is_admin(self):
+        return self.role == ADMIN_ROLE
 
-    def delete_with_tasks(self):
-        """Remove o usuário e suas tasks na mesma transação (comportamento original)."""
-        for task in Task.query.filter_by(user_id=self.id).all():
-            db.session.delete(task)
-        db.session.delete(self)
-        db.session.commit()
-
-    # ---- consultas ----
+    # --- consultas ---
     @classmethod
     def find(cls, user_id):
         return db.session.get(cls, user_id)
@@ -73,20 +58,26 @@ class User(db.Model):
         return cls.query.filter_by(email=email).first()
 
     @classmethod
-    def list_all(cls):
+    def all_ordered(cls):
         return cls.query.order_by(cls.id).all()
 
     @classmethod
-    def count(cls):
+    def count_all(cls):
         return cls.query.count()
 
     @staticmethod
     def task_counts():
-        """{user_id: quantidade de tasks} em uma única query."""
-        return dict(db.session.query(Task.user_id, func.count(Task.id)).group_by(Task.user_id).all())
+        """{user_id: (total, concluídas)} em uma única query agregada."""
+        from models.task import Task
 
-    @staticmethod
-    def done_task_counts():
-        """{user_id: quantidade de tasks concluídas} em uma única query."""
-        return dict(db.session.query(Task.user_id, func.count(Task.id))
-                    .filter(Task.status == 'done').group_by(Task.user_id).all())
+        rows = (
+            db.session.query(
+                Task.user_id,
+                func.count(Task.id),
+                func.sum(case((Task.status == DONE_STATUS, 1), else_=0)),
+            )
+            .filter(Task.user_id.isnot(None))
+            .group_by(Task.user_id)
+            .all()
+        )
+        return {user_id: (total, int(done or 0)) for user_id, total, done in rows}

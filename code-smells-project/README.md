@@ -6,33 +6,34 @@ API de E-commerce em Python/Flask usada como entrada do desafio `refactor-arch`.
 
 ```bash
 pip install -r requirements.txt
+export ADMIN_TOKEN=<token-forte>   # necessário para as rotas administrativas
 python app.py
 ```
 
-A aplicação sobe em `http://localhost:5000`. O banco SQLite (`loja.db`) é criado automaticamente no primeiro boot, já com produtos e usuários de exemplo.
-
-## Configuração
-
-Variáveis de ambiente (ver `.env.example`):
-
-| Variável | Padrão | Uso |
-|---|---|---|
-| `SECRET_KEY` | gerada a cada boot | chave da aplicação Flask |
-| `ADMIN_TOKEN` | — (rotas admin fechadas) | exigido no header `X-Admin-Token` em `/admin/*` |
-| `APP_DEBUG` | `false` | modo debug |
-| `HOST` / `PORT` | `127.0.0.1` / `5000` | bind do servidor (use `HOST=0.0.0.0` em container) |
-| `DATABASE_PATH` | `loja.db` | arquivo SQLite |
-| `CORS_ORIGINS` | `*` | origens permitidas, separadas por vírgula |
-| `APP_ENV` | `producao` | valor exibido em `/health` |
+A aplicação sobe em `http://localhost:5000`. O banco SQLite (`loja.db`) é criado automaticamente no primeiro boot, já com produtos e usuários de exemplo (senhas gravadas como hash). Variáveis suportadas: veja `.env.example` (`SECRET_KEY`, `ADMIN_TOKEN`, `FLASK_DEBUG`, `HOST`, `PORT`, `DATABASE_PATH`, `CORS_ORIGINS`, `APP_ENV`).
 
 ## Estrutura
 
 ```
-app.py            composition root (create_app)
-config/           settings e constantes de negócio
-models/           conexão, SQL e regras de domínio
-controllers/      casos de uso e validação de entrada
-views/            rotas (Blueprints) e serialização JSON
-middlewares/      error handler central e auth admin
-services/         notificações
+config/settings.py        # configuração via variáveis de ambiente
+models/                   # acesso a dados (SQL parametrizado) + regras de domínio
+controllers/              # orquestração dos casos de uso + validação de entrada
+views/                    # Blueprints: rotas HTTP e serialização
+services/                 # notificações
+middlewares/              # error handler central e autenticação admin
+app.py                    # create_app() + entry point
 ```
+
+## Rotas administrativas
+
+Exigem o header `X-Admin-Token` igual a `ADMIN_TOKEN`; sem ele, a resposta é `401`. Sem `ADMIN_TOKEN` configurado, essas rotas ficam sempre fechadas.
+
+- `POST /produtos`, `PUT /produtos/<id>`, `DELETE /produtos/<id>`
+- `PUT /pedidos/<id>/status`
+- `POST /admin/reset-db`
+
+```bash
+curl -X DELETE http://localhost:5000/produtos/3 -H "X-Admin-Token: $ADMIN_TOKEN"
+```
+
+`POST /admin/query` (execução de SQL arbitrário) foi removido.

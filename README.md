@@ -164,20 +164,21 @@ Todos atendem ao mínimo (≥1 CRITICAL/HIGH, ≥2 MEDIUM, ≥2 LOW).
 | Área exigida | Arquivo | Conteúdo |
 |---|---|---|
 | Análise de projeto | `project-analysis.md` | Tabelas manifesto → linguagem, dependência → framework, sinais de banco, padrões de grep de rotas por framework (Flask, FastAPI, Express, Django, Spring, Go), perfil de execução e critérios para classificar a arquitetura |
-| Catálogo de anti-patterns | `anti-patterns-catalog.md` | 22 anti-patterns (5 CRITICAL, 5 HIGH, 6 MEDIUM, 6 LOW) com regex de detecção, critério de confirmação, falsos positivos e regras de escalonamento; tabela de **APIs deprecated** para Python, SQLAlchemy, Flask, Node, Express 5, Go, PHP e Java |
-| Template de relatório | `audit-report-template.md` | Formato fixo (IDs `F-xx`, `File: arquivo:linhas`, ordenação, Summary com contagem de deprecated) e exemplo preenchido |
+| Catálogo de anti-patterns | `anti-patterns-catalog.md` | 22 anti-patterns (5 CRITICAL, 5 HIGH, 6 MEDIUM, 6 LOW) com regex de detecção, critério de confirmação, falsos positivos, regras de escalonamento e **recomendação padrão** (ex.: AP-04); tabela de **APIs deprecated** para Python, SQLAlchemy, Flask, Node, Express 5, Go, PHP e Java |
+| Template de relatório | `audit-report-template.md` | Formato fixo (IDs `F-xx`, `File: arquivo:linhas`, ordenação, Summary com contagem de deprecated), regra de Recommendation executável e exemplos preenchidos |
 | Guidelines de arquitetura | `mvc-guidelines.md` | Responsabilidades e proibições de cada camada, regra de dependência, estrutura-alvo por stack, estratégia para monolito × projeto parcialmente organizado, ordem de refatoração e **mudanças de contrato permitidas** |
 | Playbook de refatoração | `refactoring-playbook.md` | 16 transformações (PB-01…PB-16) com código antes/depois em Python **e** JavaScript e como verificar cada uma |
 
 ### Decisões de design
 
-1. **SKILL.md como orquestrador, referências como conhecimento.** O SKILL.md diz *o que* fazer e *quando* ler cada referência: a Fase 1 lê só a análise de projeto, a Fase 2 lê o catálogo e o template, a Fase 3 lê guidelines, playbook e validação. Isso mantém o contexto enxuto (carregamento progressivo) e evita que a Fase 2 "pense em refatorar".
-2. **Fases 1 e 2 estritamente somente-leitura.** Nem a aplicação é executada antes da confirmação, porque subir o app cria arquivos (ex.: `loja.db`). A pergunta `[y/n]` encerra o turno sem nenhuma chamada de ferramenta posterior. Ela também tem `disable-model-invocation: true`, ou seja, só roda quando invocada explicitamente.
+1. **SKILL.md como orquestrador, referências como conhecimento.** O SKILL.md diz *o que* fazer e *quando* ler cada referência: a Fase 1 lê só a análise de projeto, a Fase 2 lê catálogo e template, a Fase 3 lê guidelines, playbook e validação. Isso mantém o contexto enxuto (carregamento progressivo).
+2. **Fases 1 e 2 estritamente somente-leitura.** Nem a aplicação é executada antes da confirmação, porque subir o app cria arquivos (ex.: `loja.db`). A pergunta `[y/n]` encerra o turno sem nenhuma chamada de ferramenta posterior. A skill tem `disable-model-invocation: true`, então só roda quando invocada explicitamente.
 3. **Evidência exata.** Cada finding exige arquivo:linha lido do arquivo real (Read/`grep -n`) e confirmação do sinal: regex sozinho não vira finding.
-4. **Contrato HTTP como critério de "funciona".** Antes de alterar qualquer código, a Fase 3 grava um baseline do app original (todas as rotas, casos de sucesso e de erro) com `smoke.sh`; depois compara com o app refatorado. Só são aceitas diferenças listadas em "Mudanças de contrato permitidas" (remover senha/segredo das respostas, exigir token em `/admin/*`, 500 → 400 em entrada inválida, ataque deixando de funcionar).
-5. **Findings `deferred`.** Correções que exigiriam mudar o contrato de forma não permitida (ex.: criar autenticação para rotas comuns) não são "inventadas": ficam reportadas como `deferred` com o motivo. Essa regra foi adicionada depois do primeiro run (ver Desafios).
-6. **Sem dependências novas.** Hash de senha com o que já vem instalado (Werkzeug no Flask, `crypto.scrypt` no Node), conexão por requisição com `flask.g`, transações com `with conn:` / `BEGIN…COMMIT`.
-7. **Artefatos auditáveis.** Tudo que a Fase 3 produz para validar fica em `.refactor-arch/` (relatório, requests, baseline, after, logs), e foi commitado como evidência.
+4. **A Recommendation é um contrato entre as fases.** Para CRITICAL/HIGH, a Fase 2 escreve a recomendação como lista de ações concretas, rota por rota e arquivo por arquivo, sem "avaliar" ou "em tarefa própria". A Fase 3 transforma cada recomendação em uma ação por localização (`F-02.1`, `F-02.2`…), aplica todas e confere cada uma no código. Um CRITICAL/HIGH só termina como `resolved`.
+5. **Contrato HTTP como critério de "funciona".** Antes de alterar código, a Fase 3 grava um baseline do app original (todas as rotas, casos de sucesso e de erro) com `smoke.sh` e depois compara com o app refatorado. Só são aceitas as diferenças de "Mudanças de contrato permitidas": remover senha e segredo das respostas, exigir token nas rotas que um finding CRITICAL/HIGH manda proteger, remover endpoint de execução arbitrária, 500 → 400 em entrada inválida e ataque deixando de funcionar. Mudanças pedidas só por findings MEDIUM/LOW não podem alterar respostas de sucesso.
+6. **Teste negativo de autenticação.** Toda rota protegida pela Fase 3 é chamada sem token (`requests-unauth.txt`) e precisa responder 401, ou 403 para campo de privilégio.
+7. **Sem dependências novas.** Hash de senha e token assinado com o que já vem instalado (Werkzeug e itsdangerous no Flask; `crypto` no Node), conexão por requisição com `flask.g`, transações com `with conn:` / `BEGIN…COMMIT`.
+8. **Artefatos auditáveis.** Tudo que a Fase 3 produz para validar fica em `.refactor-arch/` (relatório, requests, baseline, after, unauth, logs) e foi commitado como evidência.
 
 ### Anti-patterns do catálogo e por quê
 
@@ -197,83 +198,84 @@ Os sinais de detecção vieram diretamente da análise manual (tabela "Padrões 
 - Guidelines definem as camadas de forma abstrata e trazem a estrutura-alvo por stack (Flask, Express e mapeamento para FastAPI, Spring e Go).
 - **Estratégia de adaptação**: monolito → criar a estrutura completa; projeto parcialmente organizado → preservar o que está adequado, adicionar o que falta, mover o que está fora do lugar e reaproveitar helpers existentes.
 - Validação por HTTP (bash + curl), independente da linguagem.
-- A mesma pasta foi copiada sem alterações para os 3 projetos (`diff -r` idêntico).
+- A mesma pasta é copiada sem alterações para os 3 projetos (`diff -r` idêntico).
 
 ### Desafios encontrados e como foram resolvidos
 
 | Desafio | Solução |
 |---|---|
-| **Conflito "zero HIGH" × "não inventar auth"**: no P1, mutações sem autenticação (HIGH) não podiam ser corrigidas sem quebrar o contrato | Criado o status `deferred` (correção exige mudança de contrato não permitida) no SKILL.md e no guia de validação |
-| **Cascata apagando histórico financeiro** (P2): a skill corrigiu "dados órfãos" apagando matrículas **e pagamentos** junto com o usuário; o relatório financeiro passou de 997 para 0. A validação da própria skill não pegou porque não lia o relatório depois do delete | Detectado na validação independente; código corrigido para preservar o histórico; PB-16 passou a proibir cascata em registros financeiros/auditoria e o guia de validação passou a exigir repetir leituras agregadas **após** deletes |
-| **Processo órfão na porta 3000** (P2): o smoke chegou a medir o app errado numa primeira rodada | Guia de validação agora exige porta livre antes do boot, `setsid` (grupo de processos próprio), `kill` do grupo inteiro e confirmação de porta liberada |
+| **Recomendações CRITICAL aplicadas pela metade** (avaliação técnica após a 1ª rodada): no P1 o F-02 mandava remover `POST /admin/query`, mas a rota só ganhou token; no P2 o F-03 mandava proteger as rotas destrutivas, mas só o relatório financeiro foi protegido e o `DELETE /api/users/:id` ficou aberto. A causa estava na skill: as guidelines proibiam "inventar autenticação" para rotas comuns e aceitavam o status `deferred` | A Recommendation de CRITICAL/HIGH virou escopo obrigatório da Fase 3 (desdobrada em uma ação por localização e verificada no código). O status `deferred` foi removido. AP-04 ganhou recomendação padrão: remover execução arbitrária, token em todas as rotas do finding, `role` só com token admin, token de login assinado. O PB-04 ganhou exemplos dessas transformações e a validação ganhou o teste negativo sem token. Os 3 projetos foram refatorados de novo a partir do código original |
+| **Cascata apagando histórico financeiro** (P2, 1ª rodada): a skill corrigiu "dados órfãos" apagando matrículas **e pagamentos** junto com o usuário; o relatório financeiro passou de 997 para 0. A validação da própria skill não pegou porque não lia o relatório depois do delete | PB-16 passou a proibir cascata em registros financeiros/auditoria, e o guia de validação passou a exigir repetir leituras agregadas **após** deletes |
+| **Processo órfão na porta 3000** (P2, 1ª rodada): o smoke chegou a medir o app errado | Guia de validação exige porta livre antes do boot, `setsid` (grupo de processos próprio), `kill` do grupo inteiro e confirmação de porta liberada |
 | **Formato de datas** ao trocar `datetime.utcnow()` | Helper `utc_now()` em UTC *naive*: remove a deprecação sem mudar o texto das datas nas respostas nem comparar aware × naive |
-| **Senhas já gravadas no formato antigo** (texto plano / MD5) | Migração transparente: no login, hash legado é aceito uma vez e regravado com scrypt |
+| **Senhas já gravadas no formato antigo** (texto plano / MD5) | Migração transparente: no login (ou no boot, no P1) o hash legado é aceito uma vez e regravado com scrypt |
 | **Formato de erro original** (`erro`, `error` ou texto puro) | O error handler central reproduz o formato do projeto, para não mudar o contrato |
-| **Confirmação humana com execução não interativa** | Os runs foram feitos com `claude -p "/refactor-arch"` e confirmados com `claude -p "y" --resume <sessão>` depois de revisar o relatório |
-
-Foram necessárias 3 iterações na skill (commits `7988bfb` e `801f491` após o commit inicial `c74c514`).
+| **Confirmação humana com execução não interativa** | Os runs foram feitos com `claude -p "/refactor-arch"`; o relatório foi revisado e a Fase 3 confirmada com `claude -p "y" --resume <sessão>` |
 
 ---
 
 ## C) Resultados
 
+Resultados da execução final da skill (2ª rodada, após a correção das recomendações), a partir do código original de cada projeto.
+
 ### Resumo das auditorias
 
 | Projeto | CRITICAL | HIGH | MEDIUM | LOW | Total | Deprecated | Relatório |
 |---|---|---|---|---|---|---|---|
-| 1 — code-smells-project | 5 | 6 | 5 | 6 | 22 | nenhuma | [audit-project-1.md](reports/audit-project-1.md) |
-| 2 — ecommerce-api-legacy | 4 | 4 | 4 | 5 | 17 | nenhuma | [audit-project-2.md](reports/audit-project-2.md) |
-| 3 — task-manager-api | 2 | 3 | 7 | 6 | 18 | 2 (`datetime.utcnow()`, `Query.get()`) | [audit-project-3.md](reports/audit-project-3.md) |
+| 1 — code-smells-project | 5 | 4 | 5 | 6 | 20 | nenhuma | [audit-project-1.md](reports/audit-project-1.md) |
+| 2 — ecommerce-api-legacy | 4 | 3 | 4 | 5 | 16 | nenhuma | [audit-project-2.md](reports/audit-project-2.md) |
+| 3 — task-manager-api | 3 | 2 | 7 | 6 | 18 | 2 (`datetime.utcnow()`, `Query.get()`) | [audit-project-3.md](reports/audit-project-3.md) |
 
-Comparação com a análise manual: a skill encontrou 18/18 problemas manuais no P1, 16/16 no P2 e 18/18 no P3. Também encontrou problemas que a análise manual não tinha visto: `card` numérico derrubando o processo no P2 e `?priority=abc` gerando 500 no P3.
+Todos os problemas da análise manual foram encontrados (18/18, 16/16, 18/18; alguns agrupados num mesmo finding, por exemplo CORS dentro de "Insecure Runtime Configuration"). A skill também achou problemas que a análise manual não tinha visto: `card` numérico derrubando o processo no P2 e `?priority=abc` gerando 500 no P3. No P3, um finding MEDIUM (F-12, categoria órfã) se mostrou falso positivo na validação, porque o ORM já anulava o `category_id`; a Fase 3 registrou isso.
 
 ### Resolução dos findings
 
-| Projeto | Resolvidos | Parciais | Deferred |
+| Projeto | Ações CRITICAL/HIGH implementadas | Resolvidos | Parciais (só MEDIUM/LOW) |
 |---|---|---|---|
-| 1 | 19 | 2 (CORS segue configurável com padrão `*`; validações que transformariam sucesso em erro) | 1 (auth em PUT/DELETE de produtos e status de pedido) |
-| 2 | 14 | 3 (F-03: relatório admin protegido, DELETE de usuário não; F-09: formato de e-mail; F-12: usuário removido mas matrículas/pagamentos preservados como histórico) | 1 (parte do F-03: auth no DELETE de usuário) |
-| 3 | 16 | 1 (validações que mudariam respostas de sucesso) | 1 (auth/roles/token real) |
+| 1 | 33/33 | 18 | 2: validações que transformariam sucesso em erro; soft delete/404 que mudariam respostas de sucesso |
+| 2 | 17/17 | 13 | 3: formato de e-mail; 404 para id inexistente no delete; `console` sem helper de logger |
+| 3 | 17/17 | 17 | 1: validações que transformariam sucesso em erro |
 
 ### Estrutura antes × depois
 
 **Projeto 1 — code-smells-project** (monolito → MVC completo)
 ```
-ANTES (4 arquivos, ~780 linhas)          DEPOIS (25 arquivos, ~936 linhas)
+ANTES (4 arquivos, ~780 linhas)          DEPOIS (25 arquivos, ~879 linhas)
 app.py         rotas + admin + SQL       app.py                 composition root (create_app)
-controllers.py HTTP + regras + SQL       config/settings.py     env vars + constantes
-models.py      SQL + regras, 4 domínios  models/                database (conexão por request), produto,
-database.py    conexão global + seed                            usuario, pedido (transação, JOIN), sistema
+controllers.py HTTP + regras + SQL       config/settings.py     env vars
+models.py      SQL + regras, 4 domínios  models/                database (conexão por request, migração de senhas),
+database.py    conexão global + seed                            produto, usuario, pedido (transação, JOIN), sistema
                                          controllers/           produto, usuario, pedido, sistema, validation
                                          views/                 blueprints por domínio
                                          middlewares/           error_handler, auth (X-Admin-Token)
                                          services/              notification_service
+                                         (POST /admin/query removido)
 ```
 
 **Projeto 2 — ecommerce-api-legacy** (God Class → MVC em `src/`)
 ```
-ANTES (3 arquivos, ~180 linhas)          DEPOIS (16 arquivos, ~345 linhas)
-src/app.js         bootstrap             src/app.js            composition root (await init → listen)
+ANTES (3 arquivos, ~180 linhas)          DEPOIS (19 arquivos, ~355 linhas)
+src/app.js         bootstrap             src/app.js            composition root (DI + listen)
 src/AppManager.js  DB + schema + rotas   src/config/           process.env
                    + regras (God Class)  src/models/           database (promisificado, transação serializada),
-src/utils.js       config com segredos                         user, course (relatório com JOIN), enrollment,
-                   + cache global                              payment, auditLog
+src/utils.js       config com segredos                         user, course (JOIN), enrollment, payment, auditLog
+                   + cache global        src/services/         checkout, report, user
                    + "badCrypto"         src/controllers/      checkout, report, user
-                                         src/views/            checkoutRoutes, adminRoutes, userRoutes
+                                         src/routes/           checkoutRoutes, adminRoutes, userRoutes (camada View)
                                          src/middlewares/      errorHandler (asyncHandler), auth
 ```
 
 **Projeto 3 — task-manager-api** (parcialmente organizado → camadas completas, preservando o que existia)
 ```
-ANTES (15 .py, ~1.155 linhas)            DEPOIS (25 .py, ~1.165 linhas)
+ANTES (15 .py, ~1.155 linhas)            DEPOIS (28 .py, ~1.143 linhas)
 app.py       config hardcoded            app.py              create_app()
 models/      ORM (mantido)               config/settings.py  env vars + constantes de domínio
-routes/      blueprints "gordos"         models/             ORM + regras (is_overdue, to_dict, hash)
+routes/      blueprints "gordos"         models/             ORM + regras (is_overdue, hash, migração MD5) + report.py
              (+ CRUD de categorias       controllers/        task, user, category, report, validation
               dentro de report_routes)   routes/             blueprints finos (category_routes e system_routes novos)
-services/    NotificationService morto   middlewares/        error_handler
-utils/       helpers não usados          utils/time.py       utc_now()
-                                         (services/ e utils/helpers.py removidos — código morto)
+services/    NotificationService morto   middlewares/        error_handler, auth (token admin, token de login assinado)
+utils/       helpers não usados          utils/              time.py (utc_now), helpers.py (só o que é usado)
+                                         (services/ removido; marshmallow e requests removidos do requirements)
 ```
 
 ### Checklist de validação
@@ -287,7 +289,7 @@ utils/       helpers não usados          utils/time.py       utc_now()
 | **Fase 2** — Relatório segue o template | ✅ | ✅ | ✅ |
 | Cada finding tem arquivo e linhas exatos | ✅ | ✅ | ✅ |
 | Findings ordenados CRITICAL → LOW | ✅ | ✅ | ✅ |
-| Mínimo de 5 findings | ✅ 22 | ✅ 17 | ✅ 18 |
+| Mínimo de 5 findings | ✅ 20 | ✅ 16 | ✅ 18 |
 | Detecção de APIs deprecated | ✅ n/a (nenhuma) | ✅ n/a (nenhuma) | ✅ 2 |
 | Pausa e pede confirmação antes da Fase 3 | ✅ | ✅ | ✅ |
 | **Fase 3** — Estrutura segue padrão MVC | ✅ | ✅ | ✅ |
@@ -302,57 +304,67 @@ utils/       helpers não usados          utils/time.py       utc_now()
 
 ### Validação (logs)
 
-Além da validação feita pela própria skill, cada projeto refatorado foi conferido contra um **baseline independente**, capturado das aplicações originais antes da criação da skill:
+Além da validação feita pela própria skill, cada projeto refatorado foi conferido contra um **baseline independente**, capturado das aplicações originais antes da criação da skill (requisições com `X-Admin-Token`):
 
-| Projeto | Validação da skill (`.refactor-arch/`) | Baseline independente |
-|---|---|---|
-| 1 | 48/51 status iguais; 3 diferenças = mudanças permitidas | **32/32 status iguais** |
-| 2 | 12/12 status iguais | **9/9 status e corpos idênticos** |
-| 3 | 65/68 status e corpos equivalentes (3 diferenças = 500 → 400) | **31/31 status iguais** |
+| Projeto | Validação da skill (`.refactor-arch/`) | Sem token (`unauth.txt`) | Baseline independente |
+|---|---|---|---|
+| 1 | 44/44 (42 iguais + 2 mudanças permitidas) | 5/5 → 401 | **31/32 status iguais**; a diferença é `POST /admin/query` 200 → 404 (removido) |
+| 2 | 12/14 iguais; 2 = linhas após o crash do original (000 → 400/200) | 2/2 → 401 | **9/9 status iguais**; 8/9 corpos idênticos (1 difere só na ordem dos itens do relatório) |
+| 3 | 61/61 (60 iguais + 1 500 → 400) | 3/3 → 401, 3/3 → 403 | **31/31 status iguais** |
 
 Verificações adicionais executadas na aplicação refatorada:
-- P1: login com `admin@loja.com' --` → **401** (antes 200); senhas gravadas como `scrypt:…`; `/health` sem `secret_key`; `/admin/*` sem token → 401.
-- P2: relatório admin sem token → 401; `card` numérico → 400 (antes derrubava o processo); log sem número de cartão nem chave do gateway.
-- P3: `python -W error::DeprecationWarning -c "import app"` sem avisos; usuário com hash MD5 legado loga (200) e o hash é regravado como scrypt.
+- P1: `POST /admin/query` responde 404 mesmo com token e o path não existe mais no código; reset-db, `POST`/`PUT`/`DELETE /produtos` e `PUT /pedidos/<id>/status` sem token (ou com token errado) → 401; `GET /produtos` continua público; login com `admin@loja.com' --` → 401 e login do seed → 200.
+- P2: relatório financeiro e `DELETE /api/users/:id` sem token ou com token errado → 401; `card` numérico → 400 (antes derrubava o processo); log sem número de cartão nem chave do gateway.
+- P3: os 3 DELETE sem token → 401; `role: admin` sem token em `POST /users` e `role` em `PUT /users/2` → 403; `POST /users` comum → 201; login devolve token assinado (`eyJ1aWQiOjJ9…`); `python -W error::DeprecationWarning -c "import app"` sem avisos; hash MD5 legado migrado para scrypt no login.
 
-Trechos dos logs de boot após a refatoração:
+Trechos dos logs de boot após a refatoração (`.refactor-arch/app-after.log`):
 
 ```
-# code-smells-project (.refactor-arch/app-after.log)
-INFO __main__: Servidor iniciado em http://127.0.0.1:5000
+# code-smells-project
  * Debug mode: off
+ * Running on http://127.0.0.1:5000
 
-# ecommerce-api-legacy (.refactor-arch/app-after.log)
+# ecommerce-api-legacy
 LMS API rodando na porta 3000
 
-# task-manager-api (.refactor-arch/app-after.log)
+# task-manager-api
  * Debug mode: off
  * Running on http://127.0.0.1:5000
 ```
 
-Saída do smoke (P3, `.refactor-arch/after.txt`, 68 linhas):
+Saída do teste sem token (P3, `.refactor-arch/unauth.txt`):
 ```
-200 GET /
-200 GET /health
-200 GET /tasks
-200 GET /tasks/1
-404 GET /tasks/999
-...
+401 DELETE /tasks/1
+401 DELETE /users/1
+401 DELETE /categories/1
+403 POST /users
+403 PUT /users/2
+403 PUT /users/2
 ```
 
 ### Mudanças de contrato intencionais
 
-- Campos sensíveis removidos das respostas: `senha` (P1), `password` (P3), `secret_key` (P1 `/health`).
-- `/admin/*` (P1) e `/api/admin/financial-report` (P2) exigem `X-Admin-Token` igual a `ADMIN_TOKEN`; sem ele → 401.
-- Entradas inválidas que geravam 500 agora geram 400; erros inesperados retornam mensagem genérica (detalhe só no log).
-- Servidores sobem em `127.0.0.1` com debug desligado por padrão (`HOST`/`APP_DEBUG` configuráveis).
+Todas exigidas por findings CRITICAL/HIGH ou por correção de erro 500:
+
+| Projeto | Mudança |
+|---|---|
+| 1 | `POST /admin/query` removido (404) |
+| 1 | `POST /admin/reset-db`, `POST /produtos`, `PUT/DELETE /produtos/<id>`, `PUT /pedidos/<id>/status` exigem `X-Admin-Token` (401 sem) |
+| 1 | `senha` removida de `/usuarios`; `secret_key`, `debug` e `db_path` removidos de `/health`; CORS restrito a `CORS_ORIGINS` |
+| 2 | `GET /api/admin/financial-report` e `DELETE /api/users/:id` exigem `X-Admin-Token` (401 sem) |
+| 2 | checkout com pagamento recusado não cria mais o usuário; ordem dos itens do relatório agora determinística (por id) |
+| 3 | `DELETE /tasks|users|categories/<id>` exigem `X-Admin-Token` (401 sem); `role`/`active` só com token (403 sem) |
+| 3 | `password` removido das respostas; token de `/login` agora assinado (mesmo campo string); CORS restrito a `CORS_ORIGINS` |
+| todos | entradas inválidas que davam 500 → 400; erros inesperados com mensagem genérica; servidor em `127.0.0.1` com debug desligado por padrão |
+
+Caso de borda registrado pela Fase 3 no P3: `PUT` em id inexistente **sem** `Content-Type: application/json` passou a responder 415 em vez de 404, porque a rota lê o corpo antes de o controller buscar o registro.
 
 ### Comportamento da skill em stacks diferentes
 
-- **Monolito Python (P1):** criou a estrutura MVC completa, separando por domínio e por camada, e removeu os arquivos originais.
-- **Node/Express (P2):** aplicou os mesmos padrões com idioma JavaScript: factories com injeção de dependência, wrapper promisificado do sqlite3, `async/await` no lugar do callback hell, `asyncHandler` para o Express 4 e transações serializadas na conexão única. Preservou inclusive a ordem peculiar do relatório financeiro e o formato de erro em texto puro.
-- **Python parcialmente organizado (P3):** reconheceu a arquitetura como "parcialmente em camadas", manteve `models/` e os blueprints (`routes/` documentado como camada View), adicionou só o que faltava e reaproveitou `Task.is_overdue()` e as constantes que estavam ignoradas.
-- Nos 3 casos, a skill parou corretamente na confirmação. Os pontos fracos observados foram corrigidos nas referências: a cascata de deletes e o processo órfão na validação.
+- **Monolito Python (P1):** criou a estrutura MVC completa, separando por domínio e por camada, e removeu os arquivos originais e o endpoint de SQL arbitrário.
+- **Node/Express (P2):** aplicou os mesmos padrões com idioma JavaScript: factories com injeção de dependência, wrapper promisificado do sqlite3, `async/await` no lugar do callback hell, `asyncHandler` para o Express 4 e transações serializadas na conexão única. Também criou uma camada de services para os casos de uso.
+- **Python parcialmente organizado (P3):** reconheceu a arquitetura como "parcialmente em camadas", manteve `models/` e os blueprints (`routes/` documentado como camada View), adicionou só o que faltava e reaproveitou `Task.is_overdue()`, `validate_email` e `calculate_percentage`, que estavam ignorados.
+- Nos 3 casos, a skill parou corretamente na confirmação e implementou todas as ações CRITICAL/HIGH do próprio relatório.
 
 ---
 
@@ -397,10 +409,10 @@ ADMIN_TOKEN=troque-me npm start                          # http://localhost:3000
 
 # Projeto 3
 cd task-manager-api && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/python seed.py && .venv/bin/python app.py      # http://127.0.0.1:5000
+.venv/bin/python seed.py && ADMIN_TOKEN=troque-me .venv/bin/python app.py   # http://127.0.0.1:5000
 ```
 
-Variáveis de ambiente disponíveis em cada `.env.example` (`SECRET_KEY`, `ADMIN_TOKEN`, `HOST`, `PORT`, `APP_DEBUG`, `CORS_ORIGINS`, …).
+Rotas administrativas e destrutivas exigem o header `X-Admin-Token: <ADMIN_TOKEN>`; sem `ADMIN_TOKEN` configurado, elas respondem 401. Variáveis disponíveis em cada `.env.example` (`SECRET_KEY`, `ADMIN_TOKEN`, `HOST`, `PORT`, `CORS_ORIGINS`, …).
 
 ### Validar que a refatoração funcionou
 
@@ -408,9 +420,10 @@ Com a aplicação rodando, repita as requisições gravadas pela skill e compare
 
 ```bash
 cd code-smells-project
-bash .claude/skills/refactor-arch/scripts/smoke.sh http://localhost:5000 \
-     .refactor-arch/requests.txt /tmp/after.txt "X-Admin-Token: $ADMIN_TOKEN"
-diff .refactor-arch/baseline.txt /tmp/after.txt   # só as mudanças intencionais devem aparecer
+S=.claude/skills/refactor-arch/scripts/smoke.sh
+bash $S http://localhost:5000 .refactor-arch/requests.txt /tmp/after.txt "X-Admin-Token: $ADMIN_TOKEN"
+diff .refactor-arch/baseline.txt /tmp/after.txt          # só as mudanças intencionais devem aparecer
+bash $S http://localhost:5000 .refactor-arch/requests-unauth.txt /tmp/unauth.txt   # todas devem dar 401/403
 ```
 
 Partir de um banco recém-criado (P1: remover `loja.db`; P3: `python seed.py`) para que os IDs coincidam com os do baseline.

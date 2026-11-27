@@ -8,7 +8,7 @@ Princípio: **mesmo comportamento observável** (ver `mvc-guidelines.md` §5), m
 | PB-01 | Externalizar configuração e segredos | AP-01, AP-10 |
 | PB-02 | Queries parametrizadas | AP-02 |
 | PB-03 | Hash de senha seguro + serialização sem dados sensíveis | AP-03 |
-| PB-04 | Proteger endpoints perigosos com token admin | AP-04 |
+| PB-04 | Remover execução arbitrária, proteger rotas perigosas, bloquear escalonamento | AP-04 |
 | PB-05 | Fatiar God Class/Module em Model/Controller/View | AP-05, AP-09 |
 | PB-06 | Mover regra de negócio do controller/rota para o model | AP-06 |
 | PB-07 | Remover estado global / injetar dependências | AP-07, AP-09 |
@@ -141,7 +141,7 @@ function verifyPassword(plain, stored) {
 **Logs/respostas:** nunca registrar cartão, senha, token ou chave. Se precisar identificar o cartão: `card.slice(-4)`.
 **Verificar:** respostas não contêm `senha/password/secret`; login com credenciais do seed continua funcionando.
 
-## PB-04 — Proteger endpoints perigosos com token admin
+## PB-04 — Remover execução arbitrária, proteger rotas perigosas, bloquear escalonamento
 
 **Antes**
 ```python
@@ -182,8 +182,65 @@ module.exports = function requireAdmin(req, res, next) {
 };
 // router.get('/api/admin/financial-report', requireAdmin, controller.financialReport);
 ```
-Endpoints de execução arbitrária (SQL livre) devem, além do token, ficar restritos a `SELECT` só se o contrato exigir; registre em "Intentional Contract Changes".
-**Verificar:** sem header → 401; com `X-Admin-Token: $ADMIN_TOKEN` → status original.
+Aplique o middleware a **todas** as rotas listadas no finding — não só às que começam com `/admin`:
+```python
+# Antes: rotas destrutivas abertas
+@produto_bp.delete("/produtos/<int:produto_id>")
+def deletar_produto(produto_id): ...
+
+# Depois
+@produto_bp.delete("/produtos/<int:produto_id>")
+@require_admin
+def deletar_produto(produto_id): ...
+```
+```js
+// Antes
+router.delete('/api/users/:id', asyncHandler(controller.deleteUser));
+// Depois
+router.delete('/api/users/:id', requireAdmin, asyncHandler(controller.deleteUser));
+```
+
+**Remover endpoint de execução arbitrária** (token não resolve: quem tiver o token continua podendo `DROP TABLE`):
+```python
+# Antes
+@sistema_bp.post("/admin/query")
+@require_admin
+def executar_query():
+    return jsonify({"dados": sistema_model.executar(request.get_json()["sql"])})
+# Depois: rota, controller e função de model removidos. Se havia uso legítimo
+# (ex.: consulta de relatório), crie um endpoint específico, parametrizado e protegido.
+```
+Remova também o código que só servia à rota (função no controller/model) e os exemplos dela em README/`.http`.
+
+**Bloquear escalonamento de privilégio** (campo de papel vindo do cliente):
+```python
+# controllers/user_controller.py
+def criar_usuario(dados: dict, is_admin_request: bool) -> dict:
+    role = dados.get("role", DEFAULT_ROLE)
+    if role != DEFAULT_ROLE and not is_admin_request:
+        raise AppError(403, "Somente administradores podem definir role")
+    ...
+
+# views: is_admin_request = has_valid_admin_token(request)   (mesma comparação de require_admin)
+```
+
+**Token de login assinado** (substitui `'fake-jwt-token-' + id`, mantendo o campo `token` string):
+```python
+from itsdangerous import URLSafeTimedSerializer   # já instalado com o Flask
+
+def emitir_token(user_id: int) -> str:
+    return URLSafeTimedSerializer(current_app.config["SECRET_KEY"], salt="login").dumps({"uid": user_id})
+```
+```js
+const token = `${userId}.${crypto.createHmac('sha256', config.secretKey).update(String(userId)).digest('hex')}`;
+```
+
+Registre cada rota afetada em "Intentional Contract Changes" (status sem token, rota removida) e atualize os exemplos do projeto com o header.
+**Verificar:**
+- com `X-Admin-Token: $ADMIN_TOKEN` → status original em todas as rotas protegidas;
+- sem header → `401` em **cada** rota do finding (`requests-unauth.txt`, validation-guide §4.6);
+- rota de execução arbitrária → `404`, e `grep` não encontra o path no código;
+- criar usuário com `role: admin` sem token → `403`.
 
 ## PB-05 — Fatiar God Class/Module em Model/Controller/View
 

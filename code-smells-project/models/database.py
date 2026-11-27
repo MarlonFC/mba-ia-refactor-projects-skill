@@ -1,8 +1,9 @@
-"""Conexão SQLite por contexto de aplicação, schema e seed inicial."""
 import sqlite3
 
 from flask import current_app, g
 from werkzeug.security import generate_password_hash
+
+HASH_PREFIXES = ("scrypt:", "pbkdf2:")
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS produtos (
@@ -25,15 +26,15 @@ CREATE TABLE IF NOT EXISTS usuarios (
 );
 CREATE TABLE IF NOT EXISTS pedidos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    usuario_id INTEGER REFERENCES usuarios(id),
+    usuario_id INTEGER,
     status TEXT DEFAULT 'pendente',
     total REAL,
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE IF NOT EXISTS itens_pedido (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    pedido_id INTEGER REFERENCES pedidos(id),
-    produto_id INTEGER REFERENCES produtos(id),
+    pedido_id INTEGER,
+    produto_id INTEGER,
     quantidade INTEGER,
     preco_unitario REAL
 );
@@ -52,7 +53,7 @@ PRODUTOS_SEED = [
     ("Camiseta Dev", "Camiseta estampa código", 59.90, 100, "vestuario"),
 ]
 
-# Senhas de demonstração: gravadas apenas como hash.
+# Senhas de exemplo do seed original; gravadas apenas como hash.
 USUARIOS_SEED = [
     ("Admin", "admin@loja.com", "admin123", "admin"),
     ("João Silva", "joao@email.com", "123456", "cliente"),
@@ -61,6 +62,7 @@ USUARIOS_SEED = [
 
 
 def get_db() -> sqlite3.Connection:
+    """Conexão por contexto de aplicação/requisição (sem estado global)."""
     if "db" not in g:
         g.db = sqlite3.connect(current_app.config["DATABASE_PATH"])
         g.db.row_factory = sqlite3.Row
@@ -74,22 +76,34 @@ def close_db(_exc=None) -> None:
 
 
 def _seed_if_empty(db: sqlite3.Connection) -> None:
-    if db.execute("SELECT COUNT(*) FROM produtos").fetchone()[0]:
+    if db.execute("SELECT COUNT(*) FROM produtos").fetchone()[0] > 0:
         return
-    with db:
-        db.executemany(
-            "INSERT INTO produtos (nome, descricao, preco, estoque, categoria) VALUES (?, ?, ?, ?, ?)",
-            PRODUTOS_SEED,
-        )
-        db.executemany(
-            "INSERT INTO usuarios (nome, email, senha, tipo) VALUES (?, ?, ?, ?)",
-            [(nome, email, generate_password_hash(senha), tipo) for nome, email, senha, tipo in USUARIOS_SEED],
-        )
+    db.executemany(
+        "INSERT INTO produtos (nome, descricao, preco, estoque, categoria) VALUES (?, ?, ?, ?, ?)",
+        PRODUTOS_SEED,
+    )
+    db.executemany(
+        "INSERT INTO usuarios (nome, email, senha, tipo) VALUES (?, ?, ?, ?)",
+        [(nome, email, generate_password_hash(senha), tipo) for nome, email, senha, tipo in USUARIOS_SEED],
+    )
+
+
+def _migrar_senhas_legadas(db: sqlite3.Connection) -> None:
+    """Converte senhas em texto plano (bancos criados pela versão antiga) para hash, sem perder usuários."""
+    rows = db.execute("SELECT id, senha FROM usuarios WHERE senha IS NOT NULL").fetchall()
+    for row in rows:
+        if not row["senha"].startswith(HASH_PREFIXES):
+            db.execute(
+                "UPDATE usuarios SET senha = ? WHERE id = ?",
+                (generate_password_hash(row["senha"]), row["id"]),
+            )
 
 
 def init_db(app) -> None:
     app.teardown_appcontext(close_db)
     with app.app_context():
         db = get_db()
-        db.executescript(SCHEMA)
-        _seed_if_empty(db)
+        with db:
+            db.executescript(SCHEMA)
+            _seed_if_empty(db)
+            _migrar_senhas_legadas(db)

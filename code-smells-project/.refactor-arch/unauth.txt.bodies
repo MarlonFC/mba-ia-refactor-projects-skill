@@ -1,0 +1,25 @@
+### POST /produtos {"nome":"Livro Sem Token","preco":10,"estoque":1,"categoria":"livros"}
+-> 401
+{"erro":"N\u00e3o autorizado"}
+
+
+### PUT /produtos/1 {"nome":"Hack","preco":0,"estoque":0}
+-> 401
+{"erro":"N\u00e3o autorizado"}
+
+
+### DELETE /produtos/1 
+-> 401
+{"erro":"N\u00e3o autorizado"}
+
+
+### PUT /pedidos/1/status {"status":"cancelado"}
+-> 401
+{"erro":"N\u00e3o autorizado"}
+
+
+### POST /admin/reset-db 
+-> 401
+{"erro":"N\u00e3o autorizado"}
+
+

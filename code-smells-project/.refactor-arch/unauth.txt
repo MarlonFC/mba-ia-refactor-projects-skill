@@ -1,0 +1,5 @@
+401 POST /produtos
+401 PUT /produtos/1
+401 DELETE /produtos/1
+401 PUT /pedidos/1/status
+401 POST /admin/reset-db

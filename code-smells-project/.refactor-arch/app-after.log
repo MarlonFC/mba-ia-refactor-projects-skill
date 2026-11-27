@@ -1,72 +1,75 @@
-2026-11-23 11:27:55,451 INFO __main__: Servidor iniciado em http://127.0.0.1:5000
+2026-11-27 17:16:37,715 INFO __main__: Servidor iniciado em http://127.0.0.1:5000
  * Serving Flask app 'app'
  * Debug mode: off
-2026-11-23 11:27:55,456 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2026-11-27 17:16:37,718 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2026-11-23 11:27:55,457 INFO werkzeug: [33mPress CTRL+C to quit[0m
-2026-11-23 11:27:55,732 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET / HTTP/1.1" 200 -
-2026-11-23 11:27:55,747 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET / HTTP/1.1" 200 -
-2026-11-23 11:27:55,762 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET /health HTTP/1.1" 200 -
-2026-11-23 11:27:55,775 INFO controllers.produto_controller: Listando 10 produtos
-2026-11-23 11:27:55,775 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET /produtos HTTP/1.1" 200 -
-2026-11-23 11:27:55,789 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET /produtos/1 HTTP/1.1" 200 -
-2026-11-23 11:27:55,800 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "[33mGET /produtos/999 HTTP/1.1[0m" 404 -
-2026-11-23 11:27:55,813 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET /produtos/busca?q=Mouse HTTP/1.1" 200 -
-2026-11-23 11:27:55,826 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET /produtos/busca?categoria=informatica&preco_min=100&preco_max=500 HTTP/1.1" 200 -
-2026-11-23 11:27:55,838 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET /produtos/busca?q=27' HTTP/1.1" 200 -
-2026-11-23 11:27:55,852 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET /usuarios HTTP/1.1" 200 -
-2026-11-23 11:27:55,866 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET /usuarios/1 HTTP/1.1" 200 -
-2026-11-23 11:27:55,882 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "[33mGET /usuarios/999 HTTP/1.1[0m" 404 -
-2026-11-23 11:27:55,895 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET /pedidos HTTP/1.1" 200 -
-2026-11-23 11:27:55,908 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET /pedidos/usuario/2 HTTP/1.1" 200 -
-2026-11-23 11:27:55,921 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "GET /relatorios/vendas HTTP/1.1" 200 -
-2026-11-23 11:27:55,946 INFO controllers.produto_controller: Produto criado com ID 11
-2026-11-23 11:27:55,946 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "[35m[1mPOST /produtos HTTP/1.1[0m" 201 -
-2026-11-23 11:27:55,959 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "[31m[1mPOST /produtos HTTP/1.1[0m" 400 -
-2026-11-23 11:27:55,970 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "[31m[1mPOST /produtos HTTP/1.1[0m" 400 -
-2026-11-23 11:27:55,984 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:55] "[31m[1mPOST /produtos HTTP/1.1[0m" 400 -
-2026-11-23 11:27:56,120 INFO controllers.usuario_controller: Usuário criado com ID 4
-2026-11-23 11:27:56,121 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[35m[1mPOST /usuarios HTTP/1.1[0m" 201 -
-2026-11-23 11:27:56,136 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[31m[1mPOST /usuarios HTTP/1.1[0m" 400 -
-2026-11-23 11:27:56,257 INFO controllers.usuario_controller: Login bem-sucedido do usuário 1
-2026-11-23 11:27:56,258 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "POST /login HTTP/1.1" 200 -
-2026-11-23 11:27:56,392 INFO controllers.usuario_controller: Login bem-sucedido do usuário 4
-2026-11-23 11:27:56,393 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "POST /login HTTP/1.1" 200 -
-2026-11-23 11:27:56,527 INFO controllers.usuario_controller: Falha de login
-2026-11-23 11:27:56,528 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-11-23 11:27:56,551 INFO controllers.usuario_controller: Falha de login
-2026-11-23 11:27:56,552 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-11-23 11:27:56,576 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
-2026-11-23 11:27:56,598 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
-2026-11-23 11:27:56,622 INFO services.notification_service: Notificação (email/sms/push): pedido 1 criado para usuário 2
-2026-11-23 11:27:56,623 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[35m[1mPOST /pedidos HTTP/1.1[0m" 201 -
-2026-11-23 11:27:56,645 INFO services.notification_service: Notificação (email/sms/push): pedido 2 criado para usuário 3
-2026-11-23 11:27:56,646 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[35m[1mPOST /pedidos HTTP/1.1[0m" 201 -
-2026-11-23 11:27:56,660 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[31m[1mPOST /pedidos HTTP/1.1[0m" 400 -
-2026-11-23 11:27:56,676 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[31m[1mPOST /pedidos HTTP/1.1[0m" 400 -
-2026-11-23 11:27:56,691 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[31m[1mPOST /pedidos HTTP/1.1[0m" 400 -
-2026-11-23 11:27:56,704 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[31m[1mPOST /pedidos HTTP/1.1[0m" 400 -
-2026-11-23 11:27:56,717 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "GET /pedidos HTTP/1.1" 200 -
-2026-11-23 11:27:56,735 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "GET /pedidos/usuario/2 HTTP/1.1" 200 -
-2026-11-23 11:27:56,771 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "GET /relatorios/vendas HTTP/1.1" 200 -
-2026-11-23 11:27:56,823 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "PUT /produtos/1 HTTP/1.1" 200 -
-2026-11-23 11:27:56,860 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[33mPUT /produtos/999 HTTP/1.1[0m" 404 -
-2026-11-23 11:27:56,895 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "[31m[1mPUT /produtos/1 HTTP/1.1[0m" 400 -
-2026-11-23 11:27:56,956 INFO services.notification_service: Notificação: pedido 1 aprovado, preparar envio
-2026-11-23 11:27:56,957 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "PUT /pedidos/1/status HTTP/1.1" 200 -
-2026-11-23 11:27:56,995 INFO services.notification_service: Notificação: pedido 2 cancelado
-2026-11-23 11:27:56,996 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:56] "PUT /pedidos/2/status HTTP/1.1" 200 -
-2026-11-23 11:27:57,018 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:57] "[31m[1mPUT /pedidos/1/status HTTP/1.1[0m" 400 -
-2026-11-23 11:27:57,045 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:57] "GET /produtos/1 HTTP/1.1" 200 -
-2026-11-23 11:27:57,066 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:57] "GET /relatorios/vendas HTTP/1.1" 200 -
-2026-11-23 11:27:57,102 INFO controllers.produto_controller: Produto 11 removido
-2026-11-23 11:27:57,103 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:57] "DELETE /produtos/11 HTTP/1.1" 200 -
-2026-11-23 11:27:57,125 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:57] "[33mDELETE /produtos/999 HTTP/1.1[0m" 404 -
-2026-11-23 11:27:57,140 INFO controllers.produto_controller: Listando 10 produtos
-2026-11-23 11:27:57,141 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:57] "GET /produtos HTTP/1.1" 200 -
-2026-11-23 11:27:57,157 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:57] "POST /admin/query HTTP/1.1" 200 -
-2026-11-23 11:27:57,173 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:57] "[31m[1mPOST /admin/query HTTP/1.1[0m" 400 -
-2026-11-23 11:27:57,191 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:57] "GET /health HTTP/1.1" 200 -
-2026-11-23 11:27:57,219 WARNING controllers.sistema_controller: Banco de dados resetado
-2026-11-23 11:27:57,219 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:57] "POST /admin/reset-db HTTP/1.1" 200 -
-2026-11-23 11:27:57,236 INFO werkzeug: 127.0.0.1 - - [23/Nov/2026 11:27:57] "GET /health HTTP/1.1" 200 -
+2026-11-27 17:16:37,718 INFO werkzeug: [33mPress CTRL+C to quit[0m
+2026-11-27 17:16:37,826 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET / HTTP/1.1" 200 -
+2026-11-27 17:16:37,839 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET / HTTP/1.1" 200 -
+2026-11-27 17:16:37,850 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET /health HTTP/1.1" 200 -
+2026-11-27 17:16:37,861 INFO controllers.produto_controller: Listando 10 produtos
+2026-11-27 17:16:37,861 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET /produtos HTTP/1.1" 200 -
+2026-11-27 17:16:37,870 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET /produtos/1 HTTP/1.1" 200 -
+2026-11-27 17:16:37,880 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "[33mGET /produtos/999 HTTP/1.1[0m" 404 -
+2026-11-27 17:16:37,890 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET /produtos/busca?q=Mouse HTTP/1.1" 200 -
+2026-11-27 17:16:37,899 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET /produtos/busca?categoria=informatica&preco_min=100&preco_max=500 HTTP/1.1" 200 -
+2026-11-27 17:16:37,907 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET /usuarios HTTP/1.1" 200 -
+2026-11-27 17:16:37,917 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET /usuarios/1 HTTP/1.1" 200 -
+2026-11-27 17:16:37,926 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "[33mGET /usuarios/999 HTTP/1.1[0m" 404 -
+2026-11-27 17:16:37,935 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET /pedidos HTTP/1.1" 200 -
+2026-11-27 17:16:37,944 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET /pedidos/usuario/2 HTTP/1.1" 200 -
+2026-11-27 17:16:37,952 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "GET /relatorios/vendas HTTP/1.1" 200 -
+2026-11-27 17:16:37,971 INFO controllers.produto_controller: Produto criado com ID: 11
+2026-11-27 17:16:37,971 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "[35m[1mPOST /produtos HTTP/1.1[0m" 201 -
+2026-11-27 17:16:37,979 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "[31m[1mPOST /produtos HTTP/1.1[0m" 400 -
+2026-11-27 17:16:37,987 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:37] "[31m[1mPOST /produtos HTTP/1.1[0m" 400 -
+2026-11-27 17:16:38,078 INFO controllers.usuario_controller: Usuário criado: id=4
+2026-11-27 17:16:38,078 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[35m[1mPOST /usuarios HTTP/1.1[0m" 201 -
+2026-11-27 17:16:38,087 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mPOST /usuarios HTTP/1.1[0m" 400 -
+2026-11-27 17:16:38,171 INFO controllers.usuario_controller: Login bem-sucedido: id=2
+2026-11-27 17:16:38,171 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "POST /login HTTP/1.1" 200 -
+2026-11-27 17:16:38,261 WARNING controllers.usuario_controller: Login falhou
+2026-11-27 17:16:38,261 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2026-11-27 17:16:38,351 INFO controllers.usuario_controller: Login bem-sucedido: id=4
+2026-11-27 17:16:38,351 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "POST /login HTTP/1.1" 200 -
+2026-11-27 17:16:38,360 WARNING controllers.usuario_controller: Login falhou
+2026-11-27 17:16:38,361 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2026-11-27 17:16:38,375 INFO services.notification_service: ENVIANDO EMAIL: Pedido 1 criado para usuario 2
+2026-11-27 17:16:38,376 INFO services.notification_service: ENVIANDO SMS: Seu pedido foi recebido!
+2026-11-27 17:16:38,376 INFO services.notification_service: ENVIANDO PUSH: Novo pedido recebido pelo sistema
+2026-11-27 17:16:38,376 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[35m[1mPOST /pedidos HTTP/1.1[0m" 201 -
+2026-11-27 17:16:38,392 INFO services.notification_service: ENVIANDO EMAIL: Pedido 2 criado para usuario 3
+2026-11-27 17:16:38,392 INFO services.notification_service: ENVIANDO SMS: Seu pedido foi recebido!
+2026-11-27 17:16:38,392 INFO services.notification_service: ENVIANDO PUSH: Novo pedido recebido pelo sistema
+2026-11-27 17:16:38,392 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[35m[1mPOST /pedidos HTTP/1.1[0m" 201 -
+2026-11-27 17:16:38,402 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mPOST /pedidos HTTP/1.1[0m" 400 -
+2026-11-27 17:16:38,412 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mPOST /pedidos HTTP/1.1[0m" 400 -
+2026-11-27 17:16:38,420 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mPOST /pedidos HTTP/1.1[0m" 400 -
+2026-11-27 17:16:38,428 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[33mPOST /admin/query HTTP/1.1[0m" 404 -
+2026-11-27 17:16:38,444 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "PUT /produtos/11 HTTP/1.1" 200 -
+2026-11-27 17:16:38,453 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[33mPUT /produtos/999 HTTP/1.1[0m" 404 -
+2026-11-27 17:16:38,468 INFO services.notification_service: NOTIFICAÇÃO: Pedido 1 foi aprovado! Preparar envio.
+2026-11-27 17:16:38,468 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "PUT /pedidos/1/status HTTP/1.1" 200 -
+2026-11-27 17:16:38,483 INFO services.notification_service: NOTIFICAÇÃO: Pedido 2 cancelado. Devolver estoque.
+2026-11-27 17:16:38,484 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "PUT /pedidos/2/status HTTP/1.1" 200 -
+2026-11-27 17:16:38,495 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mPUT /pedidos/1/status HTTP/1.1[0m" 400 -
+2026-11-27 17:16:38,511 INFO controllers.produto_controller: Produto 11 deletado
+2026-11-27 17:16:38,512 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "DELETE /produtos/11 HTTP/1.1" 200 -
+2026-11-27 17:16:38,521 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[33mDELETE /produtos/999 HTTP/1.1[0m" 404 -
+2026-11-27 17:16:38,536 INFO controllers.produto_controller: Produto 2 deletado
+2026-11-27 17:16:38,536 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "DELETE /produtos/2 HTTP/1.1" 200 -
+2026-11-27 17:16:38,546 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[33mGET /produtos/11 HTTP/1.1[0m" 404 -
+2026-11-27 17:16:38,555 INFO controllers.produto_controller: Listando 9 produtos
+2026-11-27 17:16:38,555 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "GET /produtos HTTP/1.1" 200 -
+2026-11-27 17:16:38,564 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "GET /pedidos HTTP/1.1" 200 -
+2026-11-27 17:16:38,572 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "GET /pedidos/usuario/2 HTTP/1.1" 200 -
+2026-11-27 17:16:38,581 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "GET /relatorios/vendas HTTP/1.1" 200 -
+2026-11-27 17:16:38,589 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "GET /health HTTP/1.1" 200 -
+2026-11-27 17:16:38,604 WARNING controllers.sistema_controller: !!! BANCO DE DADOS RESETADO !!!
+2026-11-27 17:16:38,605 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "POST /admin/reset-db HTTP/1.1" 200 -
+2026-11-27 17:16:38,616 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "GET /health HTTP/1.1" 200 -
+2026-11-27 17:16:38,634 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mPOST /produtos HTTP/1.1[0m" 401 -
+2026-11-27 17:16:38,644 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mPUT /produtos/1 HTTP/1.1[0m" 401 -
+2026-11-27 17:16:38,656 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mDELETE /produtos/1 HTTP/1.1[0m" 401 -
+2026-11-27 17:16:38,668 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mPUT /pedidos/1/status HTTP/1.1[0m" 401 -
+2026-11-27 17:16:38,680 INFO werkzeug: 127.0.0.1 - - [27/Nov/2026 17:16:38] "[31m[1mPOST /admin/reset-db HTTP/1.1[0m" 401 -
