@@ -1,0 +1,20 @@
+# METHOD PATH [JSON]
+# --- leituras (estado do seed)
+GET /api/admin/financial-report
+# --- criações (checkout)
+POST /api/checkout {"usr":"Guilherme","eml":"gui@fullcycle.com.br","pwd":"senhaforte","c_id":2,"card":"4111222233334444"}
+POST /api/checkout {"usr":"João","eml":"joao@teste.com","pwd":"123","c_id":1,"card":"5111222233334444"}
+POST /api/checkout {"usr":"Leonan","eml":"leonan@fullcycle.com.br","pwd":"123","c_id":2,"card":"4000000000000002"}
+POST /api/checkout {"usr":"Ana","eml":"ana@teste.com","c_id":1,"card":"4999888877776666"}
+POST /api/checkout {"usr":"Ana","eml":"ana@teste.com","c_id":999,"card":"4111222233334444"}
+POST /api/checkout {"usr":"Ana","eml":"ana@teste.com","c_id":1}
+POST /api/checkout {}
+GET /api/admin/financial-report
+# --- deleções: usuário criado na lista e usuário do seed com matrícula+pagamento
+DELETE /api/users/2
+DELETE /api/users/1
+# --- leituras agregadas após deleções
+GET /api/admin/financial-report
+# --- entrada que derruba o processo original (card numérico) — por último
+POST /api/checkout {"usr":"Zé","eml":"ze@teste.com","c_id":1,"card":4111222233334444}
+GET /api/admin/financial-report

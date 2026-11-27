@@ -1,0 +1,56 @@
+### GET /api/admin/financial-report 
+-> 200
+[{"course":"Docker","revenue":0,"students":[]},{"course":"Clean Architecture","revenue":997,"students":[{"student":"Leonan","paid":997}]}]
+
+### POST /api/checkout {"usr":"Guilherme","eml":"gui@fullcycle.com.br","pwd":"senhaforte","c_id":2,"card":"4111222233334444"}
+-> 200
+{"msg":"Sucesso","enrollment_id":2}
+
+### POST /api/checkout {"usr":"João","eml":"joao@teste.com","pwd":"123","c_id":1,"card":"5111222233334444"}
+-> 400
+Pagamento recusado
+
+### POST /api/checkout {"usr":"Leonan","eml":"leonan@fullcycle.com.br","pwd":"123","c_id":2,"card":"4000000000000002"}
+-> 200
+{"msg":"Sucesso","enrollment_id":3}
+
+### POST /api/checkout {"usr":"Ana","eml":"ana@teste.com","c_id":1,"card":"4999888877776666"}
+-> 200
+{"msg":"Sucesso","enrollment_id":4}
+
+### POST /api/checkout {"usr":"Ana","eml":"ana@teste.com","c_id":999,"card":"4111222233334444"}
+-> 404
+Curso não encontrado
+
+### POST /api/checkout {"usr":"Ana","eml":"ana@teste.com","c_id":1}
+-> 400
+Bad Request
+
+### POST /api/checkout {}
+-> 400
+Bad Request
+
+### GET /api/admin/financial-report 
+-> 200
+[{"course":"Clean Architecture","revenue":1994,"students":[{"student":"Ana","paid":997},{"student":"Leonan","paid":997}]},{"course":"Docker","revenue":994,"students":[{"student":"Leonan","paid":497},{"student":"Guilherme","paid":497}]}]
+
+### DELETE /api/users/2 
+-> 200
+Usuário deletado, mas as matrículas e pagamentos ficaram sujos no banco.
+
+### DELETE /api/users/1 
+-> 200
+Usuário deletado, mas as matrículas e pagamentos ficaram sujos no banco.
+
+### GET /api/admin/financial-report 
+-> 200
+[{"course":"Docker","revenue":994,"students":[{"student":"Unknown","paid":497},{"student":"Unknown","paid":497}]},{"course":"Clean Architecture","revenue":1994,"students":[{"student":"Unknown","paid":997},{"student":"Ana","paid":997}]}]
+
+### POST /api/checkout {"usr":"Zé","eml":"ze@teste.com","c_id":1,"card":4111222233334444}
+-> 000
+[{"course":"Docker","revenue":994,"students":[{"student":"Unknown","paid":497},{"student":"Unknown","paid":497}]},{"course":"Clean Architecture","revenue":1994,"students":[{"student":"Unknown","paid":997},{"student":"Ana","paid":997}]}]
+
+### GET /api/admin/financial-report 
+-> 000
+[{"course":"Docker","revenue":994,"students":[{"student":"Unknown","paid":497},{"student":"Unknown","paid":497}]},{"course":"Clean Architecture","revenue":1994,"students":[{"student":"Unknown","paid":997},{"student":"Ana","paid":997}]}]
+

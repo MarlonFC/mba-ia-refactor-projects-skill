@@ -1,0 +1,9 @@
+
+> desafio-arquitetura-ia-boilerplate@1.0.0 start
+> node src/app.js
+
+Frankenstein LMS rodando na porta 3000...
+Processando pagamento do cartão ****4444
+Processando pagamento do cartão ****4444
+Processando pagamento do cartão ****0002
+Processando pagamento do cartão ****6666
